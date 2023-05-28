@@ -53,3 +53,6 @@ a:hover:after {
     font-weight: 500;
     font-size: 2.2em
 }
+.wrap {
+    white-space: pre-wrap;
+}
