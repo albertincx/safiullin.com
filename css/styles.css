@@ -27,7 +27,7 @@ a {
     position: relative;
 }
 
-a:after {
+a:not(.clear):after {
     content: "";
     position: absolute;
     z-index: -1;
