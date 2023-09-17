@@ -56,3 +56,9 @@ a:hover:after {
 .wrap {
     white-space: pre-wrap;
 }
+.flex {
+    display: flex;
+}
+.flex a {
+    margin-left: 10px;
+}
