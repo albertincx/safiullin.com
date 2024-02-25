@@ -6,7 +6,7 @@ body {
 }
 
 .body {
-    padding: 5vh 10vw;
+    padding: 2vh 5vw;
 }
 
 h1 {
@@ -69,4 +69,9 @@ a:hover:after {
     background-size: contain;
     background-repeat: no-repeat;
     display: block;
+}
+
+.sup {
+    font-size: 14px;
+    color: red;
 }
