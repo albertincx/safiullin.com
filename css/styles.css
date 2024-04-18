@@ -59,6 +59,28 @@ a:hover:after {
 .flex {
     display: flex;
 }
+.flex.stats > div {
+    width: 50%;
+}
+.stats iframe {
+    width: 100%;
+}
+.stats .title {
+    padding: 10px 0;
+    font-size: 1.2em;
+}
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+    .flex {
+        display: block;
+    }
+    .flex.stats > div {
+        width: 100%;
+    }
+}
+
 .flex a {
     margin-left: 10px;
 }
