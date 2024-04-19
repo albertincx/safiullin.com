@@ -58,6 +58,7 @@ a:hover:after {
 }
 .flex {
     display: flex;
+    flex-flow: row wrap;
 }
 .flex.stats > div {
     width: 50%;
@@ -69,7 +70,8 @@ a:hover:after {
     padding: 10px 0;
     font-size: 1.2em;
 }
-@media screen and (max-width: 600px) {
+
+@media screen and (max-width: 900px) {
     h1 {
         font-size: 2em;
     }
