@@ -22,21 +22,12 @@ p {
 }
 
 a {
-    text-decoration: none;
     color: #121314;
     position: relative;
-}
-
-a:not(.clear):after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 60%;
-    left: -0.1em;
-    right: -0.1em;
-    bottom: 0;
-    transition: top 200ms cubic-bezier(0, .8, .13, 1);
-    background-color: rgba(79, 192, 141, 0.5);
+    text-decoration: underline;
+    text-decoration-color: rgba(79, 192, 141, 0.5);
+    text-decoration-style: solid;
+    text-decoration-thickness: 5px;
 }
 
 a:hover:after {
