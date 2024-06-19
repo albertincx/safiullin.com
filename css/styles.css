@@ -90,3 +90,8 @@ a:hover:after {
     font-size: 14px;
     color: red;
 }
+
+.more {
+    cursor: pointer;
+    font-weight: bold;
+}

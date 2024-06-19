@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?v=9">
+    <link rel="stylesheet" href="css/styles.css?v=10">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <meta name="date.updated" content="2023-10-08; 2024-04-21"/>
     <!-- Google tag (gtag.js) -->
@@ -14,14 +14,26 @@
     <meta name="google-adsense-account" content="ca-pub-9147007155868784">
 </head>
 <body>
+<script type="application/javascript">
+    let more = () => document.querySelector('.more-life');
+    function toggleMore () {
+        let m = more();
+        if (m.style.display === 'none') {
+            m.style.display = 'block'
+        } else {
+            m.style.display = 'none'
+        }
+    }
+</script>
 <div class="body">
     <p>
         My name is <b>Albert Safiullin</b><br>
         <br>
         I am a software developer, since <b>2009</b>.
         <br>
-        2009 - Paskal, Deplhi IDE
-        <br>
+        2009 - Paskal, Deplhi IDE... <span class="more" onclick="toggleMore()">show more</span>
+    </p>
+    <p class="more-life" style="display: none">
         2010 - Web development, php, js, html5, joomla CMS
         <br>
         2014 - Web development, php, js, html5, Yii framework, jQuery, golang, java, kotlin, android
@@ -34,7 +46,8 @@
         dream team
         <br>
         2024 - Moved to Bangkok =)
-        <br>
+    </p>
+    <p>
         <br>My work is open source and publicly available <br>on
         <a href="https://github.com/albertincx" target="_blank" rel="nofollow">GitHub</a>
         &nbsp;
@@ -119,6 +132,16 @@
             <a class="github-button" rel="nofollow" href="https://github.com/albertincx/react-pwa-apps"
                data-show-count="true"
                aria-label="Star https://github.com/albertincx/react-pwa-apps on GitHub">Star</a>
+        </span>
+        <br/>
+        <br/>
+
+        <b>8</b>. <a href="https://github.com/albertincx/zeppos-my-timers">Zepp OS My Timers</a> - An app helps to create timers. Countdown soon... <br>
+        Github repo <a rel="nofollow" href="https://github.com/albertincx/zeppos-my-timers" target="_blank">here</a>
+        <span class="gh-btn">
+            <a class="github-button" rel="nofollow" href="https://github.com/albertincx/zeppos-my-timers"
+               data-show-count="true"
+               aria-label="Star https://github.com/albertincx/zeppos-my-timers on GitHub">Star</a>
         </span>
         <br/>
         <br/>
