@@ -2,6 +2,6 @@
 
 Software engineer The link https://safiullin.com/
 
-The blog https://safiullin.io/
+The blog https://safiullin.dev/
 
 My github https://github.com/albertincx
