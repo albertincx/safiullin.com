@@ -29,7 +29,7 @@ var certs =
     'Сафиуллин Альберт Ловушки мышления.png'
 console.log(certs.split('\n'));
 // Array of image paths
-const images = certs.split('\n').map(line => 'certs/' + line);
+const images = certs.split('\n').map(line => 'certs/mini/' + line.replace('.png', 'mini.png'));
 // Array of image paths
 
 
@@ -53,14 +53,23 @@ function renderGallery() {
     });
 }
 
+let nosetCl, nosetMo;
+
 // Function to open the modal with the clicked image
 function openModal(index) {
     const modal = document.getElementById("myModal");
+    const cl = document.querySelector("span.close");
+    !nosetMo && (modal.onclick = closeModal);
+    !nosetCl && (modal.onclick = closeModal);
+    nosetCl = 1;
+    nosetMo = 1;
     const modalImg = document.getElementById("modalImage");
     const thumbnails = document.getElementById("thumbnails");
 
     currentImageIndex = index;
-    modalImg.src = images[currentImageIndex];
+    modalImg.src = images[currentImageIndex]
+        .replace('mini.png', '.png')
+        .replace('/mini', '/');
     modal.style.display = "block";
 
     // Render thumbnails
@@ -79,9 +88,14 @@ function openModal(index) {
 }
 
 // Function to close the modal
-function closeModal() {
+function closeModal(e) {
+    if (e && e.target) {
+        if (e.target.classList.contains('next')) return;
+        if (e.target.classList.contains('prev')) return;
+    }
     const modal = document.getElementById("myModal");
     modal.style.display = "none";
+    // console.log(e.target.classList);
 }
 
 // Function to change image in the modal
@@ -101,7 +115,8 @@ function setImage(index) {
     const thumbnails = document.querySelectorAll(".thumbnails img");
 
     currentImageIndex = index;
-    modalImg.src = images[currentImageIndex];
+    modalImg.src = images[currentImageIndex].replace('mini.png', '.png')
+        .replace('/mini', '/');
 
     // Update active thumbnail
     thumbnails.forEach((thumb, i) => {
