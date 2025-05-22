@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="pageTitle">Subscribe App - Презентация</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <style>
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-in-active {
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @media print {
+            body {
+                background-color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .slide {
+                page-break-after: always !important;
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+                display: block !important;
+                min-height: auto !important;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            .print-text-black * {
+                color: black !important;
+            }
+
+            .roadmap-item-print h4, .roadmap-item-print ul li,
+            .team-card-print h4, .team-card-print p, .team-card-print ul li {
+                color: black !important;
+                text-shadow: none !important;
+            }
+
+            .roadmap-item-print, .team-card-print {
+                background: #f0f0f0 !important;
+            }
+
+            #qrcode-container img {
+                margin: auto;
+            }
+
+            /* Center QR in print */
+        }
+
+        .slide {
+            display: none;
+            min-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-purple-500 to-indigo-600 text-gray-800 leading-relaxed overflow-hidden">
+<div class="presentation max-w-6xl mx-auto p-2.5 md:p-5 relative">
+    <div class="slide active bg-white rounded-2xl p-5 md:p-10 shadow-2xl print-text-black">
+        <h1 class="text-gray-700 text-2xl md:text-4xl mb-4 md:mb-5 text-center border-b-4 border-purple-600 pb-2.5 md:pb-4"
+            data-translate="titleSlide.mainHeading"></h1>
+        <div class="text-center my-7">
+            <div class="text-xl mb-5 text-gray-600" data-translate="titleSlide.subheading"></div>
+            <a href="http://t.me/subscribe_app_bot"
+               class="bg-sky-600 hover:bg-sky-700 text-white py-4 px-8 rounded-full no-underline inline-block my-5 font-bold transition-colors duration-300"
+               data-translate="titleSlide.tryBot"></a>
+            <button onclick="downloadPDF()"
+                    class="download-pdf bg-green-600 hover:bg-green-700 text-white py-4 px-8 rounded-full no-underline inline-block my-5 mx-2.5 font-bold transition-colors duration-300 cursor-pointer border-none text-base no-print"
+                    data-translate="titleSlide.downloadPdf"></button>
+            <div class="mt-5 text-gray-500" data-translate="titleSlide.description"></div>
+        </div>
+    </div>
+
+    <div class="slide bg-white rounded-2xl p-5 md:p-10 shadow-2xl print-text-black">
+        <h2 class="text-purple-600 text-xl md:text-3xl mb-5 md:mb-6 flex items-center flex-wrap">
+            <span class="icon bg-purple-600 text-white w-8 h-8 md:w-10 md:h-10 mr-2.5 md:mr-4 rounded-full flex items-center justify-center font-bold text-sm md:text-base flex-shrink-0">🎯</span>
+            <span data-translate="whatIsProjectSlide.heading"></span>
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-5 my-4 md:my-5">
+            <div class="feature-card bg-gray-50 p-5 rounded-xl border-l-4 border-purple-600">
+                <h4 class="text-gray-700 mb-2.5 text-lg font-semibold"
+                    data-translate="whatIsProjectSlide.accessManagement.title"></h4>
+                <p data-translate="whatIsProjectSlide.accessManagement.text"></p>
+            </div>
+            <div class="feature-card bg-gray-50 p-5 rounded-xl border-l-4 border-purple-600">
+                <h4 class="text-gray-700 mb-2.5 text-lg font-semibold"
+                    data-translate="whatIsProjectSlide.flexiblePayment.title"></h4>
+                <p data-translate="whatIsProjectSlide.flexiblePayment.text"></p>
+            </div>
+            <div class="feature-card bg-gray-50 p-5 rounded-xl border-l-4 border-purple-600">
+                <h4 class="text-gray-700 mb-2.5 text-lg font-semibold"
+                    data-translate="whatIsProjectSlide.automation.title"></h4>
+                <p data-translate="whatIsProjectSlide.automation.text"></p>
+            </div>
+            <div class="feature-card bg-gray-50 p-5 rounded-xl border-l-4 border-purple-600">
+                <h4 class="text-gray-700 mb-2.5 text-lg font-semibold"
+                    data-translate="whatIsProjectSlide.analytics.title"></h4>
+                <p data-translate="whatIsProjectSlide.analytics.text"></p>
+            </div>
+        </div>
+        <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"
+            data-translate="whatIsProjectSlide.techFeaturesHeading"></h3>
+        <ul class="list-disc pl-5">
+            <li class="my-2 text-base" data-translate="whatIsProjectSlide.techApiIntegration" data-translate-html></li>
+            <li class="my-2 text-base" data-translate="whatIsProjectSlide.techBlockchain" data-translate-html></li>
+            <li class="my-2 text-base" data-translate="whatIsProjectSlide.techSecurity" data-translate-html></li>
+            <li class="my-2 text-base" data-translate="whatIsProjectSlide.techScalability" data-translate-html></li>
+        </ul>
+    </div>
+
+    <div class="slide bg-white rounded-2xl p-5 md:p-10 shadow-2xl print-text-black">
+        <h2 class="text-purple-600 text-xl md:text-3xl mb-5 md:mb-6 flex items-center flex-wrap">
+            <span class="icon bg-purple-600 text-white w-8 h-8 md:w-10 md:h-10 mr-2.5 md:mr-4 rounded-full flex items-center justify-center font-bold text-sm md:text-base flex-shrink-0">❗</span>
+            <span data-translate="problemsSlide.heading"></span>
+        </h2>
+        <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5" data-translate="problemsSlide.currentPainPoints"></h3>
+        <div class="bg-red-100 p-4 my-2.5 rounded-lg border-l-4 border-red-500"
+             data-translate="problemsSlide.manualManagement" data-translate-html></div>
+        <div class="bg-red-100 p-4 my-2.5 rounded-lg border-l-4 border-red-500"
+             data-translate="problemsSlide.limitedPayments" data-translate-html></div>
+        <div class="bg-red-100 p-4 my-2.5 rounded-lg border-l-4 border-red-500"
+             data-translate="problemsSlide.noAnalytics" data-translate-html></div>
+        <div class="bg-red-100 p-4 my-2.5 rounded-lg border-l-4 border-red-500"
+             data-translate="problemsSlide.highCommissions" data-translate-html></div>
+        <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"
+            data-translate="problemsSlide.ourSolutionHeading"></h3>
+        <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
+             data-translate="problemsSlide.solutionAutomation" data-translate-html></div>
+        <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
+             data-translate="problemsSlide.solutionCrypto" data-translate-html></div>
+        <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
+             data-translate="problemsSlide.solutionAnalytics" data-translate-html></div>
+        <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
+             data-translate="problemsSlide.solutionLowCommissions" data-translate-html></div>
+    </div>
+
+    <div class="slide bg-white rounded-2xl p-5 md:p-10 shadow-2xl print-text-black">
+        <h2 class="text-purple-600 text-xl md:text-3xl mb-5 md:mb-6 flex items-center flex-wrap">
+            <span class="icon bg-purple-600 text-white w-8 h-8 md:w-10 md:h-10 mr-2.5 md:mr-4 rounded-full flex items-center justify-center font-bold text-sm md:text-base flex-shrink-0">⚔️</span>
+            <span data-translate="competitorsSlide.heading"></span>
+        </h2>
+        <div class="overflow-x-auto my-5 md:my-5">
+            <table class="w-full border-collapse text-sm md:text-base whitespace-nowrap md:whitespace-normal">
+                <thead>
+                <tr>
+                    <th class="bg-purple-600 text-white p-2 md:p-3 text-left border-b border-gray-300"
+                        data-translate="competitorsSlide.criterion"></th>
+                    <th class="bg-purple-600 text-white p-2 md:p-3 text-left border-b border-gray-300"
+                        data-translate="competitorsSlide.subscribeApp"></th>
+                    <th class="bg-purple-600 text-white p-2 md:p-3 text-left border-b border-gray-300"
+                        data-translate="competitorsSlide.boosty"></th>
+                    <th class="bg-purple-600 text-white p-2 md:p-3 text-left border-b border-gray-300"
+                        data-translate="competitorsSlide.onlyfans"></th>
+                    <th class="bg-purple-600 text-white p-2 md:p-3 text-left border-b border-gray-300"
+                        data-translate="competitorsSlide.patreon"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="even:bg-gray-50">
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.telegramIntegration" data-translate-html></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.native"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.no"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.no"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.no"></td>
+                </tr>
+                <tr class="even:bg-gray-50">
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.cryptocurrencies" data-translate-html></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.tonUsdt"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.no"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.no"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.no"></td>
+                </tr>
+                <tr class="even:bg-gray-50">
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.telegramStars" data-translate-html></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.yes"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.no"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.no"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.no"></td>
+                </tr>
+                <tr class="even:bg-gray-50">
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.commission" data-translate-html></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.commissionSA"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.commissionBoosty"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.commissionOF"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.commissionPatreon"></td>
+                </tr>
+                <tr class="even:bg-gray-50">
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.automation" data-translate-html></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.full"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.partial"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.partial"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.partial"></td>
+                </tr>
+                <tr class="even:bg-gray-50">
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words" data-translate="competitorsSlide.blocks"
+                        data-translate-html></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.noRisk"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.possible"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.highRisk"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.possible"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"
+            data-translate="competitorsSlide.keyAdvantagesHeading"></h3>
+        <ul class="list-disc pl-5">
+            <li class="my-2 text-base" data-translate="competitorsSlide.advantageTelegramFirst"
+                data-translate-html></li>
+            <li class="my-2 text-base" data-translate="competitorsSlide.advantageWeb3" data-translate-html></li>
+            <li class="my-2 text-base" data-translate="competitorsSlide.advantageExpertise" data-translate-html></li>
+            <li class="my-2 text-base" data-translate="competitorsSlide.advantageLowBarrier" data-translate-html></li>
+        </ul>
+    </div>
+
+    <div class="slide bg-white rounded-2xl p-5 md:p-10 shadow-2xl print-text-black">
+        <h2 class="text-purple-600 text-xl md:text-3xl mb-5 md:mb-6 flex items-center flex-wrap">
+            <span class="icon bg-purple-600 text-white w-8 h-8 md:w-10 md:h-10 mr-2.5 md:mr-4 rounded-full flex items-center justify-center font-bold text-sm md:text-base flex-shrink-0">🗺️</span>
+            <span data-translate="roadmapSlide.heading"></span>
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 my-4 md:my-5">
+            <div class="roadmap-item roadmap-item-print bg-gradient-to-br from-purple-500 to-indigo-600 text-white p-5 rounded-xl text-center">
+                <h4 class="mb-2.5 text-lg font-semibold" data-translate="roadmapSlide.q2_2025_title"></h4>
+                <ul class="text-left text-white list-disc pl-5">
+                    <li data-translate="roadmapSlide.q2_2025_item1"></li>
+                    <li data-translate="roadmapSlide.q2_2025_item2"></li>
+                    <li data-translate="roadmapSlide.q2_2025_item3"></li>
+                    <li data-translate="roadmapSlide.q2_2025_item4"></li>
+                </ul>
+            </div>
+            <div class="roadmap-item roadmap-item-print bg-gradient-to-br from-purple-500 to-indigo-600 text-white p-5 rounded-xl text-center">
+                <h4 class="mb-2.5 text-lg font-semibold" data-translate="roadmapSlide.q3_2025_title"></h4>
+                <ul class="text-left text-white list-disc pl-5">
+                    <li data-translate="roadmapSlide.q3_2025_item1"></li>
+                    <li data-translate="roadmapSlide.q3_2025_item2"></li>
+                    <li data-translate="roadmapSlide.q3_2025_item3"></li>
+                    <li data-translate="roadmapSlide.q3_2025_item4"></li>
+                </ul>
+            </div>
+            <div class="roadmap-item roadmap-item-print bg-gradient-to-br from-purple-500 to-indigo-600 text-white p-5 rounded-xl text-center">
+                <h4 class="mb-2.5 text-lg font-semibold" data-translate="roadmapSlide.q4_2025_title"></h4>
+                <ul class="text-left text-white list-disc pl-5">
+                    <li data-translate="roadmapSlide.q4_2025_item1"></li>
+                    <li data-translate="roadmapSlide.q4_2025_item2"></li>
+                    <li data-translate="roadmapSlide.q4_2025_item3"></li>
+                    <li data-translate="roadmapSlide.q4_2025_item4"></li>
+                </ul>
+            </div>
+            <div class="roadmap-item roadmap-item-print bg-gradient-to-br from-purple-500 to-indigo-600 text-white p-5 rounded-xl text-center">
+                <h4 class="mb-2.5 text-lg font-semibold" data-translate="roadmapSlide.q1_2026_title"></h4>
+                <ul class="text-left text-white list-disc pl-5">
+                    <li data-translate="roadmapSlide.q1_2026_item1"></li>
+                    <li data-translate="roadmapSlide.q1_2026_item2"></li>
+                    <li data-translate="roadmapSlide.q1_2026_item3"></li>
+                    <li data-translate="roadmapSlide.q1_2026_item4"></li>
+                </ul>
+            </div>
+        </div>
+        <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"
+            data-translate="roadmapSlide.techMilestonesHeading"></h3>
+        <ul class="list-disc pl-5">
+            <li class="my-2 text-base" data-translate="roadmapSlide.milestonePerformance" data-translate-html></li>
+            <li class="my-2 text-base" data-translate="roadmapSlide.milestoneAvailability" data-translate-html></li>
+            <li class="my-2 text-base" data-translate="roadmapSlide.milestoneSecurity" data-translate-html></li>
+            <li class="my-2 text-base" data-translate="roadmapSlide.milestoneScalability" data-translate-html></li>
+        </ul>
+    </div>
+
+    <div class="slide bg-white rounded-2xl p-5 md:p-10 shadow-2xl print-text-black">
+        <h2 class="text-purple-600 text-xl md:text-3xl mb-5 md:mb-6 flex items-center flex-wrap">
+            <span class="icon bg-purple-600 text-white w-8 h-8 md:w-10 md:h-10 mr-2.5 md:mr-4 rounded-full flex items-center justify-center font-bold text-sm md:text-base flex-shrink-0">🚀</span>
+            <span data-translate="goToMarketSlide.heading"></span>
+        </h2>
+        <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"
+            data-translate="goToMarketSlide.targetSegmentsHeading"></h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-5 my-4 md:my-5">
+            <div class="bg-gray-50 p-5 rounded-xl border-l-4 border-purple-600">
+                <h4 class="text-gray-700 mb-2.5 text-lg font-semibold"
+                    data-translate="goToMarketSlide.segmentEdu.title"></h4>
+                <p data-translate="goToMarketSlide.segmentEdu.text"></p>
+            </div>
+            <div class="bg-gray-50 p-5 rounded-xl border-l-4 border-purple-600">
+                <h4 class="text-gray-700 mb-2.5 text-lg font-semibold"
+                    data-translate="goToMarketSlide.segmentBusiness.title"></h4>
+                <p data-translate="goToMarketSlide.segmentBusiness.text"></p>
+            </div>
+            <div class="bg-gray-50 p-5 rounded-xl border-l-4 border-purple-600">
+                <h4 class="text-gray-700 mb-2.5 text-lg font-semibold"
+                    data-translate="goToMarketSlide.segmentCreative.title"></h4>
+                <p data-translate="goToMarketSlide.segmentCreative.text"></p>
+            </div>
+            <div class="bg-gray-50 p-5 rounded-xl border-l-4 border-purple-600">
+                <h4 class="text-gray-700 mb-2.5 text-lg font-semibold"
+                    data-translate="goToMarketSlide.segmentTrading.title"></h4>
+                <p data-translate="goToMarketSlide.segmentTrading.text"></p>
+            </div>
+        </div>
+        <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"
+            data-translate="goToMarketSlide.acquisitionChannelsHeading"></h3>
+        <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
+             data-translate="goToMarketSlide.channelProductMarketing" data-translate-html></div>
+        <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
+             data-translate="goToMarketSlide.channelPartnership" data-translate-html></div>
+        <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
+             data-translate="goToMarketSlide.channelContentMarketing" data-translate-html></div>
+        <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
+             data-translate="goToMarketSlide.channelCommunity" data-translate-html></div>
+        <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"
+            data-translate="goToMarketSlide.launchMetricsHeading"></h3>
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-4 my-4 md:my-5">
+            <div class="bg-purple-600 text-white p-5 rounded-xl text-center">
+                <span class="block text-3xl font-bold">100</span> <span
+                    data-translate="goToMarketSlide.metricBetaTesters"></span></div>
+            <div class="bg-purple-600 text-white p-5 rounded-xl text-center">
+                <span class="block text-3xl font-bold">$10K</span> <span
+                    data-translate="goToMarketSlide.metricARR"></span></div>
+            <div class="bg-purple-600 text-white p-5 rounded-xl text-center">
+                <span class="block text-3xl font-bold">50%</span> <span
+                    data-translate="goToMarketSlide.metricRetention"></span></div>
+            <div class="bg-purple-600 text-white p-5 rounded-xl text-center">
+                <span class="block text-3xl font-bold">3.5</span> <span
+                    data-translate="goToMarketSlide.metricNPS"></span></div>
+        </div>
+        <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"
+            data-translate="goToMarketSlide.techStrategyHeading"></h3>
+        <ul class="list-disc pl-5">
+            <li class="my-2 text-base" data-translate="goToMarketSlide.techStrategySoftLaunch" data-translate-html></li>
+            <li class="my-2 text-base" data-translate="goToMarketSlide.techStrategyProductHunt"
+                data-translate-html></li>
+            <li class="my-2 text-base" data-translate="goToMarketSlide.techStrategyDevRel" data-translate-html></li>
+            <li class="my-2 text-base" data-translate="goToMarketSlide.techStrategyTechContent"
+                data-translate-html></li>
+        </ul>
+    </div>
+
+    <div class="slide bg-white rounded-2xl p-5 md:p-10 shadow-2xl print-text-black">
+        <h2 class="text-purple-600 text-xl md:text-3xl mb-5 md:mb-6 flex items-center flex-wrap">
+            <span class="icon bg-purple-600 text-white w-8 h-8 md:w-10 md:h-10 mr-2.5 md:mr-4 rounded-full flex items-center justify-center font-bold text-sm md:text-base flex-shrink-0">👥</span>
+            <span data-translate="teamSlide.heading"></span>
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 my-4 md:my-5">
+            <div class="team-card-print bg-gradient-to-br from-purple-500 to-indigo-600 text-white p-5 rounded-xl">
+                <h4 class="text-white text-lg font-semibold mb-2" data-translate="teamSlide.devFounderTitle"></h4>
+                <p data-translate="teamSlide.devFounderDesc"></p>
+                <ul class="list-disc pl-5 mt-2.5 text-left">
+                    <li data-translate="teamSlide.devFounderItem1"></li>
+                    <li data-translate="teamSlide.devFounderItem2"></li>
+                    <li data-translate="teamSlide.devFounderItem3"></li>
+                    <li data-translate="teamSlide.devFounderItem4"></li>
+                </ul>
+            </div>
+            <div class="team-card-print bg-gradient-to-br from-green-500 to-teal-600 text-white p-5 rounded-xl">
+                <h4 class="text-white text-lg font-semibold mb-2" data-translate="teamSlide.ai1Title"></h4>
+                <p data-translate="teamSlide.ai1Desc"></p>
+                <ul class="list-disc pl-5 mt-2.5 text-left">
+                    <li data-translate="teamSlide.ai1Item1"></li>
+                    <li data-translate="teamSlide.ai1Item2"></li>
+                    <li data-translate="teamSlide.ai1Item3"></li>
+                    <li data-translate="teamSlide.ai1Item4"></li>
+                </ul>
+            </div>
+            <div class="team-card-print bg-gradient-to-br from-orange-500 to-red-600 text-white p-5 rounded-xl">
+                <h4 class="text-white text-lg font-semibold mb-2" data-translate="teamSlide.ai2Title"></h4>
+                <p data-translate="teamSlide.ai2Desc"></p>
+                <ul class="list-disc pl-5 mt-2.5 text-left">
+                    <li data-translate="teamSlide.ai2Item1"></li>
+                    <li data-translate="teamSlide.ai2Item2"></li>
+                    <li data-translate="teamSlide.ai2Item3"></li>
+                    <li data-translate="teamSlide.ai2Item4"></li>
+                </ul>
+            </div>
+            <div class="team-card-print bg-gradient-to-br from-sky-500 to-blue-600 text-white p-5 rounded-xl">
+                <h4 class="text-white text-lg font-semibold mb-2" data-translate="teamSlide.mentorTitle"></h4>
+                <p data-translate="teamSlide.mentorDesc"></p>
+                <ul class="list-disc pl-5 mt-2.5 text-left">
+                    <li data-translate="teamSlide.mentorItem1"></li>
+                    <li data-translate="teamSlide.mentorItem2"></li>
+                    <li data-translate="teamSlide.mentorItem3"></li>
+                    <li data-translate="teamSlide.mentorItem4"></li>
+                </ul>
+            </div>
+        </div>
+        <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"
+            data-translate="teamSlide.hybridAdvantagesHeading"></h3>
+        <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
+             data-translate="teamSlide.advantageSpeed" data-translate-html></div>
+        <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
+             data-translate="teamSlide.advantageQuality" data-translate-html></div>
+        <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
+             data-translate="teamSlide.advantageDataDriven" data-translate-html></div>
+        <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
+             data-translate="teamSlide.advantageMarketExpertise" data-translate-html></div>
+        <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"
+            data-translate="teamSlide.rolesDistributionHeading"></h3>
+        <ul class="list-disc pl-5">
+            <li class="my-2 text-base" data-translate="teamSlide.roleFounder" data-translate-html></li>
+            <li class="my-2 text-base" data-translate="teamSlide.roleAI1" data-translate-html></li>
+            <li class="my-2 text-base" data-translate="teamSlide.roleAI2" data-translate-html></li>
+            <li class="my-2 text-base" data-translate="teamSlide.roleMentor" data-translate-html></li>
+        </ul>
+    </div>
+
+    <div class="slide bg-white rounded-2xl p-5 md:p-10 shadow-2xl print-text-black">
+        <h1 class="text-gray-700 text-2xl md:text-4xl mb-4 md:mb-5 text-center border-b-4 border-purple-600 pb-2.5 md:pb-4"
+            data-translate="conclusionSlide.heading"></h1>
+        <div class="text-center my-7">
+            <div class="text-xl mb-7 text-gray-600" data-translate="conclusionSlide.mainMessage"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-5 my-4 md:my-5">
+                <div class="bg-gray-50 p-5 rounded-xl border-l-4 border-purple-600">
+                    <h4 class="text-gray-700 mb-2.5 text-lg font-semibold"
+                        data-translate="conclusionSlide.pmfTitle"></h4>
+                    <p data-translate="conclusionSlide.pmfText"></p>
+                </div>
+                <div class="bg-gray-50 p-5 rounded-xl border-l-4 border-purple-600">
+                    <h4 class="text-gray-700 mb-2.5 text-lg font-semibold"
+                        data-translate="conclusionSlide.techSuperiorityTitle"></h4>
+                    <p data-translate="conclusionSlide.techSuperiorityText"></p>
+                </div>
+                <div class="bg-gray-50 p-5 rounded-xl border-l-4 border-purple-600">
+                    <h4 class="text-gray-700 mb-2.5 text-lg font-semibold"
+                        data-translate="conclusionSlide.scalableModelTitle"></h4>
+                    <p data-translate="conclusionSlide.scalableModelText"></p>
+                </div>
+                <div class="bg-gray-50 p-5 rounded-xl border-l-4 border-purple-600">
+                    <h4 class="text-gray-700 mb-2.5 text-lg font-semibold"
+                        data-translate="conclusionSlide.readyToLaunchTitle"></h4>
+                    <p data-translate="conclusionSlide.readyToLaunchText"></p>
+                </div>
+            </div>
+            <a href="http://t.me/subscribe_app_bot"
+               class="bg-sky-600 hover:bg-sky-700 text-white py-4 px-8 rounded-full no-underline inline-block my-5 font-bold transition-colors duration-300"
+               data-translate="conclusionSlide.testSolution"></a>
+            <button onclick="downloadPDF()"
+                    class="download-pdf bg-green-600 hover:bg-green-700 text-white py-4 px-8 rounded-full no-underline inline-block my-5 mx-2.5 font-bold transition-colors duration-300 cursor-pointer border-none text-base no-print"
+                    data-translate="conclusionSlide.downloadPdf"></button>
+        </div>
+    </div>
+
+    <div class="slide bg-white rounded-2xl p-5 md:p-10 shadow-2xl print-text-black">
+        <h1 class="text-gray-700 text-2xl md:text-4xl mb-4 md:mb-5 text-center border-b-4 border-purple-600 pb-2.5 md:pb-4"
+            data-translate="qrCodeSlide.heading"></h1>
+        <div class="text-center my-7">
+            <p class="text-lg text-gray-600 mb-5" data-translate="qrCodeSlide.scanInstruction"></p>
+            <div id="qrcode-container" class="flex justify-center my-5">
+                <div id="qrcode"></div>
+            </div>
+            <p class="text-lg text-gray-600 mt-5" data-translate="qrCodeSlide.linkText"></p>
+            <a id="pageLink" href="#" class="text-purple-600 hover:underline break-all"></a>
+        </div>
+    </div>
+
+</div>
+
+<div class="navigation fixed bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-2 z-50 bg-white/90 backdrop-blur-sm py-3 px-4 rounded-full shadow-xl no-print">
+    <button class="nav-btn bg-purple-600 hover:bg-purple-700 text-white py-3 px-5 rounded-full font-bold transition-all duration-300 text-base hover:-translate-y-0.5 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:transform-none"
+            onclick="previousSlide()" id="prevBtn" data-translate="nav.back"></button>
+    <div class="slide-counter bg-gray-700 text-white py-2 px-4 rounded-full text-sm flex items-center gap-2.5">
+        <span id="currentSlide">1</span> / <span id="totalSlides"></span></div>
+    <button class="nav-btn bg-purple-600 hover:bg-purple-700 text-white py-3 px-5 rounded-full font-bold transition-all duration-300 text-base hover:-translate-y-0.5 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:transform-none"
+            onclick="nextSlide()" id="nextBtn" data-translate="nav.next"></button>
+
+    <div class="inline-lang-switcher flex items-center gap-1 ml-2 border-l border-gray-300 pl-2">
+        <button id="langRuBtn" onclick="switchLanguage('ru')"
+                class="lang-btn text-gray-700 hover:text-purple-600 px-2 py-1 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-1 focus:ring-purple-500">
+            <span class="flag-icon">🇷🇺</span> RU
+        </button>
+        <span class="text-gray-400 text-sm">/</span>
+        <button id="langEnBtn" onclick="switchLanguage('en')"
+                class="lang-btn text-gray-700 hover:text-purple-600 px-2 py-1 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-1 focus:ring-purple-500">
+            <span class="flag-icon">🇬🇧</span> EN
+        </button>
+    </div>
+</div>
+
+<div class="keyboard-hint fixed top-5 right-5 bg-black/70 text-white py-2.5 px-4 rounded-lg text-xs z-50 no-print"
+     data-translate="nav.keyboardHint">
+</div>
+<script>
+    let currentSlideIndex = 0;
+    let slides = [];
+    let totalSlides = 0;
+    let currentTranslations = {};
+    let currentLang = 'ru'; // Default language
+
+    // REMOVE these variables:
+    // const langSwitcherBtnText = document.querySelector('.lang-switcher-btn span:last-child');
+    // const langSwitcherBtnFlag = document.querySelector('.lang-switcher-btn .flag-icon');
+
+
+    function getTranslation(key) {
+        return key.split('.').reduce((obj, k) => (obj && obj[k] !== 'undefined') ? obj[k] : key, currentTranslations);
+    }
+
+    async function loadTranslations(lang) {
+        try {
+            const response = await fetch(`translations_${lang}.json?v=${new Date().getTime()}`);
+            if (!response.ok) {
+                console.error(`Could not load ${lang} translations. Status: ${response.status}`);
+                if (lang !== 'ru') {
+                    return loadTranslations('ru');
+                }
+                return;
+            }
+            currentTranslations = await response.json();
+            currentLang = lang;
+            localStorage.setItem('preferredLang', lang);
+            applyTranslations();
+            // Call the new function to update button styles
+            updateActiveLanguageButtons();
+            document.documentElement.lang = lang;
+        } catch (error) {
+            console.error("Error loading or parsing translations:", error);
+            if (lang !== 'ru') {
+                return loadTranslations('ru');
+            }
+        }
+    }
+
+    function applyTranslations() {
+        document.querySelectorAll('[data-translate]').forEach(el => {
+            const key = el.getAttribute('data-translate');
+            const translation = getTranslation(key);
+            if (el.hasAttribute('data-translate-html')) {
+                el.innerHTML = translation;
+            } else {
+                el.textContent = translation;
+            }
+        });
+        const pdfButton = document.querySelector('.download-pdf[data-translate="titleSlide.downloadPdf"]') || document.querySelector('.download-pdf[data-translate="conclusionSlide.downloadPdf"]');
+        if (pdfButton) {
+            const key = pdfButton.getAttribute('data-translate');
+            pdfButton.textContent = getTranslation(key);
+        }
+    }
+
+    function switchLanguage(lang) {
+        loadTranslations(lang);
+    }
+
+    // REMOVE the old updateLangSwitcherButton function
+    /*
+    function updateLangSwitcherButton() {
+        if (langSwitcherBtnText) {
+            langSwitcherBtnText.textContent = getTranslation('nav.langSwitch');
+        }
+        if (langSwitcherBtnFlag) {
+            langSwitcherBtnFlag.textContent = currentLang === 'ru' ? '🇷🇺' : '🇬🇧';
+        }
+    }
+    */
+
+    // ADD this new function to style the active language button
+    function updateActiveLanguageButtons() {
+        const ruButton = document.getElementById('langRuBtn');
+        const enButton = document.getElementById('langEnBtn');
+
+        if (ruButton && enButton) {
+            // Reset styles for both buttons
+            [ruButton, enButton].forEach(btn => {
+                btn.classList.remove('bg-purple-100', 'text-purple-700', 'font-bold');
+                btn.classList.add('text-gray-600', 'hover:text-purple-600', 'hover:bg-purple-50');
+            });
+
+            // Apply active styles to the current language button
+            if (currentLang === 'ru') {
+                ruButton.classList.add('bg-purple-100', 'text-purple-700', 'font-bold');
+                ruButton.classList.remove('text-gray-600', 'hover:text-purple-600', 'hover:bg-purple-50');
+            } else if (currentLang === 'en') {
+                enButton.classList.add('bg-purple-100', 'text-purple-700', 'font-bold');
+                enButton.classList.remove('text-gray-600', 'hover:text-purple-600', 'hover:bg-purple-50');
+            }
+        }
+    }
+
+    function initializeSlides() {
+        slides = document.querySelectorAll('.presentation > .slide');
+        totalSlides = slides.length;
+        if (document.getElementById('totalSlides')) {
+            document.getElementById('totalSlides').textContent = totalSlides;
+        }
+        if (slides.length > 0) {
+            showSlide(currentSlideIndex);
+        }
+    }
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active', 'slide-in-active');
+            if (i === index) {
+                slide.classList.add('active');
+                void slide.offsetWidth;
+                slide.classList.add('slide-in-active');
+                if (slide.querySelector('#qrcode')) {
+                    generateQRCode();
+                }
+            }
+        });
+
+        if (document.getElementById('currentSlide')) {
+            document.getElementById('currentSlide').textContent = index + 1;
+        }
+
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        if (prevBtn) prevBtn.disabled = index === 0;
+        if (nextBtn) nextBtn.disabled = index === totalSlides - 1;
+    }
+
+    function nextSlide() {
+        if (currentSlideIndex < totalSlides - 1) {
+            currentSlideIndex++;
+            showSlide(currentSlideIndex);
+        }
+    }
+
+    function previousSlide() {
+        if (currentSlideIndex > 0) {
+            currentSlideIndex--;
+            showSlide(currentSlideIndex);
+        }
+    }
+
+    document.addEventListener('keydown', function (event) {
+        switch (event.key) {
+            case 'ArrowRight':
+            case ' ':
+                event.preventDefault();
+                nextSlide();
+                break;
+            case 'ArrowLeft':
+                event.preventDefault();
+                previousSlide();
+                break;
+            case 'Home':
+                event.preventDefault();
+                currentSlideIndex = 0;
+                showSlide(currentSlideIndex);
+                break;
+            case 'End':
+                event.preventDefault();
+                currentSlideIndex = totalSlides - 1;
+                showSlide(currentSlideIndex);
+                break;
+        }
+    });
+
+    function downloadPDF() {
+        const originalTitle = document.title;
+        document.title = getTranslation('pageTitle') + (currentLang === 'ru' ? ' - Презентация проекта' : ' - Project Presentation');
+        window.print();
+        document.title = originalTitle;
+        setTimeout(() => {
+            showSlide(currentSlideIndex);
+        }, 100);
+    }
+
+    let qrCodeInstance = null;
+
+    function generateQRCode() {
+        const qrElement = document.getElementById('qrcode');
+        if (!qrElement) return;
+        const url = window.location.href;
+        document.getElementById('pageLink').href = url;
+        document.getElementById('pageLink').textContent = url;
+        qrElement.innerHTML = '';
+        try {
+            qrCodeInstance = new QRCode(qrElement, {
+                text: url, width: 180, height: 180,
+                colorDark: "#000000", colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        } catch (e) {
+            console.error("QR Code generation failed:", e);
+            qrElement.textContent = "QR Code generation failed.";
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        initializeSlides();
+        const preferredLang = localStorage.getItem('preferredLang') || 'ru';
+        loadTranslations(preferredLang);
+    });
+</script>
+</body>
+</html>
