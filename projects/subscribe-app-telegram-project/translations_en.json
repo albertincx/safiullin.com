@@ -50,7 +50,7 @@
     "solutionAutomation": "<strong>100% automation</strong> - From payment to access provision",
     "solutionCrypto": "<strong>Cryptocurrency payments</strong> - TON, USDT (any token) with minimal commissions",
     "solutionAnalytics": "<strong>Detailed analytics (soon)</strong> - A complete picture of your business",
-    "solutionLowCommissions": "<strong>Low commissions</strong> - Only 3-5% of the transaction"
+    "solutionLowCommissions": "<strong>No commission</strong> - 0% of the transaction"
   },
   "competitorsSlide": {
     "heading": "⚔️ Differences from competitors",
@@ -68,7 +68,7 @@
     "telegramStars": "<strong>Telegram\n Stars</strong>",
     "yes": "✅ Yes",
     "commission": "<strong>Commission</strong>",
-    "commissionSA": "✅ 3-5%",
+    "commissionSA": "✅ 0%",
     "commissionBoosty": "⚠️ 10%",
     "commissionOF": "⚠️ 20%",
     "commissionPatreon": "⚠️ 5-12%",

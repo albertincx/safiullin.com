@@ -50,7 +50,7 @@
     "solutionAutomation": "<strong>100% автоматизация</strong> - От оплаты до предоставления доступа",
     "solutionCrypto": "<strong>Криптовалютные платежи</strong> - TON, USDT (любой токен) с минимальными комиссиями",
     "solutionAnalytics": "<strong>Детальная аналитика (soon)</strong> - Полная картина вашего бизнеса",
-    "solutionLowCommissions": "<strong>Низкие комиссии</strong> - Всего 3-5% от транзакции"
+    "solutionLowCommissions": "<strong>Нет комиссии</strong> - 0% от транзакции"
   },
   "competitorsSlide": {
     "heading": "⚔️ Отличия от конкурентов",
@@ -68,7 +68,7 @@
     "telegramStars": "<strong>Telegram\n Stars</strong>",
     "yes": "✅ Да",
     "commission": "<strong>Комиссия</strong>",
-    "commissionSA": "✅ 3-5%",
+    "commissionSA": "✅ 0%",
     "commissionBoosty": "⚠️ 10%",
     "commissionOF": "⚠️ 20%",
     "commissionPatreon": "⚠️ 5-12%",
