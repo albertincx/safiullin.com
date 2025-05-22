@@ -2,67 +2,70 @@
   "pageTitle": "Subscribe App - Presentation",
   "nav": {
     "back": "← Back",
-    "next": "Next →",
+    "next": "Forward →",
     "keyboardHint": "← / → for navigation | Space - next slide",
-    "langSwitch": "Language"
+    "langSwitch": "Language",
+    "slideNavigation": "Slide navigation"
   },
   "titleSlide": {
-    "mainHeading": "📱 Subscribe App",
-    "subheading": "Subscription Management System for Telegram",
-    "tryBot": "🤖 Try the Bot",
+    "mainHeading": "📱 Subscribe App (TMA)",
+    "subheading": "Universal subscription management system for Telegram",
+    "tryBot": "🤖 Try Subscribe App",
     "downloadPdf": "📄 PDF",
-    "description": "Manage paid access to any Telegram social objects (Private/public channel, private/public group, bot) using only one channel. Monetization via TON, USDT, Telegram Stars."
+    "description": "<b>One</b> subscription to a <b>private channel</b> + <b>bot</b>\nopens up unlimited possibilities for subscribing to any Telegram object and not only:",
+    "description2": " - private/public groups\n - private/public channels\n - bots\n - subscription check after Telegram Login on any sites and services"
   },
   "whatIsProjectSlide": {
-    "heading": "🎯 What is this project?",
+    "heading": "🎯 What is this project",
     "accessManagement": {
-      "title": "🔐 Access Management",
-      "text": "Automatic subscription control for private channels, groups, and bots in Telegram."
+      "title": "🔐 Access management",
+      "text": "Automatic subscription control for private channels, groups and bots in Telegram"
     },
     "flexiblePayment": {
-      "title": "💎 Flexible Payment",
-      "text": "Support for TON, USDT, and Telegram Stars for maximum user convenience."
+      "title": "💎 Flexible payment",
+      "text": "TON, USDT (any token) and Telegram Stars support for maximum user convenience"
     },
     "automation": {
       "title": "⚡ Automation",
-      "text": "Full automation of processes: from payment to access management."
+      "text": "Full automation of processes: from payment to access management\n autoban unban etc., notifications about end"
     },
     "analytics": {
-      "title": "📊 Analytics",
-      "text": "Detailed statistics on income, subscribers, and conversion."
+      "title": "📊 Analytics (soon)",
+      "text": "Detailed revenue, subscriber, and conversion statistics"
     },
     "techFeaturesHeading": "Technical features:",
-    "techApiIntegration": "<strong>API Integration:</strong> Full integration with Telegram Bot API",
+    "techApiIntegration": "<strong>API integration:</strong> Full integration with Telegram Bot API",
     "techBlockchain": "<strong>Blockchain:</strong> Native support for TON Network",
     "techSecurity": "<strong>Security:</strong> Multi-level security system",
-    "techScalability": "<strong>Scalability:</strong> Architecture to handle thousands of subscriptions"
+    "techScalability": ""
   },
   "problemsSlide": {
-    "heading": "❗ What problems do we solve?",
-    "currentPainPoints": "Current pain points for content creators:",
-    "manualManagement": "<strong>Manual subscription management</strong><br>Creators spend hours manually checking payments and managing access.",
-    "limitedPayments": "<strong>Limited payment methods</strong><br>Most solutions do not support cryptocurrencies popular in the Telegram community.",
-    "noAnalytics": "<strong>Lack of analytics</strong><br>No tools to analyze conversion and optimize content strategy.",
-    "highCommissions": "<strong>High commissions</strong><br>Traditional payment systems take 5-15% commission.",
+    "heading": "❗ What problems do we solve",
+    "currentPainPoints": "Current pain points of content creators:",
+    "manualManagement": "<strong>Manual subscription management</strong><br>Creators spend hours checking payments and managing access manually",
+    "limitedPayments": "<strong>Limited payment methods</strong><br>Most solutions do not support cryptocurrencies popular in the Telegram community",
+    "noAnalytics": "<strong>Lack of analytics</strong><br>No tools for conversion analysis and content strategy optimization",
+    "highCommissions": "<strong>High commissions</strong><br>Traditional payment systems take a large % commission",
     "ourSolutionHeading": "Our solution:",
-    "solutionAutomation": "<strong>100% automation</strong> - From payment to access provision.",
-    "solutionCrypto": "<strong>Cryptocurrency payments</strong> - TON and USDT with minimal fees.",
-    "solutionAnalytics": "<strong>Detailed analytics</strong> - A complete picture of your business.",
-    "solutionLowCommissions": "<strong>Low commissions</strong> - Only 3-5% per transaction."
+    "solutionAutomation": "<strong>100% automation</strong> - From payment to access provision",
+    "solutionCrypto": "<strong>Cryptocurrency payments</strong> - TON, USDT (any token) with minimal commissions",
+    "solutionAnalytics": "<strong>Detailed analytics (soon)</strong> - A complete picture of your business",
+    "solutionLowCommissions": "<strong>Low commissions</strong> - Only 3-5% of the transaction"
   },
   "competitorsSlide": {
     "heading": "⚔️ Differences from competitors",
     "criterion": "Criterion",
     "subscribeApp": "Subscribe App",
+    "tg": "Telegram",
     "boosty": "Boosty",
     "onlyfans": "OnlyFans",
     "patreon": "Patreon",
-    "telegramIntegration": "<strong>Telegram Integration</strong>",
+    "telegramIntegration": "<strong>Telegram \nintegration</strong>",
     "native": "✅ Native",
     "no": "❌ No",
-    "cryptocurrencies": "<strong>Cryptocurrencies</strong>",
-    "tonUsdt": "✅ TON, USDT",
-    "telegramStars": "<strong>Telegram Stars</strong>",
+    "cryptocurrencies": "<strong>Crypto\ncurrencies</strong>",
+    "tonUsdt": "✅ TON, USDT\n (any token)",
+    "telegramStars": "<strong>Telegram\n Stars</strong>",
     "yes": "✅ Yes",
     "commission": "<strong>Commission</strong>",
     "commissionSA": "✅ 3-5%",
@@ -72,28 +75,29 @@
     "automation": "<strong>Automation</strong>",
     "full": "✅ Full",
     "partial": "⚠️ Partial",
-    "blocks": "<strong>Blocks</strong>",
+    "blocks": "<strong>Blocking</strong>",
     "noRisk": "✅ No risk",
     "possible": "⚠️ Possible",
     "highRisk": "⚠️ High risk",
     "keyAdvantagesHeading": "Key advantages:",
-    "advantageTelegramFirst": "<strong>Telegram-first approach:</strong> Created specifically for the Telegram ecosystem.",
-    "advantageWeb3": "<strong>Web3 Ready:</strong> Support for modern payment methods.",
-    "advantageExpertise": "<strong>Technical expertise:</strong> Deep integration with Telegram API.",
-    "advantageLowBarrier": "<strong>Low entry barriers:</strong> Setup in 5 minutes."
+    "advantageTelegramFirst": "<strong>Telegram-first approach:</strong> Designed specifically for the Telegram ecosystem",
+    "advantageWeb3": "<strong>Web3 Ready:</strong> Support for modern payment methods",
+    "advantageExpertise": "<strong>Technical expertise:</strong> Deep integration with Telegram API",
+    "advantageLowBarrier": "<strong>Low barriers to entry:</strong> Setup in 5 minutes"
   },
   "roadmapSlide": {
     "heading": "🗺️ Roadmap",
-    "q2_2025_title": "Q2 2025 (MVP)",
+    "q2_2025_title": "Q2 2025 (MVP) ✅",
     "q2_2025_item1": "Basic subscription management",
-    "q2_2025_item2": "TON and USDT payments",
+    "q2_2025_item2": "TON, USDT (any token) payments",
     "q2_2025_item3": "Telegram Stars",
-    "q2_2025_item4": "Simple analytics",
+    "q2_2025_item4": "Simple Analytics",
     "q3_2025_title": "Q3 2025",
-    "q3_2025_item1": "Advanced analytics",
-    "q3_2025_item2": "A/B testing for prices",
+    "q3_2025_item1": "Advanced Analytics",
+    "q3_2025_item2": "A/B Price Testing",
+    "q3_2025_item44": "Content Marketplace",
     "q3_2025_item3": "Promo codes and discounts",
-    "q3_2025_item4": "Multi-level subscriptions",
+    "q3_2025_item4": "Multi-tiered subscriptions",
     "q4_2025_title": "Q4 2025",
     "q4_2025_item1": "API for developers",
     "q4_2025_item2": "White label solution",
@@ -102,34 +106,46 @@
     "q1_2026_title": "Q1 2026",
     "q1_2026_item1": "AI analytics",
     "q1_2026_item2": "Automatic recommendations",
-    "q1_2026_item3": "Content marketplace",
-    "q1_2026_item4": "DeFi integrations",
-    "techMilestonesHeading": "Technical milestones:",
+    "q1_2026_item3": "Content Marketplace",
+    "q1_2026_item4": "DeFi Integrations",
+    "techMilestonesHeading": "Technical milestone:",
     "milestonePerformance": "<strong>Performance:</strong> Processing 1000+ transactions per second",
     "milestoneAvailability": "<strong>Availability:</strong> 99.9% uptime SLA",
-    "milestoneSecurity": "<strong>Security:</strong> SOC 2 Type II certification",
-    "milestoneScalability": "<strong>Scalability:</strong> Support for 1M+ active subscriptions"
+    "milestoneSecurity": "<strong>Security:</strong> SOC 2 Type II certified",
+    "milestoneScalability": "<strong>Scalability:</strong> Supports 1M+ active subscriptions"
   },
   "goToMarketSlide": {
     "heading": "🚀 Go-to-Market Strategy",
     "targetSegmentsHeading": "Target segments:",
-    "segmentEdu": { "title": "🎓 Educational content", "text": "Courses, webinars, training materials"},
-    "segmentBusiness": { "title": "💼 Business communities", "text": "Private channels with insider information"},
-    "segmentCreative": { "title": "🎨 Creative content", "text": "Artists, musicians, writers"},
-    "segmentTrading": { "title": "📈 Trading and investments", "text": "Signals, analytics, training"},
+    "segmentEdu": {
+      "title": "🎓 Educational content",
+      "text": "Courses, webinars, training materials"
+    },
+    "segmentBusiness": {
+      "title": "💼 Business communities",
+      "text": "Closed channels with insider information"
+    },
+    "segmentCreative": {
+      "title": "🎨 Creative content",
+      "text": "Artists, musicians, writers"
+    },
+    "segmentTrading": {
+      "title": "📈 Trading and investments",
+      "text": "Signals, analytics, training"
+    },
     "acquisitionChannelsHeading": "Acquisition channels:",
     "channelProductMarketing": "<strong>Product marketing:</strong> Integration into popular Telegram bots and channels",
-    "channelPartnership": "<strong>Partnership program:</strong> 20% of the first year's subscription for each referred client",
-    "channelContentMarketing": "<strong>Content marketing:</strong> Case studies of successful content creators",
-    "channelCommunity": "<strong>Community building:</strong> Own Telegram community with 10K+ members",
+    "channelPartnership": "<strong>Partnership program:</strong> 20% from the first year of subscription for each referred client",
+    "channelContentMarketing": "<strong>Content marketing:</strong> Cases of successful content creators",
+    "channelCommunity": "<strong>Community building:</strong> Own community in Telegram with 10K+ members",
     "launchMetricsHeading": "Launch metrics:",
     "metricBetaTesters": "Beta testers",
     "metricARR": "ARR for month 1",
     "metricRetention": "Month 1 retention",
     "metricNPS": "NPS Score",
-    "techStrategyHeading": "Technical go-to-market strategy:",
+    "techStrategyHeading": "Technical launch strategy:",
     "techStrategySoftLaunch": "<strong>Soft launch:</strong> Closed beta testing with 50 creators",
-    "techStrategyProductHunt": "<strong>Product Hunt:</strong> Launch on Product Hunt for the tech audience",
+    "techStrategyProductHunt": "<strong>Product Hunt:</strong> Launch on Product Hunt for a technical audience",
     "techStrategyDevRel": "<strong>Developer Relations:</strong> Participation in Telegram and TON ecosystem events",
     "techStrategyTechContent": "<strong>Technical Content:</strong> Open source components and technical documentation"
   },
@@ -159,8 +175,8 @@
     "mentorItem2": "Business development",
     "mentorItem3": "Partnership opportunities",
     "mentorItem4": "Market strategy",
-    "hybridAdvantagesHeading": "Advantages of the hybrid team:",
-    "advantageSpeed": "<strong>Development speed:</strong> AI assistants accelerate the development cycle by 3-5 times",
+    "hybridAdvantagesHeading": "Advantages of a hybrid team:",
+    "advantageSpeed": "<strong>Development speed:</strong> AI assistants speed up the development cycle by 3-5 times",
     "advantageQuality": "<strong>Code quality:</strong> Continuous automatic code review and optimization",
     "advantageDataDriven": "<strong>Data-driven solutions:</strong> Continuous analytics and machine learning insights",
     "advantageMarketExpertise": "<strong>Market expertise:</strong> Deep understanding of the Telegram ecosystem through a mentor",
@@ -172,21 +188,22 @@
   },
   "conclusionSlide": {
     "heading": "🎯 Ready to Launch",
-    "mainMessage": "Subscribe App is a technically superior solution for monetizing Telegram content.",
+    "mainMessage": "Subscribe App is a technically superior solution that includes all the features of Boosty, Patreon, Onfs etc and more\n right in Telegram",
     "pmfTitle": "🎯 Clear product-market fit",
-    "pmfText": "Solving a real problem for a large market.",
+    "pmfText": "A solution to a real problem of a large market",
     "techSuperiorityTitle": "⚡ Technical superiority",
-    "techSuperiorityText": "Native integration and modern stack.",
+    "techSuperiorityText": "Native integration and modern stack",
     "scalableModelTitle": "📈 Scalable business model",
-    "scalableModelText": "SaaS with network effects.",
+    "scalableModelText": "SaaS with network effects",
     "readyToLaunchTitle": "🚀 Ready to launch",
-    "readyToLaunchText": "MVP is ready, team is assembled.",
+    "readyToLaunchText": "MVP is ready, team is assembled",
     "testSolution": "🤖 Test the solution",
-    "downloadPdf": "📄 Download presentation PDF"
+    "downloadPdf": "📄 Download PDF presentation"
   },
   "qrCodeSlide": {
-    "heading": "🔗 Share this Presentation",
-    "scanInstruction": "Scan the QR code to open this presentation on another device:",
+    "heading": "🔗 Share presentation",
+    "scanInstruction": "QR code for presentation:",
+    "scanInstruction2": "QR code for project:",
     "linkText": "Or use this link:"
   }
 }
