@@ -2,8 +2,10 @@
 <html lang="ru">
 <head>
     <!-- Added SEO meta tags -->
-    <meta name="description" content="Subscribe App - subscription management system for Telegram with support for TON, USDT and Telegram Stars">
-    <meta name="keywords" content="Telegram subscriptions, Telegram monetization, TON payments, Telegram Stars, USDT payments">
+    <meta name="description"
+          content="Subscribe App - subscription management system for Telegram with support for TON, USDT and Telegram Stars">
+    <meta name="keywords"
+          content="Telegram subscriptions, Telegram monetization, TON payments, Telegram Stars, USDT payments">
     <meta property="og:title" content="Subscribe App - Presentation">
     <meta property="og:description" content="Paid access management system for Telegram channels, groups and bots">
     <meta property="og:type" content="website">
@@ -30,6 +32,15 @@
     <meta name="google-adsense-account" content="ca-pub-9147007155868784">
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
     <style>
+        html, body {
+            height: 100%;
+        }
+
+        .presentation, .slide {
+            max-height: 100vh;
+            overflow-y: auto;
+        }
+
         @keyframes slideIn {
             from {
                 opacity: 0;
@@ -94,6 +105,101 @@
         .slide.active {
             display: block;
         }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup-overlay.show {
+            display: flex;
+        }
+
+        .popup-content {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 70vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 10px;
+        }
+
+        .popup-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+            color: #6b7280;
+        }
+
+        .popup-close:hover {
+            color: #374151;
+        }
+
+        .slide-link {
+            display: block;
+            padding: 12px 15px;
+            margin: 5px 0;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #374151;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .slide-link:hover {
+            background: #f3f4f6;
+            border-color: #8b5cf6;
+            transform: translateX(5px);
+        }
+
+        .slide-link.active {
+            background: #ede9fe;
+            border-color: #8b5cf6;
+            color: #7c3aed;
+            font-weight: 600;
+        }
+
+        .slide-number {
+            display: inline-block;
+            background: #8b5cf6;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            text-align: center;
+            line-height: 24px;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+
+        @media print {
+            .popup-overlay {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-purple-500 to-indigo-600 text-gray-800 leading-relaxed overflow-hidden">
@@ -103,19 +209,17 @@
             data-translate="titleSlide.mainHeading"></h1>
         <div class="text-center my-7">
             <div class="text-xl mb-5 text-gray-600" data-translate="titleSlide.subheading"></div>
-            <a href="http://t.me/subscribe_app_bot"
+            <a href="https://t.me/subscribe_app_bot?start=36058859"
                class="bg-sky-600 hover:bg-sky-700 text-white py-4 px-8 rounded-full no-underline inline-block my-5 font-bold transition-colors duration-300"
                data-translate="titleSlide.tryBot"></a>
-            <button onclick="downloadPDF()"
-                    class="download-pdf bg-green-600 hover:bg-green-700 text-white py-4 px-8 rounded-full no-underline inline-block my-5 mx-2.5 font-bold transition-colors duration-300 cursor-pointer border-none text-base no-print"
-                    data-translate="titleSlide.downloadPdf"></button>
             <div class="mt-5 text-gray-500" data-translate="titleSlide.description"></div>
+            <div class="mt-5 text-gray-500" data-translate="titleSlide.description2"></div>
         </div>
     </div>
 
     <div class="slide bg-white rounded-2xl p-5 md:p-10 shadow-2xl print-text-black">
         <h2 class="text-purple-600 text-xl md:text-3xl mb-5 md:mb-6 flex items-center flex-wrap">
-            <span class="icon bg-purple-600 text-white w-8 h-8 md:w-10 md:h-10 mr-2.5 md:mr-4 rounded-full flex items-center justify-center font-bold text-sm md:text-base flex-shrink-0">🎯</span>
+            <!--            <span class="icon bg-purple-600 text-white w-8 h-8 md:w-10 md:h-10 mr-2.5 md:mr-4 rounded-full flex items-center justify-center font-bold text-sm md:text-base flex-shrink-0">🎯</span>-->
             <span data-translate="whatIsProjectSlide.heading"></span>
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-5 my-4 md:my-5">
@@ -146,39 +250,46 @@
             <li class="my-2 text-base" data-translate="whatIsProjectSlide.techApiIntegration" data-translate-html></li>
             <li class="my-2 text-base" data-translate="whatIsProjectSlide.techBlockchain" data-translate-html></li>
             <li class="my-2 text-base" data-translate="whatIsProjectSlide.techSecurity" data-translate-html></li>
-            <li class="my-2 text-base" data-translate="whatIsProjectSlide.techScalability" data-translate-html></li>
+            <!--            <li class="my-2 text-base" data-translate="whatIsProjectSlide.techScalability" data-translate-html></li>-->
         </ul>
     </div>
 
     <div class="slide bg-white rounded-2xl p-5 md:p-10 shadow-2xl print-text-black">
         <h2 class="text-purple-600 text-xl md:text-3xl mb-5 md:mb-6 flex items-center flex-wrap">
-            <span class="icon bg-purple-600 text-white w-8 h-8 md:w-10 md:h-10 mr-2.5 md:mr-4 rounded-full flex items-center justify-center font-bold text-sm md:text-base flex-shrink-0">❗</span>
+            <!--            <span class="icon bg-purple-600 text-white w-8 h-8 md:w-10 md:h-10 mr-2.5 md:mr-4 rounded-full flex items-center justify-center font-bold text-sm md:text-base flex-shrink-0">❗</span>-->
             <span data-translate="problemsSlide.heading"></span>
         </h2>
         <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5" data-translate="problemsSlide.currentPainPoints"></h3>
-        <div class="bg-red-100 p-4 my-2.5 rounded-lg border-l-4 border-red-500"
-             data-translate="problemsSlide.manualManagement" data-translate-html></div>
-        <div class="bg-red-100 p-4 my-2.5 rounded-lg border-l-4 border-red-500"
-             data-translate="problemsSlide.limitedPayments" data-translate-html></div>
-        <div class="bg-red-100 p-4 my-2.5 rounded-lg border-l-4 border-red-500"
-             data-translate="problemsSlide.noAnalytics" data-translate-html></div>
-        <div class="bg-red-100 p-4 my-2.5 rounded-lg border-l-4 border-red-500"
-             data-translate="problemsSlide.highCommissions" data-translate-html></div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-5 my-4 md:my-5">
+
+            <div class="bg-red-100 p-4 my-2.5_ rounded-lg border-l-4 border-red-500"
+                 data-translate="problemsSlide.manualManagement" data-translate-html></div>
+            <div class="bg-red-100 p-4 my-2.5_ rounded-lg border-l-4 border-red-500"
+                 data-translate="problemsSlide.limitedPayments" data-translate-html></div>
+            <div class="bg-red-100 p-4 my-2.5_ rounded-lg border-l-4 border-red-500"
+                 data-translate="problemsSlide.noAnalytics" data-translate-html></div>
+            <div class="bg-red-100 p-4 my-2.5_ rounded-lg border-l-4 border-red-500"
+                 data-translate="problemsSlide.highCommissions" data-translate-html></div>
+        </div>
+
         <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"
             data-translate="problemsSlide.ourSolutionHeading"></h3>
-        <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
-             data-translate="problemsSlide.solutionAutomation" data-translate-html></div>
-        <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
-             data-translate="problemsSlide.solutionCrypto" data-translate-html></div>
-        <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
-             data-translate="problemsSlide.solutionAnalytics" data-translate-html></div>
-        <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
-             data-translate="problemsSlide.solutionLowCommissions" data-translate-html></div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-5 my-4 md:my-5">
+            <div class="bg-green-100 p-4 my-2.5_ rounded-lg border-l-4 border-green-600"
+                 data-translate="problemsSlide.solutionAutomation" data-translate-html></div>
+            <div class="bg-green-100 p-4 my-2.5_ rounded-lg border-l-4 border-green-600"
+                 data-translate="problemsSlide.solutionCrypto" data-translate-html></div>
+            <div class="bg-green-100 p-4 my-2.5_ rounded-lg border-l-4 border-green-600"
+                 data-translate="problemsSlide.solutionAnalytics" data-translate-html></div>
+            <div class="bg-green-100 p-4 my-2.5_ rounded-lg border-l-4 border-green-600"
+                 data-translate="problemsSlide.solutionLowCommissions" data-translate-html></div>
+        </div>
+
     </div>
 
     <div class="slide bg-white rounded-2xl p-5 md:p-10 shadow-2xl print-text-black">
         <h2 class="text-purple-600 text-xl md:text-3xl mb-5 md:mb-6 flex items-center flex-wrap">
-            <span class="icon bg-purple-600 text-white w-8 h-8 md:w-10 md:h-10 mr-2.5 md:mr-4 rounded-full flex items-center justify-center font-bold text-sm md:text-base flex-shrink-0">⚔️</span>
+            <!--            <span class="icon bg-purple-600 text-white w-8 h-8 md:w-10 md:h-10 mr-2.5 md:mr-4 rounded-full flex items-center justify-center font-bold text-sm md:text-base flex-shrink-0">⚔️</span>-->
             <span data-translate="competitorsSlide.heading"></span>
         </h2>
         <div class="overflow-x-auto my-5 md:my-5">
@@ -189,6 +300,8 @@
                         data-translate="competitorsSlide.criterion"></th>
                     <th class="bg-purple-600 text-white p-2 md:p-3 text-left border-b border-gray-300"
                         data-translate="competitorsSlide.subscribeApp"></th>
+                    <th class="bg-purple-600 text-white p-2 md:p-3 text-left border-b border-gray-300"
+                        data-translate="competitorsSlide.tg"></th>
                     <th class="bg-purple-600 text-white p-2 md:p-3 text-left border-b border-gray-300"
                         data-translate="competitorsSlide.boosty"></th>
                     <th class="bg-purple-600 text-white p-2 md:p-3 text-left border-b border-gray-300"
@@ -203,6 +316,8 @@
                         data-translate="competitorsSlide.telegramIntegration" data-translate-html></td>
                     <td class="p-2 md:p-3 border-b border-gray-200 break-words"
                         data-translate="competitorsSlide.native"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.yes"></td>
                     <td class="p-2 md:p-3 border-b border-gray-200 break-words"
                         data-translate="competitorsSlide.no"></td>
                     <td class="p-2 md:p-3 border-b border-gray-200 break-words"
@@ -221,10 +336,14 @@
                         data-translate="competitorsSlide.no"></td>
                     <td class="p-2 md:p-3 border-b border-gray-200 break-words"
                         data-translate="competitorsSlide.no"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.no"></td>
                 </tr>
                 <tr class="even:bg-gray-50">
                     <td class="p-2 md:p-3 border-b border-gray-200 break-words"
                         data-translate="competitorsSlide.telegramStars" data-translate-html></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.yes"></td>
                     <td class="p-2 md:p-3 border-b border-gray-200 break-words"
                         data-translate="competitorsSlide.yes"></td>
                     <td class="p-2 md:p-3 border-b border-gray-200 break-words"
@@ -239,6 +358,8 @@
                         data-translate="competitorsSlide.commission" data-translate-html></td>
                     <td class="p-2 md:p-3 border-b border-gray-200 break-words"
                         data-translate="competitorsSlide.commissionSA"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.commissionBoosty"></td>
                     <td class="p-2 md:p-3 border-b border-gray-200 break-words"
                         data-translate="competitorsSlide.commissionBoosty"></td>
                     <td class="p-2 md:p-3 border-b border-gray-200 break-words"
@@ -257,10 +378,14 @@
                         data-translate="competitorsSlide.partial"></td>
                     <td class="p-2 md:p-3 border-b border-gray-200 break-words"
                         data-translate="competitorsSlide.partial"></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.partial"></td>
                 </tr>
                 <tr class="even:bg-gray-50">
                     <td class="p-2 md:p-3 border-b border-gray-200 break-words" data-translate="competitorsSlide.blocks"
                         data-translate-html></td>
+                    <td class="p-2 md:p-3 border-b border-gray-200 break-words"
+                        data-translate="competitorsSlide.noRisk"></td>
                     <td class="p-2 md:p-3 border-b border-gray-200 break-words"
                         data-translate="competitorsSlide.noRisk"></td>
                     <td class="p-2 md:p-3 border-b border-gray-200 break-words"
@@ -286,17 +411,18 @@
 
     <div class="slide bg-white rounded-2xl p-5 md:p-10 shadow-2xl print-text-black">
         <h2 class="text-purple-600 text-xl md:text-3xl mb-5 md:mb-6 flex items-center flex-wrap">
-            <span class="icon bg-purple-600 text-white w-8 h-8 md:w-10 md:h-10 mr-2.5 md:mr-4 rounded-full flex items-center justify-center font-bold text-sm md:text-base flex-shrink-0">🗺️</span>
+            <!--            <span class="icon bg-purple-600 text-white w-8 h-8 md:w-10 md:h-10 mr-2.5 md:mr-4 rounded-full flex items-center justify-center font-bold text-sm md:text-base flex-shrink-0">🗺️</span>-->
             <span data-translate="roadmapSlide.heading"></span>
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 my-4 md:my-5">
             <div class="roadmap-item roadmap-item-print bg-gradient-to-br from-purple-500 to-indigo-600 text-white p-5 rounded-xl text-center">
-                <h4 class="mb-2.5 text-lg font-semibold" data-translate="roadmapSlide.q2_2025_title"></h4>
+                <h4 class="mb-2.5 text-lg font-semibold" data-translate="roadmapSlide.q2_2025_title">✅</h4>
                 <ul class="text-left text-white list-disc pl-5">
                     <li data-translate="roadmapSlide.q2_2025_item1"></li>
                     <li data-translate="roadmapSlide.q2_2025_item2"></li>
                     <li data-translate="roadmapSlide.q2_2025_item3"></li>
-                    <li data-translate="roadmapSlide.q2_2025_item4"></li>
+                    <li data-translate="roadmapSlide.q3_2025_item4"></li>
+                    <!--                    <li data-translate="roadmapSlide.q2_2025_item4"></li>-->
                 </ul>
             </div>
             <div class="roadmap-item roadmap-item-print bg-gradient-to-br from-purple-500 to-indigo-600 text-white p-5 rounded-xl text-center">
@@ -305,41 +431,42 @@
                     <li data-translate="roadmapSlide.q3_2025_item1"></li>
                     <li data-translate="roadmapSlide.q3_2025_item2"></li>
                     <li data-translate="roadmapSlide.q3_2025_item3"></li>
-                    <li data-translate="roadmapSlide.q3_2025_item4"></li>
+                    <li data-translate="roadmapSlide.q3_2025_item44"></li>
+
                 </ul>
             </div>
-            <div class="roadmap-item roadmap-item-print bg-gradient-to-br from-purple-500 to-indigo-600 text-white p-5 rounded-xl text-center">
-                <h4 class="mb-2.5 text-lg font-semibold" data-translate="roadmapSlide.q4_2025_title"></h4>
-                <ul class="text-left text-white list-disc pl-5">
-                    <li data-translate="roadmapSlide.q4_2025_item1"></li>
-                    <li data-translate="roadmapSlide.q4_2025_item2"></li>
-                    <li data-translate="roadmapSlide.q4_2025_item3"></li>
-                    <li data-translate="roadmapSlide.q4_2025_item4"></li>
-                </ul>
-            </div>
-            <div class="roadmap-item roadmap-item-print bg-gradient-to-br from-purple-500 to-indigo-600 text-white p-5 rounded-xl text-center">
-                <h4 class="mb-2.5 text-lg font-semibold" data-translate="roadmapSlide.q1_2026_title"></h4>
-                <ul class="text-left text-white list-disc pl-5">
-                    <li data-translate="roadmapSlide.q1_2026_item1"></li>
-                    <li data-translate="roadmapSlide.q1_2026_item2"></li>
-                    <li data-translate="roadmapSlide.q1_2026_item3"></li>
-                    <li data-translate="roadmapSlide.q1_2026_item4"></li>
-                </ul>
-            </div>
+            <!--            <div class="roadmap-item roadmap-item-print bg-gradient-to-br from-purple-500 to-indigo-600 text-white p-5 rounded-xl text-center">-->
+            <!--                <h4 class="mb-2.5 text-lg font-semibold" data-translate="roadmapSlide.q4_2025_title"></h4>-->
+            <!--                <ul class="text-left text-white list-disc pl-5">-->
+            <!--                    <li data-translate="roadmapSlide.q4_2025_item1"></li>-->
+            <!--                    <li data-translate="roadmapSlide.q4_2025_item2"></li>-->
+            <!--                    <li data-translate="roadmapSlide.q4_2025_item3"></li>-->
+            <!--                    <li data-translate="roadmapSlide.q4_2025_item4"></li>-->
+            <!--                </ul>-->
+            <!--            </div>-->
+            <!--            <div class="roadmap-item roadmap-item-print bg-gradient-to-br from-purple-500 to-indigo-600 text-white p-5 rounded-xl text-center">-->
+            <!--                <h4 class="mb-2.5 text-lg font-semibold" data-translate="roadmapSlide.q1_2026_title"></h4>-->
+            <!--                <ul class="text-left text-white list-disc pl-5">-->
+            <!--                    <li data-translate="roadmapSlide.q1_2026_item1"></li>-->
+            <!--                    <li data-translate="roadmapSlide.q1_2026_item2"></li>-->
+            <!--                    <li data-translate="roadmapSlide.q1_2026_item3"></li>-->
+            <!--                    <li data-translate="roadmapSlide.q1_2026_item4"></li>-->
+            <!--                </ul>-->
+            <!--            </div>-->
         </div>
-        <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"
-            data-translate="roadmapSlide.techMilestonesHeading"></h3>
-        <ul class="list-disc pl-5">
-            <li class="my-2 text-base" data-translate="roadmapSlide.milestonePerformance" data-translate-html></li>
-            <li class="my-2 text-base" data-translate="roadmapSlide.milestoneAvailability" data-translate-html></li>
-            <li class="my-2 text-base" data-translate="roadmapSlide.milestoneSecurity" data-translate-html></li>
-            <li class="my-2 text-base" data-translate="roadmapSlide.milestoneScalability" data-translate-html></li>
-        </ul>
+        <!--        <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"-->
+        <!--            data-translate="roadmapSlide.techMilestonesHeading"></h3>-->
+        <!--        <ul class="list-disc pl-5">-->
+        <!--            <li class="my-2 text-base" data-translate="roadmapSlide.milestonePerformance" data-translate-html></li>-->
+        <!--            <li class="my-2 text-base" data-translate="roadmapSlide.milestoneAvailability" data-translate-html></li>-->
+        <!--            <li class="my-2 text-base" data-translate="roadmapSlide.milestoneSecurity" data-translate-html></li>-->
+        <!--            <li class="my-2 text-base" data-translate="roadmapSlide.milestoneScalability" data-translate-html></li>-->
+        <!--        </ul>-->
     </div>
 
     <div class="slide bg-white rounded-2xl p-5 md:p-10 shadow-2xl print-text-black">
         <h2 class="text-purple-600 text-xl md:text-3xl mb-5 md:mb-6 flex items-center flex-wrap">
-            <span class="icon bg-purple-600 text-white w-8 h-8 md:w-10 md:h-10 mr-2.5 md:mr-4 rounded-full flex items-center justify-center font-bold text-sm md:text-base flex-shrink-0">🚀</span>
+            <!--            <span class="icon bg-purple-600 text-white w-8 h-8 md:w-10 md:h-10 mr-2.5 md:mr-4 rounded-full flex items-center justify-center font-bold text-sm md:text-base flex-shrink-0">🚀</span>-->
             <span data-translate="goToMarketSlide.heading"></span>
         </h2>
         <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"
@@ -368,45 +495,48 @@
         </div>
         <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"
             data-translate="goToMarketSlide.acquisitionChannelsHeading"></h3>
-        <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
-             data-translate="goToMarketSlide.channelProductMarketing" data-translate-html></div>
-        <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
-             data-translate="goToMarketSlide.channelPartnership" data-translate-html></div>
-        <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
-             data-translate="goToMarketSlide.channelContentMarketing" data-translate-html></div>
-        <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
-             data-translate="goToMarketSlide.channelCommunity" data-translate-html></div>
-        <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"
-            data-translate="goToMarketSlide.launchMetricsHeading"></h3>
-        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-4 my-4 md:my-5">
-            <div class="bg-purple-600 text-white p-5 rounded-xl text-center">
-                <span class="block text-3xl font-bold">100</span> <span
-                    data-translate="goToMarketSlide.metricBetaTesters"></span></div>
-            <div class="bg-purple-600 text-white p-5 rounded-xl text-center">
-                <span class="block text-3xl font-bold">$10K</span> <span
-                    data-translate="goToMarketSlide.metricARR"></span></div>
-            <div class="bg-purple-600 text-white p-5 rounded-xl text-center">
-                <span class="block text-3xl font-bold">50%</span> <span
-                    data-translate="goToMarketSlide.metricRetention"></span></div>
-            <div class="bg-purple-600 text-white p-5 rounded-xl text-center">
-                <span class="block text-3xl font-bold">3.5</span> <span
-                    data-translate="goToMarketSlide.metricNPS"></span></div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-5 my-4 md:my-5">
+
+            <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
+                 data-translate="goToMarketSlide.channelProductMarketing" data-translate-html></div>
+            <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
+                 data-translate="goToMarketSlide.channelPartnership" data-translate-html></div>
+            <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
+                 data-translate="goToMarketSlide.channelContentMarketing" data-translate-html></div>
+            <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
+                 data-translate="goToMarketSlide.channelCommunity" data-translate-html></div>
         </div>
-        <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"
-            data-translate="goToMarketSlide.techStrategyHeading"></h3>
-        <ul class="list-disc pl-5">
-            <li class="my-2 text-base" data-translate="goToMarketSlide.techStrategySoftLaunch" data-translate-html></li>
-            <li class="my-2 text-base" data-translate="goToMarketSlide.techStrategyProductHunt"
-                data-translate-html></li>
-            <li class="my-2 text-base" data-translate="goToMarketSlide.techStrategyDevRel" data-translate-html></li>
-            <li class="my-2 text-base" data-translate="goToMarketSlide.techStrategyTechContent"
-                data-translate-html></li>
-        </ul>
+        <!--        <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"-->
+        <!--            data-translate="goToMarketSlide.launchMetricsHeading"></h3>-->
+        <!--        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-4 my-4 md:my-5">-->
+        <!--            <div class="bg-purple-600 text-white p-5 rounded-xl text-center">-->
+        <!--                <span class="block text-3xl font-bold">100</span> <span-->
+        <!--                    data-translate="goToMarketSlide.metricBetaTesters"></span></div>-->
+        <!--            <div class="bg-purple-600 text-white p-5 rounded-xl text-center">-->
+        <!--                <span class="block text-3xl font-bold">$10K</span> <span-->
+        <!--                    data-translate="goToMarketSlide.metricARR"></span></div>-->
+        <!--            <div class="bg-purple-600 text-white p-5 rounded-xl text-center">-->
+        <!--                <span class="block text-3xl font-bold">50%</span> <span-->
+        <!--                    data-translate="goToMarketSlide.metricRetention"></span></div>-->
+        <!--            <div class="bg-purple-600 text-white p-5 rounded-xl text-center">-->
+        <!--                <span class="block text-3xl font-bold">3.5</span> <span-->
+        <!--                    data-translate="goToMarketSlide.metricNPS"></span></div>-->
+        <!--        </div>-->
+        <!--        <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"-->
+        <!--            data-translate="goToMarketSlide.techStrategyHeading"></h3>-->
+        <!--        <ul class="list-disc pl-5">-->
+        <!--            <li class="my-2 text-base" data-translate="goToMarketSlide.techStrategySoftLaunch" data-translate-html></li>-->
+        <!--            <li class="my-2 text-base" data-translate="goToMarketSlide.techStrategyProductHunt"-->
+        <!--                data-translate-html></li>-->
+        <!--            <li class="my-2 text-base" data-translate="goToMarketSlide.techStrategyDevRel" data-translate-html></li>-->
+        <!--            <li class="my-2 text-base" data-translate="goToMarketSlide.techStrategyTechContent"-->
+        <!--                data-translate-html></li>-->
+        <!--        </ul>-->
     </div>
 
     <div class="slide bg-white rounded-2xl p-5 md:p-10 shadow-2xl print-text-black">
         <h2 class="text-purple-600 text-xl md:text-3xl mb-5 md:mb-6 flex items-center flex-wrap">
-            <span class="icon bg-purple-600 text-white w-8 h-8 md:w-10 md:h-10 mr-2.5 md:mr-4 rounded-full flex items-center justify-center font-bold text-sm md:text-base flex-shrink-0">👥</span>
+            <!--            <span class="icon bg-purple-600 text-white w-8 h-8 md:w-10 md:h-10 mr-2.5 md:mr-4 rounded-full flex items-center justify-center font-bold text-sm md:text-base flex-shrink-0">👥</span>-->
             <span data-translate="teamSlide.heading"></span>
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 my-4 md:my-5">
@@ -430,7 +560,7 @@
                     <li data-translate="teamSlide.ai1Item4"></li>
                 </ul>
             </div>
-            <div class="team-card-print bg-gradient-to-br from-orange-500 to-red-600 text-white p-5 rounded-xl">
+            <div class="team-card-print bg-gradient-to-br from-green-500 to-teal-600 from-orange-500_ to-red-600_ text-white p-5 rounded-xl">
                 <h4 class="text-white text-lg font-semibold mb-2" data-translate="teamSlide.ai2Title"></h4>
                 <p data-translate="teamSlide.ai2Desc"></p>
                 <ul class="list-disc pl-5 mt-2.5 text-left">
@@ -461,14 +591,14 @@
              data-translate="teamSlide.advantageDataDriven" data-translate-html></div>
         <div class="bg-green-100 p-4 my-2.5 rounded-lg border-l-4 border-green-600"
              data-translate="teamSlide.advantageMarketExpertise" data-translate-html></div>
-        <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"
-            data-translate="teamSlide.rolesDistributionHeading"></h3>
-        <ul class="list-disc pl-5">
-            <li class="my-2 text-base" data-translate="teamSlide.roleFounder" data-translate-html></li>
-            <li class="my-2 text-base" data-translate="teamSlide.roleAI1" data-translate-html></li>
-            <li class="my-2 text-base" data-translate="teamSlide.roleAI2" data-translate-html></li>
-            <li class="my-2 text-base" data-translate="teamSlide.roleMentor" data-translate-html></li>
-        </ul>
+        <!--        <h3 class="text-gray-700 text-lg md:text-xl my-4 md:my-5"-->
+        <!--            data-translate="teamSlide.rolesDistributionHeading"></h3>-->
+        <!--        <ul class="list-disc pl-5">-->
+        <!--            <li class="my-2 text-base" data-translate="teamSlide.roleFounder" data-translate-html></li>-->
+        <!--            <li class="my-2 text-base" data-translate="teamSlide.roleAI1" data-translate-html></li>-->
+        <!--            <li class="my-2 text-base" data-translate="teamSlide.roleAI2" data-translate-html></li>-->
+        <!--            <li class="my-2 text-base" data-translate="teamSlide.roleMentor" data-translate-html></li>-->
+        <!--        </ul>-->
     </div>
 
     <div class="slide bg-white rounded-2xl p-5 md:p-10 shadow-2xl print-text-black">
@@ -498,7 +628,7 @@
                     <p data-translate="conclusionSlide.readyToLaunchText"></p>
                 </div>
             </div>
-            <a href="http://t.me/subscribe_app_bot"
+            <a href="https://t.me/subscribe_app_bot?start=36058859"
                class="bg-sky-600 hover:bg-sky-700 text-white py-4 px-8 rounded-full no-underline inline-block my-5 font-bold transition-colors duration-300"
                data-translate="conclusionSlide.testSolution"></a>
             <button onclick="downloadPDF()"
@@ -518,11 +648,19 @@
             <p class="text-lg text-gray-600 mt-5" data-translate="qrCodeSlide.linkText"></p>
             <a id="pageLink" href="#" class="text-purple-600 hover:underline break-all"></a>
         </div>
+        <div class="text-center my-7">
+            <p class="text-lg text-gray-600 mb-5" data-translate="qrCodeSlide.scanInstruction"></p>
+            <div id="qrcode-container2" class="flex justify-center my-5">
+                <div id="qrcode2"></div>
+            </div>
+            <p class="text-lg text-gray-600 mt-5" data-translate="qrCodeSlide.linkText"></p>
+            <a id="pageLink2" href="#" class="text-purple-600 hover:underline break-all"></a>
+        </div>
     </div>
 
 </div>
 
-<div class="navigation fixed bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-2 z-50 bg-white/90 backdrop-blur-sm py-3 px-4 rounded-full shadow-xl no-print">
+<div class="min-w-[90%] flex justify-between navigation fixed bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-2 z-50 bg-white/90 backdrop-blur-sm py-2 px-4 rounded-full shadow-xl no-print">
     <button class="nav-btn bg-purple-600 hover:bg-purple-700 text-white py-3 px-5 rounded-full font-bold transition-all duration-300 text-base hover:-translate-y-0.5 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:transform-none"
             onclick="previousSlide()" id="prevBtn" data-translate="nav.back"></button>
     <div class="slide-counter bg-gray-700 text-white py-2 px-4 rounded-full text-sm flex items-center gap-2.5">
@@ -540,12 +678,15 @@
                 class="lang-btn text-gray-700 hover:text-purple-600 px-2 py-1 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-1 focus:ring-purple-500">
             <span class="flag-icon">🇬🇧</span> EN
         </button>
+        <button onclick="downloadPDF()"
+                class="download-pdf bg-green-600 hover:bg-green-700 text-white text-xs py-2 px-4 rounded-full no-underline inline-block my-1 mx-1 font-bold transition-colors duration-300 cursor-pointer border-none text-base no-print"
+                data-translate="titleSlide.downloadPdf"></button>
     </div>
 </div>
 
-<div class="keyboard-hint fixed top-5 right-5 bg-black/70 text-white py-2.5 px-4 rounded-lg text-xs z-50 no-print"
-     data-translate="nav.keyboardHint">
-</div>
+<!--<div class="keyboard-hint fixed top-5 right-5 bg-black/70 text-white py-2.5 px-4 rounded-lg text-xs z-50 no-print"-->
+<!--     data-translate="nav.keyboardHint">-->
+<!--</div>-->
 <script>
     let currentSlideIndex = 0;
     let slides = [];
@@ -590,8 +731,8 @@
     function applyTranslations() {
         document.querySelectorAll('[data-translate]').forEach(el => {
             const key = el.getAttribute('data-translate');
-            const translation = getTranslation(key);
-            if (el.hasAttribute('data-translate-html')) {
+            const translation = getTranslation(key).replace(/\n/g, "<br />");
+            if (el.hasAttribute('data-translate-html') || true) {
                 el.innerHTML = translation;
             } else {
                 el.textContent = translation;
