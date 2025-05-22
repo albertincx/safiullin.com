@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- Added SEO meta tags -->
+    <meta name="description" content="Subscribe App - subscription management system for Telegram with support for TON, USDT and Telegram Stars">
+    <meta name="keywords" content="Telegram subscriptions, Telegram monetization, TON payments, Telegram Stars, USDT payments">
+    <meta property="og:title" content="Subscribe App - Presentation">
+    <meta property="og:description" content="Paid access management system for Telegram channels, groups and bots">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://safiullin.com/projects/subscribe-app-telegram-project/">
+    <meta property="og:site_name" content="Subscribe App">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Subscribe App - Presentation">
+    <meta name="twitter:description" content="Management system for paid access to Telegram channels, groups and bots">
+    <!-- Added canonical link -->
+    <link rel="canonical" href="https://safiullin.com/projects/subscribe-app-telegram-project/">
+
+    <!--Added favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Preconnect to CDNs -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+    <!-- Rest of your existing head content remains the same -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-translate="pageTitle">Subscribe App - Презентация</title>
+    <title data-translate="pageTitle">Subscribe App - Presentation</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3WE7D8L57"></script>
+    <meta name="google-adsense-account" content="ca-pub-9147007155868784">
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
     <style>
         @keyframes slideIn {
@@ -728,6 +751,40 @@
         const preferredLang = localStorage.getItem('preferredLang') || 'ru';
         loadTranslations(preferredLang);
     });
+</script>
+<!-- Structured data for Organization -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Subscribe App",
+        "url": "https://safiullin.com",
+        "description": "Subscription management system for Telegram with support for TON, USDT and Telegram Stars"
+    }
+</script>
+
+<!-- Structured data for WebPage -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Subscribe App - Presentation",
+        "description": "Presentation of the paid access management system to Telegram channels, groups and bots",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Subscribe App"
+        }
+    }
+</script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-Z3WE7D8L57');
 </script>
 </body>
 </html>
