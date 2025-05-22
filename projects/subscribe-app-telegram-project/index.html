@@ -640,21 +640,23 @@
     <div class="slide bg-white rounded-2xl p-5 md:p-10 shadow-2xl print-text-black">
         <h1 class="text-gray-700 text-2xl md:text-4xl mb-4 md:mb-5 text-center border-b-4 border-purple-600 pb-2.5 md:pb-4"
             data-translate="qrCodeSlide.heading"></h1>
-        <div class="text-center my-7">
-            <p class="text-lg text-gray-600 mb-5" data-translate="qrCodeSlide.scanInstruction"></p>
-            <div id="qrcode-container" class="flex justify-center my-5">
-                <div id="qrcode"></div>
+        <div class="flex">
+            <div class="text-center my-7 w-[45%]">
+                <p class="text-lg text-gray-600 mb-5" data-translate="qrCodeSlide.scanInstruction"></p>
+                <div id="qrcode-container" class="flex justify-center my-5">
+                    <div id="qrcode"></div>
+                </div>
+                <p class="text-lg text-gray-600 mt-5" data-translate="qrCodeSlide.linkText"></p>
+                <a id="pageLink" href="#" class="text-purple-600 hover:underline break-all"></a>
             </div>
-            <p class="text-lg text-gray-600 mt-5" data-translate="qrCodeSlide.linkText"></p>
-            <a id="pageLink" href="#" class="text-purple-600 hover:underline break-all"></a>
-        </div>
-        <div class="text-center my-7">
-            <p class="text-lg text-gray-600 mb-5" data-translate="qrCodeSlide.scanInstruction"></p>
-            <div id="qrcode-container2" class="flex justify-center my-5">
-                <div id="qrcode2"></div>
+            <div class="text-center my-7 w-[45%]">
+                <p class="text-lg text-gray-600 mb-5" data-translate="qrCodeSlide.scanInstruction2"></p>
+                <div id="qrcode-container2" class="flex justify-center my-5">
+                    <div id="qrcode2"></div>
+                </div>
+                <p class="text-lg text-gray-600 mt-5" data-translate="qrCodeSlide.linkText"></p>
+                <a id="pageLink2" href="#" class="text-purple-600 hover:underline break-all"></a>
             </div>
-            <p class="text-lg text-gray-600 mt-5" data-translate="qrCodeSlide.linkText"></p>
-            <a id="pageLink2" href="#" class="text-purple-600 hover:underline break-all"></a>
         </div>
     </div>
 
@@ -663,8 +665,11 @@
 <div class="min-w-[90%] flex justify-between navigation fixed bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-2 z-50 bg-white/90 backdrop-blur-sm py-2 px-4 rounded-full shadow-xl no-print">
     <button class="nav-btn bg-purple-600 hover:bg-purple-700 text-white py-3 px-5 rounded-full font-bold transition-all duration-300 text-base hover:-translate-y-0.5 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:transform-none"
             onclick="previousSlide()" id="prevBtn" data-translate="nav.back"></button>
-    <div class="slide-counter bg-gray-700 text-white py-2 px-4 rounded-full text-sm flex items-center gap-2.5">
-        <span id="currentSlide">1</span> / <span id="totalSlides"></span></div>
+    <button class="slide-counter bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded-full text-sm flex items-center gap-2.5 cursor-pointer transition-colors border-none"
+            onclick="showSlidePopup()" title="Click to navigate">
+        <span id="currentSlide">1</span> / <span id="totalSlides"></span>
+    </button>
+
     <button class="nav-btn bg-purple-600 hover:bg-purple-700 text-white py-3 px-5 rounded-full font-bold transition-all duration-300 text-base hover:-translate-y-0.5 disabled:bg-gray-300 disabled:cursor-not-allowed disabled:transform-none"
             onclick="nextSlide()" id="nextBtn" data-translate="nav.next"></button>
 
@@ -683,11 +688,24 @@
                 data-translate="titleSlide.downloadPdf"></button>
     </div>
 </div>
+<div id="slidePopup" class="popup-overlay" onclick="hideSlidePopup(event)">
+    <div class="popup-content" onclick="event.stopPropagation()">
+        <div class="popup-header">
+            <h3 data-translate="nav.slideNavigation">Slide Navigation</h3>
+            <button class="popup-close" onclick="hideSlidePopup()">&times;</button>
+        </div>
+        <div id="slideLinks">
+            <!-- Slide links will be generated here -->
+        </div>
+    </div>
+</div>
 
 <!--<div class="keyboard-hint fixed top-5 right-5 bg-black/70 text-white py-2.5 px-4 rounded-lg text-xs z-50 no-print"-->
 <!--     data-translate="nav.keyboardHint">-->
 <!--</div>-->
 <script>
+    let urlSub = 'https://t.me/subscribe_app_bot?start=36058859';
+
     let currentSlideIndex = 0;
     let slides = [];
     let totalSlides = 0;
@@ -804,6 +822,7 @@
                 slide.classList.add('slide-in-active');
                 if (slide.querySelector('#qrcode')) {
                     generateQRCode();
+                    generateQRCode('qrcode2','pageLink2', urlSub);
                 }
             }
         });
@@ -868,12 +887,12 @@
 
     let qrCodeInstance = null;
 
-    function generateQRCode() {
-        const qrElement = document.getElementById('qrcode');
+    function generateQRCode(elTxt = 'qrcode', pag = 'pageLink', urlQr) {
+        const qrElement = document.getElementById(elTxt);
         if (!qrElement) return;
-        const url = window.location.href;
-        document.getElementById('pageLink').href = url;
-        document.getElementById('pageLink').textContent = url;
+        const url = urlQr || window.location.href;
+        document.getElementById(pag).href = url;
+        document.getElementById(pag).textContent = url;
         qrElement.innerHTML = '';
         try {
             qrCodeInstance = new QRCode(qrElement, {
@@ -891,6 +910,134 @@
         initializeSlides();
         const preferredLang = localStorage.getItem('preferredLang') || 'ru';
         loadTranslations(preferredLang);
+    });
+
+    const slideData = [
+        { key: 'titleSlide.mainHeading', defaultTitle: 'Subscribe App - Presentation' },
+        { key: 'whatIsProjectSlide.heading', defaultTitle: 'What is the Project' },
+        { key: 'problemsSlide.heading', defaultTitle: 'Problems & Solutions' },
+        { key: 'competitorsSlide.heading', defaultTitle: 'Competitive Analysis' },
+        { key: 'roadmapSlide.heading', defaultTitle: 'Roadmap' },
+        { key: 'goToMarketSlide.heading', defaultTitle: 'Go-to-Market Strategy' },
+        { key: 'teamSlide.heading', defaultTitle: 'Team' },
+        { key: 'conclusionSlide.heading', defaultTitle: 'Conclusion' },
+        { key: 'qrCodeSlide.heading', defaultTitle: 'QR Code' }
+    ];
+
+    function showSlidePopup() {
+        const popup = document.getElementById('slidePopup');
+        const slideLinks = document.getElementById('slideLinks');
+
+        // Clear existing links
+        slideLinks.innerHTML = '';
+
+        // Generate slide links
+        slideData.forEach((slide, index) => {
+            const link = document.createElement('a');
+            link.className = 'slide-link';
+            if (index === currentSlideIndex) {
+                link.classList.add('active');
+            }
+
+            const slideNumber = document.createElement('span');
+            slideNumber.className = 'slide-number';
+            slideNumber.textContent = index + 1;
+
+            const slideTitle = document.createElement('span');
+            slideTitle.textContent = getTranslation(slide.key) || slide.defaultTitle;
+
+            link.appendChild(slideNumber);
+            link.appendChild(slideTitle);
+            link.onclick = () => navigateToSlide(index);
+
+            slideLinks.appendChild(link);
+        });
+
+        popup.classList.add('show');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    function hideSlidePopup(event) {
+        if (event && event.target !== event.currentTarget) return;
+
+        const popup = document.getElementById('slidePopup');
+        popup.classList.remove('show');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+
+    function navigateToSlide(index) {
+        currentSlideIndex = index;
+        showSlide(currentSlideIndex);
+        hideSlidePopup();
+    }
+
+    // Update the existing applyTranslations function to refresh popup if open
+    function applyTranslations() {
+        document.querySelectorAll('[data-translate]').forEach(el => {
+            const key = el.getAttribute('data-translate');
+            const translation = getTranslation(key).replace(/\n/g, "<br />");
+            if (el.hasAttribute('data-translate-html') || true) {
+                el.innerHTML = translation;
+            } else {
+                el.textContent = translation;
+            }
+        });
+
+        const pdfButton = document.querySelector('.download-pdf[data-translate="titleSlide.downloadPdf"]') || document.querySelector('.download-pdf[data-translate="conclusionSlide.downloadPdf"]');
+        if (pdfButton) {
+            const key = pdfButton.getAttribute('data-translate');
+            pdfButton.textContent = getTranslation(key);
+        }
+
+        // Refresh popup content if it's open
+        const popup = document.getElementById('slidePopup');
+        if (popup && popup.classList.contains('show')) {
+            showSlidePopup();
+        }
+    }
+
+    // Add keyboard support for popup
+    document.addEventListener('keydown', function (event) {
+        const popup = document.getElementById('slidePopup');
+
+        if (popup && popup.classList.contains('show')) {
+            if (event.key === 'Escape') {
+                event.preventDefault();
+                hideSlidePopup();
+                return;
+            }
+        }
+
+        // Existing keyboard navigation
+        switch (event.key) {
+            case 'ArrowRight':
+            case ' ':
+                if (!popup.classList.contains('show')) {
+                    event.preventDefault();
+                    nextSlide();
+                }
+                break;
+            case 'ArrowLeft':
+                if (!popup.classList.contains('show')) {
+                    event.preventDefault();
+                    previousSlide();
+                }
+                break;
+            case 'Home':
+                if (!popup.classList.contains('show')) {
+                    event.preventDefault();
+                    currentSlideIndex = 0;
+                    showSlide(currentSlideIndex);
+                }
+                break;
+            case 'End':
+                if (!popup.classList.contains('show')) {
+                    event.preventDefault();
+                    currentSlideIndex = totalSlides - 1;
+                    showSlide(currentSlideIndex);
+                }
+                break;
+        }
     });
 </script>
 <!-- Structured data for Organization -->
