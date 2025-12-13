@@ -6,9 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?v=10">
+    <link rel="stylesheet" href="css/styles.css?v=11">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <meta name="date.updated" content="2025-01-27"/>
+    
+    <!-- Theme Toggle Button Styles -->
+    <style>
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .dark-theme .theme-toggle {
+            background: #555;
+            color: white;
+        }
+    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3WE7D8L57"></script>
     <meta name="google-adsense-account" content="ca-pub-9147007155868784"/>
@@ -242,5 +267,54 @@
     </div>
 </div>
 
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+    
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or respect OS setting
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Set initial theme
+        if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+            body.classList.add('dark-theme');
+            themeToggle.textContent = '☀️'; // Sun icon for light mode
+        } else {
+            themeToggle.textContent = '🌙'; // Moon icon for dark mode
+        }
+        
+        // Toggle theme function
+        function toggleTheme() {
+            body.classList.toggle('dark-theme');
+            
+            if (body.classList.contains('dark-theme')) {
+                themeToggle.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeToggle.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        
+        // Add event listener to toggle button
+        themeToggle.addEventListener('click', toggleTheme);
+        
+        // Listen for OS theme preference changes
+        prefersDarkScheme.addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                if (e.matches) {
+                    body.classList.add('dark-theme');
+                    themeToggle.textContent = '☀️';
+                } else {
+                    body.classList.remove('dark-theme');
+                    themeToggle.textContent = '🌙';
+                }
+            }
+        });
+    </script>
 </body>
 </html>

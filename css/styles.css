@@ -3,10 +3,13 @@ body {
     font-size: calc(10px + 0.33vw);
     -webkit-font-smoothing: antialiased;
     color: #121314;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .body {
     padding: 2vh 5vw;
+    transition: background-color 0.3s ease;
 }
 
 h1 {
@@ -28,10 +31,12 @@ a {
     text-decoration-color: rgba(79, 192, 141, 0.5);
     text-decoration-style: solid;
     text-decoration-thickness: 5px;
+    transition: color 0.3s ease, text-decoration-color 0.3s ease;
 }
 
-a:hover:after {
-    top: 0;
+a:hover {
+    color: #121314;
+    text-decoration-color: rgba(79, 192, 141, 0.8);
 }
 
 .gh-btn {
@@ -152,4 +157,83 @@ a:hover:after {
 .hire-link:hover {
     background-color: #007BFF;
     color: #fff;
+}
+
+/* Dark theme styles */
+.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.dark-theme body {
+    color: #e0e0e0;
+    background-color: #121212;
+}
+
+.dark-theme a {
+    color: #bb86fc;
+}
+
+.dark-theme .fixed-ad {
+    background-color: #1e1e1e;
+    border: 2px solid #444;
+}
+
+.dark-theme .hire-link {
+    color: #bb86fc;
+    border: 1px solid #bb86fc;
+}
+
+.dark-theme .hire-link:hover {
+    background-color: #bb86fc;
+    color: #121212;
+}
+
+/* Improved responsive design */
+@media screen and (max-width: 768px) {
+    .body {
+        padding: 2vh 3vw;
+    }
+    
+    p {
+        font-size: 1.4em;
+    }
+    
+    .flex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .flex a {
+        margin-left: 0;
+        margin-top: 10px;
+        display: inline-block;
+    }
+    
+    .fixed-ad {
+        position: static;
+        width: auto;
+        max-width: 90%;
+        margin: 20px auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: calc(8px + 0.33vw);
+    }
+    
+    p {
+        font-size: 1.3em;
+    }
+    
+    .fixed-ad {
+        width: 100%;
+        padding: 8px;
+    }
+    
+    .avatar {
+        width: 50px;
+        height: 50px;
+    }
 }
