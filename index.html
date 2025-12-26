@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/styles.css?v=11">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <meta name="date.updated" content="2025-01-27"/>
-    
+
     <!-- Theme Toggle Button Styles -->
     <style>
         .theme-toggle {
@@ -28,7 +28,7 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        
+
         .dark-theme .theme-toggle {
             background: #555;
             color: white;
@@ -193,6 +193,17 @@
         subscription to your private channel. Make your own boosty or onlyfns in telegram.
         <a href="https://mobile-9024e.web.app/" target="_blank" rel="nofollow noopener noreferrer">Website</a>
         <br/>
+
+        <br>
+        <b>12</b>. <a href="https://albertincx.github.io/restapi-get-post-manager/">restapi-get-post-manager</a> -
+        "Postman"
+        like web app with useful features, websocket, autosave, multitabs
+        <span class="gh-btn">
+            <a class="github-button" rel="nofollow" href="https://github.com/albertincx/restapi-get-post-manager"
+               data-show-count="true"
+               aria-label="Star https://github.com/albertincx/restapi-get-post-manager on GitHub">Star</a>
+        </span>
+        <br/>
         <br/>
     <p>
         <a href="https://safiullin.dev" target="_blank">My personal blog</a>
@@ -267,54 +278,54 @@
     </div>
 </div>
 
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
-    
-    <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-        
-        // Check for saved theme preference or respect OS setting
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-        
-        // Set initial theme
-        if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
-            body.classList.add('dark-theme');
-            themeToggle.textContent = '☀️'; // Sun icon for light mode
+<!-- Theme Toggle Button -->
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+
+<script>
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    // Check for saved theme preference or respect OS setting
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    // Set initial theme
+    if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+        body.classList.add('dark-theme');
+        themeToggle.textContent = '☀️'; // Sun icon for light mode
+    } else {
+        themeToggle.textContent = '🌙'; // Moon icon for dark mode
+    }
+
+    // Toggle theme function
+    function toggleTheme() {
+        body.classList.toggle('dark-theme');
+
+        if (body.classList.contains('dark-theme')) {
+            themeToggle.textContent = '☀️';
+            localStorage.setItem('theme', 'dark');
         } else {
-            themeToggle.textContent = '🌙'; // Moon icon for dark mode
+            themeToggle.textContent = '🌙';
+            localStorage.setItem('theme', 'light');
         }
-        
-        // Toggle theme function
-        function toggleTheme() {
-            body.classList.toggle('dark-theme');
-            
-            if (body.classList.contains('dark-theme')) {
+    }
+
+    // Add event listener to toggle button
+    themeToggle.addEventListener('click', toggleTheme);
+
+    // Listen for OS theme preference changes
+    prefersDarkScheme.addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+            if (e.matches) {
+                body.classList.add('dark-theme');
                 themeToggle.textContent = '☀️';
-                localStorage.setItem('theme', 'dark');
             } else {
+                body.classList.remove('dark-theme');
                 themeToggle.textContent = '🌙';
-                localStorage.setItem('theme', 'light');
             }
         }
-        
-        // Add event listener to toggle button
-        themeToggle.addEventListener('click', toggleTheme);
-        
-        // Listen for OS theme preference changes
-        prefersDarkScheme.addEventListener('change', (e) => {
-            if (!localStorage.getItem('theme')) {
-                if (e.matches) {
-                    body.classList.add('dark-theme');
-                    themeToggle.textContent = '☀️';
-                } else {
-                    body.classList.remove('dark-theme');
-                    themeToggle.textContent = '🌙';
-                }
-            }
-        });
-    </script>
+    });
+</script>
 </body>
 </html>
