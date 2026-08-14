@@ -36,7 +36,7 @@ htmlcov/
 
 # Build directories
 dist/
-build/
+./build/
 target/
 .gradle/
 
