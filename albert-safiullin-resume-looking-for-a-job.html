@@ -1,76 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Albert Safiullin</title>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="https://safiullin.dev/logo.jpg"/>
+    <!-- SEO Основные теги -->
+    <title>Albert Safiullin — Frontend Developer & Team Lead Portfolio</title>
+    <meta name="description" content="Personal portfolio and CV of Albert Safiullin, Frontend Developer and ex-Sber Head. Specializing in React, TypeScript, Node.js, and TON Telegram Mini Apps.">
+    <meta name="keywords" content="Albert Safiullin, Frontend Developer, React Developer, TypeScript, Node.js, Telegram Mini Apps, Web3 Developer, Bangkok">
+    <link rel="canonical" href="https://safiullin.com/" />
+
+    <!-- Open Graph (для соцсетей и мессенджеров) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Albert Safiullin — Frontend Developer & Team Lead">
+    <meta property="og:description" content="Frontend Developer (ex-Sber Head). React, TypeScript, Node.js, TON Mini Apps. View portfolio and resume.">
+    <meta property="og:url" content="https://safiullin.com/">
+
     <link rel="stylesheet" href="css/styles.css?v=10">
     <meta name="date.updated" content="2024-11-08; 2024-04-21"/>
+
+    <!-- Dark Mode Styles -->
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --link-color: #0066cc;
+            --border-color: #cccccc;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --link-color: #66b2ff;
+            --border-color: #333333;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg-color: #121212;
+                --text-color: #e0e0e0;
+                --link-color: #66b2ff;
+                --border-color: #333333;
+            }
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        a {
+            color: var(--link-color);
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.5rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+    </style>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3WE7D8L57"></script>
     <meta name="google-adsense-account" content="ca-pub-9147007155868784">
 </head>
 <body>
-<div class="body">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌓 Theme</button>
+
+<main class="body">
+    <h1>Software Engineer Albert Safiullin skills: Golang Python NodeJs React</h1>
     <p>
-        <b>Albert Safiullin</b><br>
-        CV (download) - <a href="AlbertSafiullinResume_new.pdf" download="">AlbertSafiullinResume.pdf</a>
+        CV (download) — <a href="AlbertSafiullinResume_new.pdf" download="AlbertSafiullinResume.pdf">AlbertSafiullinResume.pdf</a> built by
+        <a href="http://resume-builder.safiullin.dev/">http://resume-builder.safiullin.dev/</a>
     </p>
     <div>
-        Currently in Bangkok
-        Frontend developer, ex Sber (head)
-        (React/redux, JS/TS, nodejs, express)
-        <br>
-        <br>
-        Linkedin
-        <a rel="nofollow" href="https://linkedin.com/in/albertincx" target="_blank">
-            https://linkedin.com/in/albertincx
-        </a>
-        <br>
-        <br>
-        Personal Website
-        <a rel="nofollow" href="https://safiullin.com" target="_blank">https://safiullin.com</a>
-        <br>
-        <br>
-        Github
-        <a rel="nofollow" href="https://github.com/albertincx" target="_blank">https://github.com/albertincx</a>
-        <br>
-        <br>
-        Write me
-        <a rel="nofollow" href="//t.me/safiullin" target="_blank">t.me/safiullin</a>
-        <br>
-        <br>
-        <br>
-        Portfolio (last projects):
-        <br>
-        Two ton mini app games
-        <br>
+        <p>Currently in Bangkok. Frontend developer, ex Sber (head) (React/Redux, JS/TS, Node.js, Express).</p>
 
-        <br>
-        (frontend, alone+ai in two weeks)
-        <a rel="nofollow" href="http://t.me/TONGOWORLD_bot" target="_blank">http://t.me/TONGOWORLD_bot</a>
-        <br>
-        <br>
-        (frontend, alone+ai in two months)
-        <a rel="nofollow" href="http://t.me/DragonFarm_Bot/dragonfarm?startapp=36058859" target="_blank">http://t.me/DragonFarm_Bot/dragonfarm?startapp=36058859</a>
-        <br>
-        <br>
-        Other projects <a href="https://safiullin.com/">https://safiullin.com/</a>
+        <p>
+            <strong>Linkedin:</strong> <a rel="noopener" href="https://linkedin.com/in/albertincx" target="_blank">linkedin.com/in/albertincx</a><br>
+            <strong>Personal Website:</strong> <a href="https://safiullin.com">safiullin.com</a><br>
+            <strong>Github:</strong> <a rel="noopener" href="https://github.com/albertincx" target="_blank">github.com/albertincx</a><br>
+            <strong>Write me:</strong> <a rel="noopener" href="https://t.me/safiullin" target="_blank">t.me/safiullin</a>
+        </p>
+
+        <h2>Portfolio (last projects):</h2>
+        <p>Two TON mini app games:</p>
+        <ul>
+            <li>
+                (frontend, alone+ai in two weeks)<br>
+                <a rel="noopener" href="https://t.me/TONGOWORLD_bot" target="_blank">t.me/TONGOWORLD_bot</a>
+            </li>
+            <li>
+                (frontend, alone+ai in two months)<br>
+                <a rel="noopener" href="https://t.me/DragonFarm_Bot/dragonfarm?startapp=487323673" target="_blank">t.me/DragonFarm_Bot</a>
+            </li>
+        </ul>
+        <p>Other projects: <a href="https://safiullin.com/">safiullin.com</a></p>
     </div>
-</div>
-<script>
-    window.dataLayer = window.dataLayer || [];
+</main>
 
-    function gtag() {
-        dataLayer.push(arguments);
+<script>
+    // Theme toggle mechanism
+    const toggleBtn = document.getElementById('themeToggle');
+    const storedTheme = localStorage.getItem('theme');
+
+    if (storedTheme) {
+        document.documentElement.setAttribute('data-theme', storedTheme);
     }
 
+    toggleBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        let targetTheme = 'dark';
+
+        if (currentTheme === 'dark') {
+            targetTheme = 'light';
+        } else if (!currentTheme && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            targetTheme = 'light';
+        }
+
+        document.documentElement.setAttribute('data-theme', targetTheme);
+        localStorage.setItem('theme', targetTheme);
+    });
+</script>
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-Z3WE7D8L57');
 </script>
 <script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif?collect-dnt=true" alt=""
-               referrerpolicy="no-referrer-when-downgrade"/></noscript>
+<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif?collect-dnt=true" alt="" referrerpolicy="no-referrer-when-downgrade"/></noscript>
 </body>
 </html>
