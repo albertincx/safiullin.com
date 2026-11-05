@@ -1,372 +1,1521 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <title>Albert Safiullin</title>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Rubik:300,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?v=11">
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <meta name="date.updated" content="2025-01-27"/>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Albert Safiullin (Альберт Сафиуллин) — Senior Software Engineer &amp; Tech Lead</title>
+  <meta name="title" content="Albert Safiullin (Альберт Сафиуллин) — Senior Software Engineer &amp; Tech Lead"/>
+  <meta name="description" content="Albert Safiullin — Senior Software Engineer &amp; ex-Big Tech Lead. 15+ years building web applications, Telegram Mini Apps, macOS utilities, and AI products."/>
+  <meta name="keywords" content="Albert Safiullin, Альберт Сафиуллин, albertincx, Software Engineer, Senior Frontend Developer, Tech Lead, React, TypeScript, Go, Node.js, Swift, macOS apps, ultra-git, VoiceDrop, Telegram Mini Apps, TON Web3, Indie Hacker, Bangkok, фронтенд разработчик"/>
+  <meta name="author" content="Albert Safiullin"/>
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+  <meta name="yandex-verification" content="503f934679e3a213"/>
+  <link rel="canonical" href="https://safiullin.com/"/>
+  <meta name="date.updated" content="2026-11-05"/>
 
-    <!-- Theme Toggle Button Styles -->
-    <style>
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1001;
-            background: #f0f0f0;
-            border: 1px solid #ccc;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="profile"/>
+  <meta property="og:url" content="https://safiullin.com/"/>
+  <meta property="og:title" content="Albert Safiullin — Senior Software Engineer &amp; Tech Lead"/>
+  <meta property="og:description" content="Senior Software Engineer &amp; ex-Big Tech Lead with 15+ years experience. Building high-load web apps, Telegram mini-apps, macOS tools, and AI products."/>
+  <meta property="og:image" content="https://safiullin.dev/logo.jpg"/>
+  <meta property="og:site_name" content="Albert Safiullin Portfolio"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:locale:alternate" content="ru_RU"/>
 
-        .dark-theme .theme-toggle {
-            background: #555;
-            color: white;
-        }
-    </style>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3WE7D8L57"></script>
-    <meta name="google-adsense-account" content="ca-pub-9147007155868784"/>
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image"/>
+  <meta property="twitter:url" content="https://safiullin.com/"/>
+  <meta property="twitter:title" content="Albert Safiullin — Senior Software Engineer &amp; Tech Lead"/>
+  <meta property="twitter:description" content="Senior Software Engineer &amp; ex-Big Tech Lead with 15+ years experience. Building high-load web apps, Telegram mini-apps, macOS tools, and AI products."/>
+  <meta property="twitter:image" content="https://safiullin.dev/logo.jpg"/>
+
+  <!-- Schema.org JSON-LD Structured Data for Google Knowledge Graph & Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://safiullin.com/#person",
+        "name": "Albert Safiullin",
+        "alternateName": ["Альберт Сафиуллин", "albertincx"],
+        "jobTitle": "Senior Software Engineer & Tech Lead",
+        "description": "Senior Software Engineer & Tech Lead with 15+ years of experience in React, TypeScript, Go, Node.js, Swift, Telegram Mini Apps, and native macOS tools.",
+        "url": "https://safiullin.com",
+        "image": "https://lh3.googleusercontent.com/-54OhUol624I/AAAAAAAAAAI/AAAAAAAAAAA/ALKGfkkzD7z6sJhTIHFYi5FjkCTJ0bzL1Q/photo.jpg?sz=200",
+        "homeLocation": {
+          "@type": "Place",
+          "name": "Bangkok, Thailand"
+        },
+        "alumniOf": "Sber",
+        "sameAs": [
+          "https://github.com/albertincx",
+          "https://linkedin.com/in/albertincx",
+          "https://t.me/safiullin",
+          "https://t.me/asafiullin",
+          "https://safiullin.dev",
+          "https://career.habr.com/albertincx"
+        ],
+        "knowsAbout": [
+          "Software Engineering",
+          "React",
+          "TypeScript",
+          "JavaScript",
+          "Go",
+          "Node.js",
+          "Swift",
+          "macOS Application Development",
+          "Telegram Mini Apps",
+          "TON Blockchain",
+          "Webpack Module Federation",
+          "Micro-frontends",
+          "Artificial Intelligence"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://safiullin.com/#website",
+        "url": "https://safiullin.com",
+        "name": "Albert Safiullin — Personal Website",
+        "description": "Personal coder portfolio of Albert Safiullin (albertincx)",
+        "publisher": {
+          "@id": "https://safiullin.com/#person"
+        },
+        "inLanguage": ["en", "ru"]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/modern.css?v=1"/>
+  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3WE7D8L57"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-Z3WE7D8L57');
+  </script>
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-9147007155868784"/>
+
+  <!-- GitHub Buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body>
-<script type="application/javascript">
-    let more = () => document.querySelector('.more-life');
 
-    function toggleMore() {
-        let m = more();
-        if (m.style.display === 'none') {
-            m.style.display = 'block'
-        } else {
-            m.style.display = 'none'
-        }
-    }
-</script>
-<div class="body">
-    <p>
-        My name is <b>Albert Safiullin</b> (<a href="https://t.me/asafiullin" target="_blank" rel="nofollow">my personal
-        telegram channel</a>)
-        <br>
-        I am a software developer, since <b>2009</b>.
-        <br>
-        2009 - Paskal, Deplhi IDE... <span class="more" onclick="toggleMore()">show more</span>
-    </p>
-    <p class="more-life" style="display: none">
-        2010 - Web development, php, js, html5, joomla CMS
-        <br>
-        2014 - Web development, php, js, html5, Yii framework, jQuery, golang, java, kotlin, android
-        <br>
-        2018 - Fullstack web development, only js, nodejs, react, redux, JS, TS, rest api, microservices, agile
-        <br>
-        2020 - Frontend developer, big tech, js, nodejs, react, JS, TS, agile
-        <br>
-        2023 - Sr Frontend developer, big tech, js, nodejs, react, JS, TS, agile, webpack, module federation, mentoring,
-        dream team
-        <br>
-        2024 - Moved to Bangkok. Became digital nomad. Introvert with AI. Built two telegram games. Ai, tailwindcss,
-        zustand
-    </p>
-    <p>
-        <br>My work is open source <br>on
-        <a href="https://github.com/albertincx" target="_blank" rel="nofollow">GitHub</a>
-        &nbsp;
-        <span class="gh-btn">
-                <a class="github-button" href="https://github.com/albertincx" data-show-count="true"
-                   aria-label="Follow @albertincx on GitHub" rel="nofollow">Follow @albertincx</a>
-        </span>
-    </p>
-    <p>
-        <b>Projects</b>
-        <br/>
-        2019
-        <br/>
-        <b>1</b>. <a href="https://t.me/Corsabot" rel="nofollow">InstantView Bot</a> - comfortable reading any web
-        articles in
-        telegram. <br/>40 000+ users use this bot <b><a
-            href="https://safiullin.com/blog/instantviewbot-usage-statistics-open.html">Statistics now is Open!</a></b>
-        &nbsp;
-        <span class="gh-btn">
-                <a rel="nofollow" class="github-button" href="https://github.com/albertincx/formatbot1"
-                   data-show-count="true"
-                   aria-label="Star albertincx/formatbot1 on GitHub">Star</a>
-        </span>
-        <br/>
-        <br/>
-        <b>2</b>. <a href="https://learnlanguages.app/">learnlanguages.app</a> - learn any languages by subtitles,
-        improve your pronunciation with AI Speech &nbsp;
-        <span class="gh-btn">
-                <a rel="nofollow" class="github-button" href="https://github.com/albertincx/lang" data-show-count="true"
-                   aria-label="Star albertincx/lang on GitHub">Star</a>
-        </span>
-        <br/>
-        <br/>
-        <a href="https://play.google.com/store/apps/details?id=io.safiullin.lang" class="gpl-link" rel="nofollow"></a>
-        <br/>
-        2021 <br>
-        <b>3</b>. <a rel="nofollow" href="https://t.me/RouteCabBot">RouteCab Bot</a> - organize your regular routes with
-        neighbors in
-        telegram, <br/>
-        ride together web client (<a href="https://web.route.cab" target="_blank">web.route.cab</a> in development) <a
-            rel="nofollow" href="https://route.cab" target="_blank">route.cab</a>
-        &nbsp;
-        <span class="gh-btn">
-            <a rel="nofollow" class="github-button" href="https://github.com/albertincx/routebot" data-show-count="true"
-               aria-label="Star albertincx/routebot on GitHub">Star</a>
-        </span>
-        <br/>
-        <br/>
-
-        <b>4</b>. <a rel="nofollow" href="https://t.me/InstantChatBot">InstantChat Bot</a> - create free support chat
-        for your website,
-        or p2p in telegram <a href="https://cafechat.app" target="_blank">cafechat.app</a>
-        <br/>
-        <br/>
-        2023 <br>
-        <b>5</b>. <a rel="nofollow" href="https://github.com/albertincx/browser-extension-makeMobileView">browser-extension-makeMobileView</a>
-        - make any website to mobile view, works only in mobile mode
-        <a rel="nofollow"
-           href="https://chromewebstore.google.com/detail/make-mobile-view/ohfappdhdoofhbiajcdakoicdpfpkggn"
-           target="_blank">WebStore Extension Url</a>
-        <span class="gh-btn">
-            <a class="github-button" rel="nofollow"
-               href="https://github.com/albertincx/browser-extension-makeMobileView"
-               data-show-count="true"
-               aria-label="Star albertincx/browser-extension-makeMobileView on GitHub">Star</a>
-        </span>
-        <br/>
-        <br/>
-
-        <b>6</b>. <a rel="nofollow" href="https://github.com/albertincx/percentize">percentize</a> - percentize your
-        numbers =) <a
-            rel="nofollow" href="https://www.npmjs.com/package/percentize" target="_blank">npm package</a>
-        <span class="gh-btn">
-            <a class="github-button" rel="nofollow" href="https://github.com/albertincx/percentize"
-               data-show-count="true"
-               aria-label="Star github.com/albertincx/percentize on GitHub">Star</a>
-        </span>
-        <br/>
-        <br/>
-
-        <b>7</b>. <a href="https://timer.safiullin.dev">Offline Timer (2023)</a> - Timer, works offline with countdown
-        (2025: recreate with AI Claude)<br>
-        Github repo <a rel="nofollow" href="https://github.com/albertincx/react-tailwind-timer/"
-                       target="_blank">here</a>
-        <span class="gh-btn">
-            <a class="github-button" rel="nofollow" href="https://github.com/albertincx/react-tailwind-timer/"
-               data-show-count="true"
-               aria-label="Star https://github.com/albertincx/react-tailwind-timer/ on GitHub">Star</a>
-        </span>
-        <br/>
-        <br/>
-        2024 <br>
-        <b>8</b>. <a href="https://github.com/albertincx/zeppos-my-timers">Zepp OS My Timers</a> - An app helps to
-        create timers. Countdown soon... <br>
-        Github repo <a rel="nofollow" href="https://github.com/albertincx/zeppos-my-timers" target="_blank">here</a>
-        <span class="gh-btn">
-            <a class="github-button" rel="nofollow" href="https://github.com/albertincx/zeppos-my-timers"
-               data-show-count="true"
-               aria-label="Star https://github.com/albertincx/zeppos-my-timers on GitHub">Star</a>
-        </span>
-        <br/>
-        <br/>
-
-        <b>9</b>. <a href="https://t.me/@TONGOWORLD_bot">@TONGOWORLD_bot</a> - a tap game for telegram, two weeks with
-        AI
-        <a href="https://bytheway-c7b6a.web.app/" target="_blank">Demo Game</a>
-        <br/>
-        <br/>
-        <b>10</b>. @DragonFarm_Bot - a super dragon farm game for telegram, two months with AI.
-        <br/>
-        <br/>
-        2025
-        <br>
-        <b>11</b>. <a href="https://t.me/subscribe_app_bot?start=36058859">@subscribe_app_bot</a> - Add a paid crypto
-        subscription to your private channel. Make your own boosty or onlyfns in telegram.
-        <a href="https://mobile-9024e.web.app/" target="_blank" rel="nofollow noopener noreferrer">Website</a>
-        <br/>
-
-        <br>
-        <b>12</b>. <a href="https://albertincx.github.io/restapi-get-post-manager/">restapi-get-post-manager</a> -
-        "Postman"
-        like web app with useful features, websocket, autosave, multitabs
-        <span class="gh-btn">
-            <a class="github-button" rel="nofollow" href="https://github.com/albertincx/restapi-get-post-manager"
-               data-show-count="true"
-               aria-label="Star https://github.com/albertincx/restapi-get-post-manager on GitHub">Star</a>
-        </span>
-        <br/>
-        <br/>
-        2026
-        <br>
-        <b>13</b>. <a href="https://cropperakdniau.web.app/">bulk-image-cropper</a> -
-        Online bulk image cropping tool &amp; animator's frame alignment desk. Free, in-browser, and privacy-focused.
-        <span class="gh-btn">
-            <a class="github-button" rel="nofollow" href="https://github.com/albertincx/bulk-image-cropper"
-               data-show-count="true"
-               aria-label="Star https://github.com/albertincx/bulk-image-cropper on GitHub">Star</a>
-        </span>
-        <br/>
-        <b>14</b>. <a href="http://resume-builder.safiullin.dev/">CV BUILDER (rendercv without backend)</a> -
-        Online no backend rendercv integration CV BUILDER
-        <span class="gh-btn">
-            <a class="github-button" rel="nofollow" href="https://github.com/albertincx/rendercv"
-               data-show-count="true"
-               aria-label="Star https://github.com/albertincx/rendercv on GitHub">Star</a>
-        </span>
-        <br/>
-        <b>15</b>. <a href="https://practice-book-app.safiullin.dev/"> PDF Learn, practice with PDF</a> -
-        Online practice with PDF
-        <span class="gh-btn">
-            <a class="github-button" rel="nofollow" href="https://github.com/albertincx/practice-book-app"
-               data-show-count="true"
-               aria-label="Star https://github.com/albertincx/practice-book-app on GitHub">Star</a>
-        </span>
-        <br/>
-        <b>16</b>. <a href="https://github.com/albertincx/batterify">Batterify</a> -
-        Super fast apps closing tool for Android! Open source
-        <span class="gh-btn">
-            <a class="github-button" rel="nofollow" href="https://github.com/albertincx/batterify"
-               data-show-count="true"
-               aria-label="Star https://github.com/albertincx/batterify on GitHub">Star</a>
-        </span>
-        <br/>
-        <br/>
-    <p>
-        <a href="https://safiullin.dev" target="_blank">My personal blog</a>
-    </p>
-    <p>
-        <a href="https://safiullin.com/blog/my-put-programmista.html" lang="ru">Блог: Мой путь программиста</a>
-    </p>
-    <p>
-        <a href="https://safiullin.com/blog/10-let-react-js.html" lang="ru">Блог: React 10 лет спустя</a>
-    </p>
-    <p>
-        <a href="https://safiullin.com/blog/maya-dive-into-software-engineer.html">Blog: maya's dive into software
-            engineer</a>
-    </p>
-    <div class="flex">
-        <br/>
-        <a rel="nofollow" href="https://linkedin.com/in/albertincx" target="_blank">LinkedIn</a>
-        <br/>
-        <br/>
-        <a class="clear" itemprop="sameAs" href="https://t.me/safiullin" target="_blank"
-           rel="nofollow noopener noreferrer">
-            <span class="contacts__icon">
-                <i style="width:32px;height:32px;overflow:hidden;display:block">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none"><path fill="currentColor"
-                                                                                                  fill-rule="evenodd"
-                                                                                                  clip-rule="evenodd"
-                                                                                                  d="M0 24C0 37.2548 10.7452 48 24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24ZM19.6 35L20.0083 28.8823L20.008 28.882L31.1369 18.839C31.6253 18.4055 31.0303 18.1941 30.3819 18.5873L16.6473 27.2523L10.7147 25.4007C9.4335 25.0084 9.4243 24.128 11.0023 23.4951L34.1203 14.5809C35.1762 14.1015 36.1953 14.8345 35.7922 16.4505L31.8552 35.0031C31.5803 36.3215 30.7837 36.6368 29.68 36.0278L23.6827 31.5969L20.8 34.4C20.7909 34.4088 20.7819 34.4176 20.7729 34.4264C20.4505 34.7403 20.1837 35 19.6 35Z"></path></svg>
-                </i>
-            </span>
-        </a>
-        <br/>
-        <a href="https://career.habr.com/albertincx" target="_blank" rel="nofollow">Mentor
-            https://career.habr.com/albertincx</a>
-    </div>
-</div>
-<br>
-<!--<br>-->
-<!--<br>-->
-<!--<br>-->
-<!--<br>-->
-<!--<br>-->
-<!--<br>-->
-<!--<br>-->
-<!--<br>-->
-<!--<br>-->
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-Z3WE7D8L57');
-</script>
-<div class="App" style="height: 140px">
-    <div class="fixed-ad">
-        <img
-                src="https://lh3.googleusercontent.com/-54OhUol624I/AAAAAAAAAAI/AAAAAAAAAAA/ALKGfkkzD7z6sJhTIHFYi5FjkCTJ0bzL1Q/photo.jpg?sz=46"
-                alt="Avatar"
-                class="avatar"
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#" class="brand">
+        <img 
+          src="https://lh3.googleusercontent.com/-54OhUol624I/AAAAAAAAAAI/AAAAAAAAAAA/ALKGfkkzD7z6sJhTIHFYi5FjkCTJ0bzL1Q/photo.jpg?sz=96" 
+          alt="Albert Safiullin" 
+          class="brand-avatar"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
         />
-        <a
-                href="//safiullin.com/albert-safiullin-resume-looking-for-a-job.html"
-                class="hire-link"
-                target="_blank"
-                rel="noopener noreferrer"
-        >
-            Hire Me
+        <div class="brand-fallback" style="display: none;">AS</div>
+        <span class="brand-name">Albert Safiullin</span>
+        <span class="brand-badge">
+          <span class="pulse-dot"></span>
+          <span>Available</span>
+        </span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#journey" class="nav-link">Journey</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#writing" class="nav-link">Writing</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle dark/light theme">
+          <svg id="themeIconSun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="themeIconMoon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <a href="albert-safiullin-resume-looking-for-a-job.html" class="btn-hire">
+          <span>Resume</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
         </a>
+      </div>
     </div>
-</div>
+  </header>
 
-<!-- Theme Toggle Button -->
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+  <main class="container">
 
-<script>
-    // Theme toggle functionality
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
+    <!-- Hero Section -->
+    <section class="hero-section" id="about">
+      <div class="hero-intro">
+        <div class="hero-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+          <span>Bangkok, Thailand · Digital Nomad · 15+ Years in Code</span>
+        </div>
 
-    // Check for saved theme preference or respect OS setting
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        <h1 class="hero-title">
+          <span class="gradient-text">Albert Safiullin</span>
+        </h1>
 
-    // Set initial theme
-    if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
-        body.classList.add('dark-theme');
-        themeToggle.textContent = '☀️'; // Sun icon for light mode
+        <p class="hero-subtitle">
+          <strong>Senior Software Engineer &amp; Tech Lead</strong> with 15+ years crafting robust web applications, Telegram mini-apps, and open-source software. Ex-Big Tech (Sber Head / Tech Lead).
+        </p>
+
+        <p class="hero-bio">
+          I bridge deep engineering foundations with modern product velocity. From writing Pascal in 2009 to architecting enterprise micro-frontends with Webpack Module Federation, building high-scale Telegram bots with 40,000+ users, and shipping AI-powered utilities in record time.
+        </p>
+
+        <div class="hero-links">
+          <a href="https://t.me/safiullin" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.195 1.006.128.832.92z"/>
+            </svg>
+            <span>Message on Telegram</span>
+          </a>
+
+          <a href="https://t.me/asafiullin" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span>Personal Channel</span>
+          </a>
+
+          <a href="https://github.com/albertincx" target="_blank" rel="noopener noreferrer" class="btn-icon" title="GitHub Profile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+            <span>GitHub</span>
+          </a>
+
+          <a href="https://linkedin.com/in/albertincx" target="_blank" rel="noopener noreferrer" class="btn-icon" title="LinkedIn Profile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+
+          <span class="gh-inline-btn">
+            <a class="github-button" href="https://github.com/albertincx" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-size="large" data-show-count="true" aria-label="Follow @albertincx on GitHub">Follow @albertincx</a>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics Strip -->
+    <div class="metrics-strip">
+      <div class="metric-item">
+        <span class="metric-num highlight">15+</span>
+        <span class="metric-label">Years of Engineering</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-num">40,000+</span>
+        <span class="metric-label">InstantView Bot Users</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-num">19+</span>
+        <span class="metric-label">Shipped Products &amp; Tools</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-num highlight">ex-Lead</span>
+        <span class="metric-label">Big Tech Frontend Head</span>
+      </div>
+    </div>
+
+    <!-- Tech Stack Matrix -->
+    <section class="section" id="skills">
+      <div class="section-head">
+        <h2 class="section-title">
+          <span class="section-title-num">01.</span>
+          <span>Technical Arsenal</span>
+        </h2>
+        <span class="section-caption">Core technologies &amp; specializations</span>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-category-card">
+          <div class="skill-category-title">Languages &amp; Core</div>
+          <div class="skill-tags">
+            <span class="skill-pill featured">TypeScript</span>
+            <span class="skill-pill featured">JavaScript (ESNext)</span>
+            <span class="skill-pill">Go (Golang)</span>
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">HTML5 &amp; CSS3</span>
+            <span class="skill-pill">SQL</span>
+          </div>
+        </div>
+
+        <div class="skill-category-card">
+          <div class="skill-category-title">Frontend Architecture</div>
+          <div class="skill-tags">
+            <span class="skill-pill featured">React</span>
+            <span class="skill-pill featured">Module Federation</span>
+            <span class="skill-pill">Next.js</span>
+            <span class="skill-pill">Redux Toolkit</span>
+            <span class="skill-pill">Zustand</span>
+            <span class="skill-pill">Tailwind CSS</span>
+            <span class="skill-pill">WebSockets</span>
+          </div>
+        </div>
+
+        <div class="skill-category-card">
+          <div class="skill-category-title">Backend &amp; Infrastructure</div>
+          <div class="skill-tags">
+            <span class="skill-pill">Node.js</span>
+            <span class="skill-pill">Express</span>
+            <span class="skill-pill">REST APIs</span>
+            <span class="skill-pill">PostgreSQL</span>
+            <span class="skill-pill">Docker</span>
+            <span class="skill-pill">Microservices</span>
+            <span class="skill-pill">Firebase</span>
+          </div>
+        </div>
+
+        <div class="skill-category-card">
+          <div class="skill-category-title">Platforms &amp; Innovation</div>
+          <div class="skill-tags">
+            <span class="skill-pill featured">macOS Native (Swift 6 / SwiftUI)</span>
+            <span class="skill-pill featured">Telegram Mini Apps (TMA)</span>
+            <span class="skill-pill">TON Blockchain</span>
+            <span class="skill-pill">Chrome Extensions</span>
+            <span class="skill-pill">Offline AI &amp; Whisper</span>
+            <span class="skill-pill">Android (Kotlin)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Career Journey Timeline -->
+    <section class="section" id="journey">
+      <div class="section-head">
+        <h2 class="section-title">
+          <span class="section-title-num">02.</span>
+          <span>Career Journey</span>
+        </h2>
+        <span class="section-caption">Evolution from 2009 to present</span>
+      </div>
+
+      <div class="timeline">
+
+        <!-- 2024-Present -->
+        <div class="timeline-item active">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div class="timeline-role"><strong>Digital Nomad &amp; AI Builder</strong> · Independent Engineer</div>
+              <span class="timeline-year">2024 — Present</span>
+            </div>
+            <p class="timeline-desc">
+              Relocated to Bangkok. Operating as an autonomous builder leveraging modern engineering and AI workflows to ship rapid products. Created native macOS utilities (ultra Git, VoiceDrop AI voice studio, SizeTree folder inspector), Telegram mini-apps, TON blockchain tap games, browser-based tools, and channel monetization bots.
+            </p>
+            <div class="timeline-tags">
+              <span class="timeline-tag">macOS Swift 6</span>
+              <span class="timeline-tag">AI Engineering</span>
+              <span class="timeline-tag">Telegram Mini Apps</span>
+              <span class="timeline-tag">TON Web3</span>
+              <span class="timeline-tag">React 19</span>
+              <span class="timeline-tag">Tailwind</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2023 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div class="timeline-role"><strong>Senior Frontend Developer &amp; Tech Lead</strong> · Big Tech (ex-Sber Head)</div>
+              <span class="timeline-year">2023 — 2024</span>
+            </div>
+            <p class="timeline-desc">
+              Led frontend development initiatives within Big Tech. Spearheaded micro-frontends architecture with Webpack Module Federation, established high code quality standards, led architectural reviews, mentored developers, and coordinated cross-functional engineering teams.
+            </p>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Tech Lead</span>
+              <span class="timeline-tag">Webpack Module Federation</span>
+              <span class="timeline-tag">TypeScript</span>
+              <span class="timeline-tag">Enterprise React</span>
+              <span class="timeline-tag">Mentoring</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2020-2023 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div class="timeline-role"><strong>Frontend Developer</strong> · Big Tech</div>
+              <span class="timeline-year">2020 — 2023</span>
+            </div>
+            <p class="timeline-desc">
+              Built large-scale web services for millions of users. Engineered complex UI workflows, responsive dashboards, and robust state management with React, TypeScript, and Node.js in high-velocity Agile sprints.
+            </p>
+            <div class="timeline-tags">
+              <span class="timeline-tag">React</span>
+              <span class="timeline-tag">TypeScript</span>
+              <span class="timeline-tag">Node.js</span>
+              <span class="timeline-tag">High Load</span>
+              <span class="timeline-tag">Agile</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2018-2020 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div class="timeline-role"><strong>Fullstack Web Developer</strong> · Microservices &amp; SPAs</div>
+              <span class="timeline-year">2018 — 2020</span>
+            </div>
+            <p class="timeline-desc">
+              Transitioned fully to JavaScript/TypeScript ecosystem. Developed distributed REST APIs with Node.js and Express, built modern single-page applications with React and Redux, and embraced containerized workflows.
+            </p>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Fullstack</span>
+              <span class="timeline-tag">React</span>
+              <span class="timeline-tag">Redux</span>
+              <span class="timeline-tag">Node.js</span>
+              <span class="timeline-tag">REST APIs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hidden older items expandable -->
+        <div id="olderTimeline" style="display: none;">
+          <!-- 2014-2018 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <div class="timeline-role"><strong>Fullstack &amp; Mobile Developer</strong></div>
+                <span class="timeline-year">2014 — 2018</span>
+              </div>
+              <p class="timeline-desc">
+                Engineered complex backend web applications using PHP (Yii framework) and MySQL, ventured into Go for high-concurrency services, and developed native Android applications in Java and Kotlin.
+              </p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">PHP (Yii)</span>
+                <span class="timeline-tag">Golang</span>
+                <span class="timeline-tag">Android (Java/Kotlin)</span>
+                <span class="timeline-tag">jQuery</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2010-2014 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <div class="timeline-role"><strong>Web Developer</strong> · Early Commercial Web</div>
+                <span class="timeline-year">2010 — 2014</span>
+              </div>
+              <p class="timeline-desc">
+                Crafted client websites and portals with PHP, JavaScript, modern HTML5, and content management systems. Mastered foundational web protocols and responsive DOM manipulation.
+              </p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">PHP</span>
+                <span class="timeline-tag">JavaScript</span>
+                <span class="timeline-tag">HTML5/CSS3</span>
+                <span class="timeline-tag">Joomla CMS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2009 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <div class="timeline-role"><strong>The Beginning</strong> · First Steps into Code</div>
+                <span class="timeline-year">2009</span>
+              </div>
+              <p class="timeline-desc">
+                Started software development journey writing algorithms and desktop utilities in Turbo Pascal and Borland Delphi IDE.
+              </p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">Pascal</span>
+                <span class="timeline-tag">Delphi</span>
+                <span class="timeline-tag">Algorithms</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="timeline-toggle-wrap">
+        <button class="btn-more-timeline" id="toggleTimelineBtn" onclick="toggleTimeline()">
+          <span id="timelineBtnText">Show earlier years (2009 — 2018)</span>
+          <svg id="timelineBtnIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Featured Projects Showcase -->
+    <section class="section" id="projects">
+      <div class="section-head">
+        <h2 class="section-title">
+          <span class="section-title-num">03.</span>
+          <span>Featured Projects &amp; Products</span>
+        </h2>
+        <span class="section-caption">19 public products, tools &amp; open-source repos</span>
+      </div>
+
+      <!-- Filters -->
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All (19)</button>
+        <button class="filter-btn" data-filter="macos">macOS Native</button>
+        <button class="filter-btn" data-filter="telegram">Telegram &amp; AI</button>
+        <button class="filter-btn" data-filter="tools">Developer Tools</button>
+        <button class="filter-btn" data-filter="apps">Web Applications</button>
+        <button class="filter-btn" data-filter="mobile">Extensions &amp; Mobile</button>
+      </div>
+
+      <!-- Interactive Tag Cloud -->
+      <div class="tag-cloud-card">
+        <div class="tag-cloud-header">
+          <div class="tag-cloud-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+              <line x1="7" y1="7" x2="7.01" y2="7"></line>
+            </svg>
+            <span>Interactive Technology Cloud</span>
+          </div>
+          <span class="tag-cloud-hint">Click any tag to scroll &amp; highlight projects</span>
+        </div>
+        <div class="tag-cloud" id="tagCloud">
+          <button class="tag-btn" data-tech="swift"><span>Swift 6</span> <span class="tag-count">3</span></button>
+          <button class="tag-btn" data-tech="react"><span>React</span> <span class="tag-count">9</span></button>
+          <button class="tag-btn" data-tech="typescript"><span>TypeScript</span> <span class="tag-count">6</span></button>
+          <button class="tag-btn" data-tech="macos"><span>macOS Native</span> <span class="tag-count">3</span></button>
+          <button class="tag-btn" data-tech="telegram"><span>Telegram Bot</span> <span class="tag-count">5</span></button>
+          <button class="tag-btn" data-tech="ai"><span>Offline AI / Whisper</span> <span class="tag-count">2</span></button>
+          <button class="tag-btn" data-tech="git"><span>Git CLI</span> <span class="tag-count">2</span></button>
+          <button class="tag-btn" data-tech="node"><span>Node.js</span> <span class="tag-count">5</span></button>
+          <button class="tag-btn" data-tech="tailwind"><span>Tailwind CSS</span> <span class="tag-count">4</span></button>
+          <button class="tag-btn" data-tech="web3"><span>Web3 &amp; TON</span> <span class="tag-count">2</span></button>
+          <button class="tag-btn" data-tech="websocket"><span>WebSockets</span> <span class="tag-count">2</span></button>
+          <button class="tag-btn" data-tech="android"><span>Android / Kotlin</span> <span class="tag-count">2</span></button>
+          <button class="tag-btn" data-tech="chrome"><span>Chrome Extension</span> <span class="tag-count">1</span></button>
+          <button class="tag-btn" data-tech="dsp"><span>Wiener DSP Filter</span> <span class="tag-count">1</span></button>
+          <button class="tag-btn" data-tech="codemirror"><span>CodeMirror 6</span> <span class="tag-count">1</span></button>
+          <button class="tag-btn" data-tech="pdf"><span>PDF / RenderCV</span> <span class="tag-count">2</span></button>
+          <button class="tag-btn" data-tech="canvas"><span>HTML5 Canvas</span> <span class="tag-count">1</span></button>
+          <button class="tag-btn" data-tech="go"><span>Go (Golang)</span> <span class="tag-count">2</span></button>
+          <button class="tag-btn" data-tech="python"><span>Python</span> <span class="tag-count">2</span></button>
+        </div>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+
+        <!-- ultra Git -->
+        <div class="project-card" data-category="macos tools" data-tags="swift macos git codemirror react typescript">
+          <div>
+            <div class="project-header">
+              <div class="project-badge-wrap">
+                <span class="project-year">2026</span>
+                <span class="project-tag">macOS App</span>
+              </div>
+              <span class="project-stat-badge">~35MB RAM · &lt;200ms</span>
+            </div>
+            <h3 class="project-title">
+              <a href="https://github.com/albertincx/ultra-git" target="_blank" rel="noopener noreferrer">ultra Git (macOS Native)</a>
+            </h3>
+            <p class="project-desc">
+              Ultrafast, ultralow-memory native macOS Git GUI replicating the JetBrains / WebStorm Version Control workflow. Live editable diff editor (CodeMirror 6), one-click per-chunk rollback arrows (↩), JetBrains Local Shelf (.patch), and changelists management.
+            </p>
+            <div class="project-tech">
+              <span class="project-tech-pill">Swift 6</span>
+              <span class="project-tech-pill">WKWebView</span>
+              <span class="project-tech-pill">React 19</span>
+              <span class="project-tech-pill">TypeScript</span>
+              <span class="project-tech-pill">CodeMirror 6</span>
+              <span class="project-tech-pill">Git CLI</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/albertincx/ultra-git" target="_blank" rel="noopener noreferrer" class="project-link primary">
+              <span>GitHub Repo</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- VoiceDrop -->
+        <div class="project-card" data-category="macos telegram tools" data-tags="swift macos ai dsp audio python faster-whisper">
+          <div>
+            <div class="project-header">
+              <div class="project-badge-wrap">
+                <span class="project-year">2026</span>
+                <span class="project-tag">macOS App</span>
+              </div>
+              <span class="project-stat-badge">Offline Whisper AI</span>
+            </div>
+            <h3 class="project-title">
+              <a href="https://github.com/albertincx/VoiceDrop-macos" target="_blank" rel="noopener noreferrer">VoiceDrop (macOS)</a>
+            </h3>
+            <p class="project-desc">
+              macOS Native AI Voice Studio with studio-grade spectral Wiener noise suppression, one-click MP3/WAV export, instant drag-and-drop into Antigravity/Telegram/Slack/Finder, and 100% offline speech-to-text via local Faster-Whisper.
+            </p>
+            <div class="project-tech">
+              <span class="project-tech-pill">Swift 6</span>
+              <span class="project-tech-pill">SwiftUI</span>
+              <span class="project-tech-pill">Faster-Whisper</span>
+              <span class="project-tech-pill">Wiener DSP Filter</span>
+              <span class="project-tech-pill">CoreAudio</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/albertincx/VoiceDrop-macos" target="_blank" rel="noopener noreferrer" class="project-link primary">
+              <span>GitHub Repo</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- SizeTree / FolderViewer -->
+        <div class="project-card" data-category="macos tools" data-tags="swift macos disk cache appkit swiftui">
+          <div>
+            <div class="project-header">
+              <div class="project-badge-wrap">
+                <span class="project-year">2026</span>
+                <span class="project-tag">macOS App</span>
+              </div>
+              <span class="project-stat-badge">Instant Disk Cache</span>
+            </div>
+            <h3 class="project-title">
+              <a href="https://github.com/albertincx/size-tree-macos" target="_blank" rel="noopener noreferrer">SizeTree / FolderViewer (macOS)</a>
+            </h3>
+            <p class="project-desc">
+              Fast, lightweight native macOS SwiftUI disk utility to inspect directory trees, calculate exact folder sizes, and cache them locally for instantaneous navigation with on-demand recalculation, drag &amp; drop, and bilingual interface.
+            </p>
+            <div class="project-tech">
+              <span class="project-tech-pill">Swift 6</span>
+              <span class="project-tech-pill">SwiftUI</span>
+              <span class="project-tech-pill">Disk I/O Cache</span>
+              <span class="project-tech-pill">AppKit</span>
+              <span class="project-tech-pill">macOS Native</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/albertincx/size-tree-macos" target="_blank" rel="noopener noreferrer" class="project-link primary">
+              <span>GitHub Repo</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 1. InstantView Bot -->
+        <div class="project-card" data-category="telegram" data-tags="telegram node scraping iv">
+          <div>
+            <div class="project-header">
+              <div class="project-badge-wrap">
+                <span class="project-year">2019</span>
+                <span class="project-tag">Telegram Bot</span>
+              </div>
+              <span class="project-stat-badge">40,000+ Users</span>
+            </div>
+            <h3 class="project-title">
+              <a href="https://t.me/Corsabot" target="_blank" rel="noopener noreferrer">InstantView Bot (@Corsabot)</a>
+            </h3>
+            <p class="project-desc">
+              Comfortable, clutter-free reading of web articles natively inside Telegram via instant preview cards. Scaled to over 40,000 active users with transparent open telemetry.
+            </p>
+            <div class="project-tech">
+              <span class="project-tech-pill">Node.js</span>
+              <span class="project-tech-pill">Telegram API</span>
+              <span class="project-tech-pill">Web Scraping</span>
+              <span class="project-tech-pill">IV Engine</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://t.me/Corsabot" target="_blank" rel="noopener noreferrer" class="project-link primary">
+              <span>Open Bot</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            <a href="blog/instantviewbot-usage-statistics-open.html" class="project-link">
+              <span>Open Stats</span>
+            </a>
+            <a href="https://github.com/albertincx/formatbot1" target="_blank" rel="noopener noreferrer" class="project-link">
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. Bulk Image Cropper -->
+        <div class="project-card" data-category="tools apps" data-tags="canvas react typescript tailwind image crop webapp">
+          <div>
+            <div class="project-header">
+              <div class="project-badge-wrap">
+                <span class="project-year">2026</span>
+                <span class="project-tag">Web Tool</span>
+              </div>
+              <span class="project-stat-badge">Client-side &amp; Private</span>
+            </div>
+            <h3 class="project-title">
+              <a href="https://cropperakdniau.web.app/" target="_blank" rel="noopener noreferrer">Bulk Image Cropper</a>
+            </h3>
+            <p class="project-desc">
+              Online batch image cropping tool and animator frame alignment desk. 100% free, runs entirely in the browser with zero server uploads for total data privacy.
+            </p>
+            <div class="project-tech">
+              <span class="project-tech-pill">React</span>
+              <span class="project-tech-pill">HTML5 Canvas</span>
+              <span class="project-tech-pill">TypeScript</span>
+              <span class="project-tech-pill">Tailwind CSS</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://cropperakdniau.web.app/" target="_blank" rel="noopener noreferrer" class="project-link primary">
+              <span>Live App</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            <a href="https://github.com/albertincx/bulk-image-cropper" target="_blank" rel="noopener noreferrer" class="project-link">
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. CV Builder (RenderCV Web) -->
+        <div class="project-card" data-category="tools apps" data-tags="pdf rendercv webassembly typescript react cv">
+          <div>
+            <div class="project-header">
+              <div class="project-badge-wrap">
+                <span class="project-year">2026</span>
+                <span class="project-tag">SaaS / Tool</span>
+              </div>
+              <span class="project-stat-badge">Zero Backend</span>
+            </div>
+            <h3 class="project-title">
+              <a href="http://resume-builder.safiullin.dev/" target="_blank" rel="noopener noreferrer">CV Builder (RenderCV Web)</a>
+            </h3>
+            <p class="project-desc">
+              Modern resume and curriculum vitae builder integrating RenderCV entirely in the client browser with no backend infrastructure required.
+            </p>
+            <div class="project-tech">
+              <span class="project-tech-pill">WebAssembly</span>
+              <span class="project-tech-pill">RenderCV</span>
+              <span class="project-tech-pill">TypeScript</span>
+              <span class="project-tech-pill">PDF Generator</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="http://resume-builder.safiullin.dev/" target="_blank" rel="noopener noreferrer" class="project-link primary">
+              <span>Live Tool</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            <a href="https://github.com/albertincx/rendercv" target="_blank" rel="noopener noreferrer" class="project-link">
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. REST API Get/Post Manager -->
+        <div class="project-card" data-category="tools apps" data-tags="websocket react node rest postman api">
+          <div>
+            <div class="project-header">
+              <div class="project-badge-wrap">
+                <span class="project-year">2025</span>
+                <span class="project-tag">Developer Tool</span>
+              </div>
+              <span class="project-stat-badge">Postman Alternative</span>
+            </div>
+            <h3 class="project-title">
+              <a href="https://albertincx.github.io/restapi-get-post-manager/" target="_blank" rel="noopener noreferrer">REST API Client &amp; Manager</a>
+            </h3>
+            <p class="project-desc">
+              Lightweight in-browser Postman-like testing client featuring full HTTP/WebSocket testing, local storage autosave, and multi-tab interface without bulky desktop installations.
+            </p>
+            <div class="project-tech">
+              <span class="project-tech-pill">React</span>
+              <span class="project-tech-pill">WebSockets</span>
+              <span class="project-tech-pill">LocalStorage</span>
+              <span class="project-tech-pill">REST</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://albertincx.github.io/restapi-get-post-manager/" target="_blank" rel="noopener noreferrer" class="project-link primary">
+              <span>Launch Client</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            <a href="https://github.com/albertincx/restapi-get-post-manager" target="_blank" rel="noopener noreferrer" class="project-link">
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. PDF Learn & Practice -->
+        <div class="project-card" data-category="apps tools" data-tags="pdf react typescript pdf.js edtech">
+          <div>
+            <div class="project-header">
+              <div class="project-badge-wrap">
+                <span class="project-year">2026</span>
+                <span class="project-tag">EdTech App</span>
+              </div>
+            </div>
+            <h3 class="project-title">
+              <a href="https://practice-book-app.safiullin.dev/" target="_blank" rel="noopener noreferrer">PDF Learn &amp; Practice</a>
+            </h3>
+            <p class="project-desc">
+              Interactive in-browser learning and practice platform powered by PDF materials, enabling active recall and exercises directly inside the browser.
+            </p>
+            <div class="project-tech">
+              <span class="project-tech-pill">React</span>
+              <span class="project-tech-pill">PDF.js</span>
+              <span class="project-tech-pill">TypeScript</span>
+              <span class="project-tech-pill">State Sync</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://practice-book-app.safiullin.dev/" target="_blank" rel="noopener noreferrer" class="project-link primary">
+              <span>Try App</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            <a href="https://github.com/albertincx/practice-book-app" target="_blank" rel="noopener noreferrer" class="project-link">
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 6. Batterify -->
+        <div class="project-card" data-category="mobile tools" data-tags="android kotlin os process shell mobile">
+          <div>
+            <div class="project-header">
+              <div class="project-badge-wrap">
+                <span class="project-year">2026</span>
+                <span class="project-tag">Android App</span>
+              </div>
+              <span class="project-stat-badge">Open Source</span>
+            </div>
+            <h3 class="project-title">
+              <a href="https://github.com/albertincx/batterify" target="_blank" rel="noopener noreferrer">Batterify</a>
+            </h3>
+            <p class="project-desc">
+              High-performance background application termination and battery optimization tool for Android devices. Fast, lightweight, and open source.
+            </p>
+            <div class="project-tech">
+              <span class="project-tech-pill">Android</span>
+              <span class="project-tech-pill">Kotlin</span>
+              <span class="project-tech-pill">Process Management</span>
+              <span class="project-tech-pill">OS Shell</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/albertincx/batterify" target="_blank" rel="noopener noreferrer" class="project-link primary">
+              <span>GitHub Repo</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            <a href="batterify.html" class="project-link">
+              <span>Details</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 7. learnlanguages.app -->
+        <div class="project-card" data-category="apps mobile" data-tags="react ai speech pronunciation android pwa edtech">
+          <div>
+            <div class="project-header">
+              <div class="project-badge-wrap">
+                <span class="project-year">2019</span>
+                <span class="project-tag">AI EdTech</span>
+              </div>
+            </div>
+            <h3 class="project-title">
+              <a href="https://learnlanguages.app/" target="_blank" rel="noopener noreferrer">learnlanguages.app</a>
+            </h3>
+            <p class="project-desc">
+              Language learning system driven by video subtitles with real-time AI speech pronunciation feedback. Available on web and Google Play.
+            </p>
+            <div class="project-tech">
+              <span class="project-tech-pill">React</span>
+              <span class="project-tech-pill">AI Speech Recognition</span>
+              <span class="project-tech-pill">Android</span>
+              <span class="project-tech-pill">PWA</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://learnlanguages.app/" target="_blank" rel="noopener noreferrer" class="project-link primary">
+              <span>Web Platform</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            <a href="https://github.com/albertincx/lang" target="_blank" rel="noopener noreferrer" class="project-link">
+              <span>GitHub</span>
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=io.safiullin.lang" target="_blank" rel="noopener noreferrer" class="project-link">
+              <span>Google Play</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 8. @subscribe_app_bot -->
+        <div class="project-card" data-category="telegram" data-tags="telegram crypto web3 node payments bot">
+          <div>
+            <div class="project-header">
+              <div class="project-badge-wrap">
+                <span class="project-year">2025</span>
+                <span class="project-tag">Telegram &amp; Crypto</span>
+              </div>
+              <span class="project-stat-badge">Monetization Bot</span>
+            </div>
+            <h3 class="project-title">
+              <a href="https://t.me/subscribe_app_bot?start=36058859" target="_blank" rel="noopener noreferrer">Subscribe App Bot</a>
+            </h3>
+            <p class="project-desc">
+              Automated crypto recurring subscriptions for private Telegram channels. Turns any channel into an independent recurring revenue platform.
+            </p>
+            <div class="project-tech">
+              <span class="project-tech-pill">Telegram Bot API</span>
+              <span class="project-tech-pill">Crypto Payments</span>
+              <span class="project-tech-pill">Node.js</span>
+              <span class="project-tech-pill">Webhooks</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://t.me/subscribe_app_bot?start=36058859" target="_blank" rel="noopener noreferrer" class="project-link primary">
+              <span>Open in Telegram</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            <a href="https://mobile-9024e.web.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <span>Landing Page</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 9. Make Mobile View Chrome Extension -->
+        <div class="project-card" data-category="mobile tools" data-tags="chrome extension javascript css mobile">
+          <div>
+            <div class="project-header">
+              <div class="project-badge-wrap">
+                <span class="project-year">2023</span>
+                <span class="project-tag">Chrome Extension</span>
+              </div>
+              <span class="project-stat-badge">Chrome Web Store</span>
+            </div>
+            <h3 class="project-title">
+              <a href="https://chromewebstore.google.com/detail/make-mobile-view/ohfappdhdoofhbiajcdakoicdpfpkggn" target="_blank" rel="noopener noreferrer">Make Mobile View</a>
+            </h3>
+            <p class="project-desc">
+              Chrome browser extension to enforce instant mobile viewport emulation on any desktop website for quick mobile testing and compact viewing.
+            </p>
+            <div class="project-tech">
+              <span class="project-tech-pill">Chrome Extensions V3</span>
+              <span class="project-tech-pill">JavaScript</span>
+              <span class="project-tech-pill">CSS Viewport</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://chromewebstore.google.com/detail/make-mobile-view/ohfappdhdoofhbiajcdakoicdpfpkggn" target="_blank" rel="noopener noreferrer" class="project-link primary">
+              <span>WebStore</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            <a href="https://github.com/albertincx/browser-extension-makeMobileView" target="_blank" rel="noopener noreferrer" class="project-link">
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 10. RouteCab Bot & route.cab -->
+        <div class="project-card" data-category="telegram apps" data-tags="telegram ride-sharing route node react geolocation">
+          <div>
+            <div class="project-header">
+              <div class="project-badge-wrap">
+                <span class="project-year">2021</span>
+                <span class="project-tag">Ride Sharing</span>
+              </div>
+            </div>
+            <h3 class="project-title">
+              <a href="https://route.cab" target="_blank" rel="noopener noreferrer">RouteCab Bot &amp; Web</a>
+            </h3>
+            <p class="project-desc">
+              Coordinate recurring travel routes and carpooling with neighbors inside Telegram communities, paired with a web companion client.
+            </p>
+            <div class="project-tech">
+              <span class="project-tech-pill">Telegram Bot API</span>
+              <span class="project-tech-pill">Node.js</span>
+              <span class="project-tech-pill">React</span>
+              <span class="project-tech-pill">Geolocation</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://t.me/RouteCabBot" target="_blank" rel="noopener noreferrer" class="project-link primary">
+              <span>Telegram Bot</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            <a href="https://route.cab" target="_blank" rel="noopener noreferrer" class="project-link">
+              <span>Website</span>
+            </a>
+            <a href="https://github.com/albertincx/routebot" target="_blank" rel="noopener noreferrer" class="project-link">
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 11. Offline Timer -->
+        <div class="project-card" data-category="apps tools" data-tags="timer offline react tailwind countdown audio">
+          <div>
+            <div class="project-header">
+              <div class="project-badge-wrap">
+                <span class="project-year">2023</span>
+                <span class="project-tag">Utility App</span>
+              </div>
+              <span class="project-stat-badge">Zero Dependency</span>
+            </div>
+            <h3 class="project-title">
+              <a href="https://timer.safiullin.dev" target="_blank" rel="noopener noreferrer">Offline Countdown Timer</a>
+            </h3>
+            <p class="project-desc">
+              Pure offline web timer with audio alarms, configurable countdowns, and dark mode interface. Built with React and Tailwind CSS.
+            </p>
+            <div class="project-tech">
+              <span class="project-tech-pill">React</span>
+              <span class="project-tech-pill">Tailwind CSS</span>
+              <span class="project-tech-pill">Web Audio API</span>
+              <span class="project-tech-pill">Offline First</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://timer.safiullin.dev" target="_blank" rel="noopener noreferrer" class="project-link primary">
+              <span>Open Timer</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            <a href="https://github.com/albertincx/react-tailwind-timer" target="_blank" rel="noopener noreferrer" class="project-link">
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 12. percentize npm package -->
+        <div class="project-card" data-category="tools" data-tags="percentize npm javascript package math numbers">
+          <div>
+            <div class="project-header">
+              <div class="project-badge-wrap">
+                <span class="project-year">2023</span>
+                <span class="project-tag">NPM Package</span>
+              </div>
+            </div>
+            <h3 class="project-title">
+              <a href="https://www.npmjs.com/package/percentize" target="_blank" rel="noopener noreferrer">percentize</a>
+            </h3>
+            <p class="project-desc">
+              Tiny, zero-dependency utility package on npm for fast percentage transformations, ratios, and numerical formatting.
+            </p>
+            <div class="project-tech">
+              <span class="project-tech-pill">JavaScript</span>
+              <span class="project-tech-pill">npm</span>
+              <span class="project-tech-pill">Micro-library</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://www.npmjs.com/package/percentize" target="_blank" rel="noopener noreferrer" class="project-link primary">
+              <span>npm Registry</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            <a href="https://github.com/albertincx/percentize" target="_blank" rel="noopener noreferrer" class="project-link">
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 13. Zepp OS My Timers -->
+        <div class="project-card" data-category="mobile tools" data-tags="zepp smartwatch timers javascript embedded">
+          <div>
+            <div class="project-header">
+              <div class="project-badge-wrap">
+                <span class="project-year">2024</span>
+                <span class="project-tag">Smartwatch App</span>
+              </div>
+            </div>
+            <h3 class="project-title">
+              <a href="https://github.com/albertincx/zeppos-my-timers" target="_blank" rel="noopener noreferrer">Zepp OS My Timers</a>
+            </h3>
+            <p class="project-desc">
+              Custom timer and interval utility tailored for Amazfit smartwatches running Zepp OS, optimizing quick wrist interactions.
+            </p>
+            <div class="project-tech">
+              <span class="project-tech-pill">Zepp OS SDK</span>
+              <span class="project-tech-pill">JavaScript</span>
+              <span class="project-tech-pill">Embedded Devices</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/albertincx/zeppos-my-timers" target="_blank" rel="noopener noreferrer" class="project-link primary">
+              <span>GitHub Repo</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 14. Telegram Mini App Games (@TONGOWORLD_bot & @DragonFarm_Bot) -->
+        <div class="project-card" data-category="telegram" data-tags="telegram ton web3 react tailwind game ai">
+          <div>
+            <div class="project-header">
+              <div class="project-badge-wrap">
+                <span class="project-year">2024</span>
+                <span class="project-tag">TON Mini-App</span>
+              </div>
+              <span class="project-stat-badge">AI Accelerated</span>
+            </div>
+            <h3 class="project-title">
+              <a href="https://t.me/TONGOWORLD_bot" target="_blank" rel="noopener noreferrer">TONGO World &amp; Dragon Farm</a>
+            </h3>
+            <p class="project-desc">
+              Two Telegram tap and farming mini-app games developed with AI assistance for the TON blockchain ecosystem, featuring rich animated web views and wallet integration.
+            </p>
+            <div class="project-tech">
+              <span class="project-tech-pill">Telegram Mini Apps</span>
+              <span class="project-tech-pill">TON Web3</span>
+              <span class="project-tech-pill">React</span>
+              <span class="project-tech-pill">Tailwind CSS</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://t.me/TONGOWORLD_bot" target="_blank" rel="noopener noreferrer" class="project-link primary">
+              <span>@TONGOWORLD_bot</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            <a href="https://bytheway-c7b6a.web.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <span>Game Demo</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 15. InstantChat Bot & cafechat.app -->
+        <div class="project-card" data-category="telegram apps" data-tags="telegram chat websocket cafechat embed node">
+          <div>
+            <div class="project-header">
+              <div class="project-badge-wrap">
+                <span class="project-year">2021</span>
+                <span class="project-tag">Chat Widget</span>
+              </div>
+            </div>
+            <h3 class="project-title">
+              <a href="https://cafechat.app" target="_blank" rel="noopener noreferrer">InstantChat Bot &amp; CafeChat</a>
+            </h3>
+            <p class="project-desc">
+              Free real-time customer support chat widget for websites routing directly to peer-to-peer dialogues inside Telegram.
+            </p>
+            <div class="project-tech">
+              <span class="project-tech-pill">Telegram Bot API</span>
+              <span class="project-tech-pill">WebSockets</span>
+              <span class="project-tech-pill">Embeddable JS</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://cafechat.app" target="_blank" rel="noopener noreferrer" class="project-link primary">
+              <span>cafechat.app</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            <a href="projects/instant-chat-bot-for-website.html" class="project-link">
+              <span>Overview</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 16. Open Source Portfolio & Gists -->
+        <div class="project-card" data-category="tools" data-tags="typescript go react node open-source github">
+          <div>
+            <div class="project-header">
+              <div class="project-badge-wrap">
+                <span class="project-year">Continuous</span>
+                <span class="project-tag">Open Source</span>
+              </div>
+            </div>
+            <h3 class="project-title">
+              <a href="https://github.com/albertincx" target="_blank" rel="noopener noreferrer">Open Source on GitHub</a>
+            </h3>
+            <p class="project-desc">
+              Public repositories, boilerplate architectures, experimental microservices, and utilities shared with the developer community.
+            </p>
+            <div class="project-tech">
+              <span class="project-tech-pill">TypeScript</span>
+              <span class="project-tech-pill">Go</span>
+              <span class="project-tech-pill">React</span>
+              <span class="project-tech-pill">Node.js</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/albertincx" target="_blank" rel="noopener noreferrer" class="project-link primary">
+              <span>Explore GitHub</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Writing / Blog Section -->
+    <section class="section" id="writing">
+      <div class="section-head">
+        <h2 class="section-title">
+          <span class="section-title-num">04.</span>
+          <span>Writing &amp; Articles</span>
+        </h2>
+        <span class="section-caption">Thoughts on engineering, architecture &amp; growth</span>
+      </div>
+
+      <div class="writing-grid">
+
+        <div class="writing-card">
+          <div class="writing-meta">
+            <span>Career Retrospective</span>
+            <span>·</span>
+            <span>Russian</span>
+          </div>
+          <h3 class="writing-title">
+            <a href="blog/my-put-programmista.html">Мой путь программиста</a>
+          </h3>
+          <p class="writing-excerpt">
+            Подробная история пути в IT: от первых строчек на Pascal и Delphi в 2009 году через веб-разработку и Big Tech к полной независимости.
+          </p>
+          <a href="blog/my-put-programmista.html" class="writing-arrow">
+            <span>Читать статью</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+        <div class="writing-card">
+          <div class="writing-meta">
+            <span>Frontend Architecture</span>
+            <span>·</span>
+            <span>Russian</span>
+          </div>
+          <h3 class="writing-title">
+            <a href="blog/10-let-react-js.html">React: 10 лет спустя</a>
+          </h3>
+          <p class="writing-excerpt">
+            Анализ эволюции экосистемы React за десятилетие. Классовые компоненты, хуки, Server Components и куда движется современный веб.
+          </p>
+          <a href="blog/10-let-react-js.html" class="writing-arrow">
+            <span>Читать статью</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+        <div class="writing-card">
+          <div class="writing-meta">
+            <span>Product Telemetry</span>
+            <span>·</span>
+            <span>English</span>
+          </div>
+          <h3 class="writing-title">
+            <a href="blog/instantviewbot-usage-statistics-open.html">InstantView Bot: Open Usage Statistics</a>
+          </h3>
+          <p class="writing-excerpt">
+            Transparent breakdown of real traffic, bot loads, user retention, and infrastructure scaling to 40,000+ active Telegram users.
+          </p>
+          <a href="blog/instantviewbot-usage-statistics-open.html" class="writing-arrow">
+            <span>Read Case Study</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+        <div class="writing-card">
+          <div class="writing-meta">
+            <span>Personal Blog</span>
+            <span>·</span>
+            <span>safiullin.dev</span>
+          </div>
+          <h3 class="writing-title">
+            <a href="https://safiullin.dev" target="_blank" rel="noopener noreferrer">Personal Tech Blog</a>
+          </h3>
+          <p class="writing-excerpt">
+            Regular engineering notes, experiments with LLMs, Telegram mini-app architecture, and developer productivity workflows.
+          </p>
+          <a href="https://safiullin.dev" target="_blank" rel="noopener noreferrer" class="writing-arrow">
+            <span>Visit safiullin.dev</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Mentorship & Direct Connect Card -->
+    <section class="section" id="contact">
+      <div class="connect-box">
+        <div class="connect-info">
+          <h2 class="connect-title">Let's build something remarkable.</h2>
+          <p class="connect-desc">
+            Open for high-impact software engineering roles, technical advisory, Telegram Mini Apps &amp; Web3 development, or 1-on-1 developer mentorship.
+          </p>
+        </div>
+
+        <div class="connect-actions">
+          <a href="https://t.me/safiullin" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.195 1.006.128.832.92z"/>
+            </svg>
+            <span>Chat on Telegram</span>
+          </a>
+
+          <a href="https://career.habr.com/albertincx" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <span>Habr Mentorship</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+
+          <a href="albert-safiullin-resume-looking-for-a-job.html" class="btn btn-secondary">
+            <span>Full CV &amp; Bio</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div>
+        <span>&copy; <span id="currentYear"></span> Albert Safiullin. Designed &amp; built with clean code.</span>
+      </div>
+
+      <div class="footer-links">
+        <a href="https://github.com/albertincx" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+        <a href="https://t.me/asafiullin" target="_blank" rel="noopener noreferrer" class="footer-link">Telegram Channel</a>
+        <a href="https://linkedin.com/in/albertincx" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+        <a href="https://safiullin.dev" target="_blank" rel="noopener noreferrer" class="footer-link">Blog</a>
+        <a href="#" class="footer-link" id="backToTop">Back to Top &uarr;</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Quick-Action Pill -->
+  <a href="https://t.me/safiullin" target="_blank" rel="noopener noreferrer" class="floating-contact-pill" title="Message Albert Safiullin directly on Telegram">
+    <img 
+      src="https://lh3.googleusercontent.com/-54OhUol624I/AAAAAAAAAAI/AAAAAAAAAAA/ALKGfkkzD7z6sJhTIHFYi5FjkCTJ0bzL1Q/photo.jpg?sz=64" 
+      alt="Avatar" 
+      class="floating-pill-avatar"
+      onerror="this.style.display='none';"
+    />
+    <div class="floating-pill-text">
+      <span class="floating-pill-title">Albert Safiullin</span>
+      <span class="floating-pill-status">&#9679; Available on Telegram</span>
+    </div>
+  </a>
+
+  <!-- Scripts -->
+  <script>
+    // Set dynamic current year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Theme Toggle Functionality (Dark default)
+    const htmlEl = document.documentElement;
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const sunIcon = document.getElementById('themeIconSun');
+    const moonIcon = document.getElementById('themeIconMoon');
+
+    function applyTheme(theme) {
+      htmlEl.setAttribute('data-theme', theme);
+      if (theme === 'dark') {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+      } else {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+      }
+    }
+
+    // Default to dark theme unless user explicitly chose light
+    const savedTheme = localStorage.getItem('safiullin_theme');
+    if (savedTheme === 'light') {
+      applyTheme('light');
     } else {
-        themeToggle.textContent = '🌙'; // Moon icon for dark mode
+      applyTheme('dark');
     }
 
-    // Toggle theme function
-    function toggleTheme() {
-        body.classList.toggle('dark-theme');
-
-        if (body.classList.contains('dark-theme')) {
-            themeToggle.textContent = '☀️';
-            localStorage.setItem('theme', 'dark');
-        } else {
-            themeToggle.textContent = '🌙';
-            localStorage.setItem('theme', 'light');
-        }
-    }
-
-    // Add event listener to toggle button
-    themeToggle.addEventListener('click', toggleTheme);
-
-    // Listen for OS theme preference changes
-    prefersDarkScheme.addEventListener('change', (e) => {
-        if (!localStorage.getItem('theme')) {
-            if (e.matches) {
-                body.classList.add('dark-theme');
-                themeToggle.textContent = '☀️';
-            } else {
-                body.classList.remove('dark-theme');
-                themeToggle.textContent = '🌙';
-            }
-        }
+    themeToggleBtn.addEventListener('click', () => {
+      const current = htmlEl.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      localStorage.setItem('safiullin_theme', next);
     });
-</script>
-<script
-        defer
-        data-website-id="dfid_dGsNV5CWpC21Y0hC3URdI"
-        data-domain="safiullin.com"
-        src="https://datafa.st/js/script.js">
-</script>
+
+    // Expandable Timeline
+    function toggleTimeline() {
+      const older = document.getElementById('olderTimeline');
+      const btnText = document.getElementById('timelineBtnText');
+      const btnIcon = document.getElementById('timelineBtnIcon');
+      
+      if (older.style.display === 'none' || older.style.display === '') {
+        older.style.display = 'block';
+        btnText.textContent = 'Hide earlier years';
+        btnIcon.style.transform = 'rotate(180deg)';
+      } else {
+        older.style.display = 'none';
+        btnText.textContent = 'Show earlier years (2009 — 2018)';
+        btnIcon.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    // Project Filters
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Reset tag cloud active states when manual filter clicked
+        document.querySelectorAll('.tag-btn').forEach(tb => tb.classList.remove('active'));
+
+        const filter = btn.getAttribute('data-filter');
+        projectCards.forEach(card => {
+          if (filter === 'all') {
+            card.style.display = 'flex';
+          } else {
+            const categories = card.getAttribute('data-category') || '';
+            if (categories.includes(filter)) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+
+    // Tag Cloud & Smooth Scroll with Project Card Glow Highlight
+    let highlightTimeout = null;
+
+    function highlightProjectsByTag(rawTag) {
+      if (!rawTag) return;
+      const tag = rawTag.toLowerCase().trim();
+
+      // Reset project category filter to 'all' so matched projects are visible
+      filterButtons.forEach(b => b.classList.remove('active'));
+      document.querySelector('.filter-btn[data-filter="all"]')?.classList.add('active');
+
+      // Update Tag Cloud active pill button
+      document.querySelectorAll('.tag-btn').forEach(btn => {
+        const btnTech = (btn.getAttribute('data-tech') || '').toLowerCase();
+        const btnText = btn.textContent.toLowerCase();
+        if (btnTech && (tag === btnTech || tag.includes(btnTech) || btnTech.includes(tag) || btnText.includes(tag))) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      // Clear previous card highlights
+      if (highlightTimeout) clearTimeout(highlightTimeout);
+      projectCards.forEach(card => {
+        card.classList.remove('highlighted');
+        card.style.display = 'flex';
+        card.querySelectorAll('.project-tech-pill').forEach(pill => {
+          pill.classList.remove('highlighted-pill');
+        });
+      });
+
+      let firstMatch = null;
+      let matchedCards = [];
+
+      projectCards.forEach(card => {
+        const tagsAttr = (card.getAttribute('data-tags') || '').toLowerCase();
+        const cardText = card.textContent.toLowerCase();
+        const pills = card.querySelectorAll('.project-tech-pill');
+        let cardMatched = false;
+
+        // Check each pill inside the card
+        pills.forEach(pill => {
+          const pillText = pill.textContent.toLowerCase();
+          if (
+            pillText === tag || 
+            pillText.includes(tag) || 
+            tag.includes(pillText) ||
+            (tag === 'ai' && (pillText.includes('whisper') || pillText.includes('speech'))) ||
+            (tag === 'web3' && (pillText.includes('ton') || pillText.includes('crypto'))) ||
+            (tag === 'pdf' && (pillText.includes('pdf') || pillText.includes('rendercv'))) ||
+            (tag === 'git' && pillText.includes('git'))
+          ) {
+            pill.classList.add('highlighted-pill');
+            cardMatched = true;
+          }
+        });
+
+        // Also check data-tags and text
+        if (tagsAttr.includes(tag) || cardMatched) {
+          cardMatched = true;
+        }
+
+        if (cardMatched) {
+          card.classList.add('highlighted');
+          matchedCards.push(card);
+          if (!firstMatch) firstMatch = card;
+        }
+      });
+
+      // Smooth scroll to the first matching project
+      if (firstMatch) {
+        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      // Auto-remove highlight after animation finishes so it can be re-triggered
+      highlightTimeout = setTimeout(() => {
+        matchedCards.forEach(card => card.classList.remove('highlighted'));
+      }, 3500);
+    }
+
+    // Bind Tag Cloud Buttons
+    document.querySelectorAll('.tag-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const tech = btn.getAttribute('data-tech');
+        highlightProjectsByTag(tech);
+      });
+    });
+
+    // Make project tech pills clickable to highlight related projects
+    document.querySelectorAll('.project-tech-pill').forEach(pill => {
+      pill.addEventListener('click', (e) => {
+        e.stopPropagation();
+        highlightProjectsByTag(pill.textContent);
+      });
+    });
+
+    // Make skill pills in "Technical Arsenal" clickable to jump to projects
+    document.querySelectorAll('.skill-pill').forEach(pill => {
+      pill.addEventListener('click', (e) => {
+        highlightProjectsByTag(pill.textContent);
+      });
+    });
+
+    // Smooth scroll for back to top
+    document.getElementById('backToTop').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>
