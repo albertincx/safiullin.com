@@ -1198,6 +1198,47 @@ button {
   color: #93c5fd;
 }
 
+/* Disabled Tag (0 matching projects) */
+.tag-btn.disabled,
+.tag-btn[aria-disabled="true"] {
+  opacity: 0.35;
+  color: var(--text-muted);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.05);
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.tag-btn.disabled:hover,
+.tag-btn[aria-disabled="true"]:hover {
+  background: transparent !important;
+  color: var(--text-muted) !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.tag-btn.disabled .tag-count,
+.tag-btn[aria-disabled="true"] .tag-count {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+[data-theme="light"] .tag-btn.disabled,
+[data-theme="light"] .tag-btn[aria-disabled="true"] {
+  opacity: 0.4;
+  color: #94a3b8;
+  background: transparent;
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .tag-btn.disabled .tag-count,
+[data-theme="light"] .tag-btn[aria-disabled="true"] .tag-count {
+  background: rgba(0, 0, 0, 0.04);
+}
+
 /* Card Highlighting Glow Animation */
 @keyframes projectCardGlow {
   0% {

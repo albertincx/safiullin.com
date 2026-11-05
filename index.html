@@ -1512,29 +1512,14 @@
       }, 3500);
     }
 
-    function openTagModal(rawTag, tagDisplayName) {
-      if (!rawTag) return;
+    // Helper: Find all matching projects for a given tag
+    function getMatchingProjects(rawTag) {
+      if (!rawTag) return [];
       const tag = rawTag.toLowerCase().trim();
-      const display = tagDisplayName || rawTag;
-
-      tagModalPill.textContent = '#' + display;
-
-      // Update active tag button in the cloud
-      document.querySelectorAll('.tag-btn').forEach(btn => {
-        const btnTech = (btn.getAttribute('data-tech') || '').toLowerCase();
-        if (btnTech && (btnTech === tag || tag.includes(btnTech) || btnTech.includes(tag))) {
-          btn.classList.add('active');
-        } else {
-          btn.classList.remove('active');
-        }
-      });
-
-      // Find all matching projects
       const matches = [];
 
       projectCards.forEach((card) => {
         const tagsAttr = (card.getAttribute('data-tags') || '').toLowerCase();
-        const cardText = card.textContent.toLowerCase();
         const pills = Array.from(card.querySelectorAll('.project-tech-pill'));
         let isMatch = false;
 
@@ -1570,53 +1555,109 @@
         }
       });
 
+      return matches;
+    }
+
+    // Initialize tag cloud: calculate exact counts & mark 0-count tags as gray (disabled)
+    function initTagCloud() {
+      document.querySelectorAll('.tag-btn').forEach(btn => {
+        const tech = btn.getAttribute('data-tech');
+        const matches = getMatchingProjects(tech);
+        const count = matches.length;
+
+        const countEl = btn.querySelector('.tag-count');
+        if (countEl) countEl.textContent = count;
+
+        if (count === 0) {
+          btn.classList.add('disabled');
+          btn.setAttribute('aria-disabled', 'true');
+          btn.setAttribute('title', '0 projects found');
+        } else {
+          btn.classList.remove('disabled');
+          btn.removeAttribute('aria-disabled');
+          btn.setAttribute('title', `${count} ${count === 1 ? 'project' : 'projects'}`);
+        }
+      });
+    }
+
+    initTagCloud();
+
+    function openTagModal(rawTag, tagDisplayName) {
+      if (!rawTag) return;
+      const tag = rawTag.toLowerCase().trim();
+      const display = tagDisplayName || rawTag;
+
+      // Find all matching projects
+      const matches = getMatchingProjects(tag);
+
+      // IF 0 PROJECTS: Do not open popup, simply gray out the tag
+      if (matches.length === 0) {
+        document.querySelectorAll('.tag-btn').forEach(btn => {
+          const btnTech = (btn.getAttribute('data-tech') || '').toLowerCase();
+          if (btnTech === tag || btn.textContent.toLowerCase().includes(tag)) {
+            btn.classList.add('disabled');
+            btn.setAttribute('aria-disabled', 'true');
+            const countEl = btn.querySelector('.tag-count');
+            if (countEl) countEl.textContent = '0';
+          }
+        });
+        return; // Do NOT open the popup
+      }
+
+      tagModalPill.textContent = '#' + display;
       tagModalCount.textContent = `(${matches.length} ${matches.length === 1 ? 'project' : 'projects'})`;
 
-      // Render matching projects inside popup
-      if (matches.length === 0) {
-        tagModalList.innerHTML = `<div class="tag-modal-empty">No projects found for tag "${display}".</div>`;
-      } else {
-        tagModalList.innerHTML = matches.map(item => `
-          <div class="tag-modal-item" data-project-id="${item.id}">
-            <div class="tag-modal-item-top">
-              <div class="tag-modal-item-badges">
-                ${item.year ? `<span class="tag-modal-item-year">${item.year}</span>` : ''}
-                ${item.tag ? `<span class="tag-modal-item-tag">${item.tag}</span>` : ''}
-              </div>
-              <span class="tag-modal-item-cta">
-                <span>Jump to project</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-              </span>
-            </div>
-            <div class="tag-modal-item-title">${item.title}</div>
-            <div class="tag-modal-item-desc">${item.desc}</div>
-            <div class="tag-modal-item-tech">
-              ${item.pills.map(p => {
-                const normP = p.toLowerCase();
-                const matched = (
-                  normP === tag ||
-                  normP.includes(tag) ||
-                  tag.includes(normP) ||
-                  (tag === 'ai' && (normP.includes('whisper') || normP.includes('speech'))) ||
-                  (tag === 'web3' && (normP.includes('ton') || normP.includes('crypto'))) ||
-                  (tag === 'pdf' && (normP.includes('pdf') || normP.includes('rendercv'))) ||
-                  (tag === 'git' && normP.includes('git')) ||
-                  (tag === 'node' && normP.includes('node'))
-                );
-                return `<span class="tag-modal-item-tech-pill ${matched ? 'matched' : ''}">${p}</span>`;
-              }).join('')}
-            </div>
-          </div>
-        `).join('');
+      // Update active tag button in the cloud
+      document.querySelectorAll('.tag-btn').forEach(btn => {
+        const btnTech = (btn.getAttribute('data-tech') || '').toLowerCase();
+        if (btnTech && (btnTech === tag || tag.includes(btnTech) || btnTech.includes(tag))) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
 
-        // Attach click handlers to popup items
-        tagModalList.querySelectorAll('.tag-modal-item').forEach(itemEl => {
-          itemEl.addEventListener('click', () => {
-            const pid = itemEl.getAttribute('data-project-id');
-            scrollToAndHighlightProject(pid, tag);
-          });
+      // Render matching projects inside popup
+      tagModalList.innerHTML = matches.map(item => `
+        <div class="tag-modal-item" data-project-id="${item.id}">
+          <div class="tag-modal-item-top">
+            <div class="tag-modal-item-badges">
+              ${item.year ? `<span class="tag-modal-item-year">${item.year}</span>` : ''}
+              ${item.tag ? `<span class="tag-modal-item-tag">${item.tag}</span>` : ''}
+            </div>
+            <span class="tag-modal-item-cta">
+              <span>Jump to project</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </span>
+          </div>
+          <div class="tag-modal-item-title">${item.title}</div>
+          <div class="tag-modal-item-desc">${item.desc}</div>
+          <div class="tag-modal-item-tech">
+            ${item.pills.map(p => {
+              const normP = p.toLowerCase();
+              const matched = (
+                normP === tag ||
+                normP.includes(tag) ||
+                tag.includes(normP) ||
+                (tag === 'ai' && (normP.includes('whisper') || normP.includes('speech'))) ||
+                (tag === 'web3' && (normP.includes('ton') || normP.includes('crypto'))) ||
+                (tag === 'pdf' && (normP.includes('pdf') || normP.includes('rendercv'))) ||
+                (tag === 'git' && normP.includes('git')) ||
+                (tag === 'node' && normP.includes('node'))
+              );
+              return `<span class="tag-modal-item-tech-pill ${matched ? 'matched' : ''}">${p}</span>`;
+            }).join('')}
+          </div>
+        </div>
+      `).join('');
+
+      // Attach click handlers to popup items
+      tagModalList.querySelectorAll('.tag-modal-item').forEach(itemEl => {
+        itemEl.addEventListener('click', () => {
+          const pid = itemEl.getAttribute('data-project-id');
+          scrollToAndHighlightProject(pid, tag);
         });
-      }
+      });
 
       // Open modal
       tagModalBackdrop.classList.add('open');
@@ -1624,10 +1665,13 @@
       document.body.style.overflow = 'hidden';
     }
 
-    // Bind Tag Cloud Buttons to open modal
+    // Bind Tag Cloud Buttons to open modal (ignore if disabled/0 projects)
     document.querySelectorAll('.tag-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
+        if (btn.classList.contains('disabled') || btn.getAttribute('aria-disabled') === 'true') {
+          return; // Ignore click on disabled tags with 0 projects
+        }
         const tech = btn.getAttribute('data-tech');
         const text = btn.querySelector('span')?.textContent || tech;
         openTagModal(tech, text);
