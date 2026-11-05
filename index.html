@@ -511,7 +511,7 @@
             </svg>
             <span>Interactive Technology Cloud</span>
           </div>
-          <span class="tag-cloud-hint">Click any tag to scroll &amp; highlight projects</span>
+          <span class="tag-cloud-hint">Click any tag to view matching projects in popup</span>
         </div>
         <div class="tag-cloud" id="tagCloud">
           <button class="tag-btn" data-tech="swift"><span>Swift 6</span> <span class="tag-count">3</span></button>
@@ -1324,6 +1324,29 @@
     </div>
   </a>
 
+  <!-- Tag Projects Modal Popup -->
+  <div class="tag-modal-backdrop" id="tagModalBackdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="tag-modal-window" id="tagModalWindow">
+      <div class="tag-modal-header">
+        <div class="tag-modal-title-wrap">
+          <div class="tag-modal-heading">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+              <line x1="7" y1="7" x2="7.01" y2="7"></line>
+            </svg>
+            <span>Projects using:</span>
+          </div>
+          <span class="tag-modal-pill" id="tagModalPill"># Node.js</span>
+          <span class="tag-modal-count" id="tagModalCount">(5 projects)</span>
+        </div>
+        <button class="tag-modal-close" id="tagModalClose" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="tag-modal-body" id="tagModalList">
+        <!-- Dynamically injected project cards -->
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script>
     // Set dynamic current year
@@ -1382,6 +1405,13 @@
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
 
+    // Ensure each project card has a stable ID
+    projectCards.forEach((card, idx) => {
+      if (!card.id) {
+        card.id = 'project-item-' + idx;
+      }
+    });
+
     filterButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         filterButtons.forEach(b => b.classList.remove('active'));
@@ -1406,108 +1436,216 @@
       });
     });
 
-    // Tag Cloud & Smooth Scroll with Project Card Glow Highlight
+    // Tag Modal & Scroll-To-Project Functionality
+    const tagModalBackdrop = document.getElementById('tagModalBackdrop');
+    const tagModalPill = document.getElementById('tagModalPill');
+    const tagModalCount = document.getElementById('tagModalCount');
+    const tagModalList = document.getElementById('tagModalList');
+    const tagModalClose = document.getElementById('tagModalClose');
+
+    function closeTagModal() {
+      tagModalBackdrop.classList.remove('open');
+      tagModalBackdrop.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    tagModalClose.addEventListener('click', closeTagModal);
+    tagModalBackdrop.addEventListener('click', (e) => {
+      if (e.target === tagModalBackdrop) closeTagModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && tagModalBackdrop.classList.contains('open')) {
+        closeTagModal();
+      }
+    });
+
     let highlightTimeout = null;
 
-    function highlightProjectsByTag(rawTag) {
-      if (!rawTag) return;
-      const tag = rawTag.toLowerCase().trim();
+    function scrollToAndHighlightProject(cardId, highlightTag) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
 
-      // Reset project category filter to 'all' so matched projects are visible
+      // Close modal popup first
+      closeTagModal();
+
+      // Reset category filter to 'all' so target card is visible
       filterButtons.forEach(b => b.classList.remove('active'));
       document.querySelector('.filter-btn[data-filter="all"]')?.classList.add('active');
+      projectCards.forEach(c => c.style.display = 'flex');
 
-      // Update Tag Cloud active pill button
+      // Clear previous highlights
+      if (highlightTimeout) clearTimeout(highlightTimeout);
+      projectCards.forEach(c => {
+        c.classList.remove('highlighted');
+        c.querySelectorAll('.project-tech-pill').forEach(p => p.classList.remove('highlighted-pill'));
+      });
+
+      // Highlight target project card
+      card.classList.add('highlighted');
+
+      // Highlight the specific matching pill(s) inside target card
+      if (highlightTag) {
+        const normTag = highlightTag.toLowerCase();
+        card.querySelectorAll('.project-tech-pill').forEach(pill => {
+          const pillText = pill.textContent.toLowerCase();
+          if (
+            pillText === normTag ||
+            pillText.includes(normTag) ||
+            normTag.includes(pillText) ||
+            (normTag === 'ai' && (pillText.includes('whisper') || pillText.includes('speech'))) ||
+            (normTag === 'web3' && (pillText.includes('ton') || pillText.includes('crypto'))) ||
+            (normTag === 'pdf' && (pillText.includes('pdf') || pillText.includes('rendercv'))) ||
+            (normTag === 'git' && pillText.includes('git')) ||
+            (normTag === 'node' && pillText.includes('node'))
+          ) {
+            pill.classList.add('highlighted-pill');
+          }
+        });
+      }
+
+      // Smooth scroll directly to the selected card
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      // Automatically reset highlight class after animation finishes
+      highlightTimeout = setTimeout(() => {
+        card.classList.remove('highlighted');
+      }, 3500);
+    }
+
+    function openTagModal(rawTag, tagDisplayName) {
+      if (!rawTag) return;
+      const tag = rawTag.toLowerCase().trim();
+      const display = tagDisplayName || rawTag;
+
+      tagModalPill.textContent = '#' + display;
+
+      // Update active tag button in the cloud
       document.querySelectorAll('.tag-btn').forEach(btn => {
         const btnTech = (btn.getAttribute('data-tech') || '').toLowerCase();
-        const btnText = btn.textContent.toLowerCase();
-        if (btnTech && (tag === btnTech || tag.includes(btnTech) || btnTech.includes(tag) || btnText.includes(tag))) {
+        if (btnTech && (btnTech === tag || tag.includes(btnTech) || btnTech.includes(tag))) {
           btn.classList.add('active');
         } else {
           btn.classList.remove('active');
         }
       });
 
-      // Clear previous card highlights
-      if (highlightTimeout) clearTimeout(highlightTimeout);
-      projectCards.forEach(card => {
-        card.classList.remove('highlighted');
-        card.style.display = 'flex';
-        card.querySelectorAll('.project-tech-pill').forEach(pill => {
-          pill.classList.remove('highlighted-pill');
-        });
-      });
+      // Find all matching projects
+      const matches = [];
 
-      let firstMatch = null;
-      let matchedCards = [];
-
-      projectCards.forEach(card => {
+      projectCards.forEach((card) => {
         const tagsAttr = (card.getAttribute('data-tags') || '').toLowerCase();
         const cardText = card.textContent.toLowerCase();
-        const pills = card.querySelectorAll('.project-tech-pill');
-        let cardMatched = false;
+        const pills = Array.from(card.querySelectorAll('.project-tech-pill'));
+        let isMatch = false;
 
-        // Check each pill inside the card
-        pills.forEach(pill => {
-          const pillText = pill.textContent.toLowerCase();
+        pills.forEach(p => {
+          const pt = p.textContent.toLowerCase();
           if (
-            pillText === tag || 
-            pillText.includes(tag) || 
-            tag.includes(pillText) ||
-            (tag === 'ai' && (pillText.includes('whisper') || pillText.includes('speech'))) ||
-            (tag === 'web3' && (pillText.includes('ton') || pillText.includes('crypto'))) ||
-            (tag === 'pdf' && (pillText.includes('pdf') || pillText.includes('rendercv'))) ||
-            (tag === 'git' && pillText.includes('git'))
+            pt === tag ||
+            pt.includes(tag) ||
+            tag.includes(pt) ||
+            (tag === 'ai' && (pt.includes('whisper') || pt.includes('speech'))) ||
+            (tag === 'web3' && (pt.includes('ton') || pt.includes('crypto'))) ||
+            (tag === 'pdf' && (pt.includes('pdf') || pt.includes('rendercv'))) ||
+            (tag === 'git' && pt.includes('git')) ||
+            (tag === 'node' && pt.includes('node'))
           ) {
-            pill.classList.add('highlighted-pill');
-            cardMatched = true;
+            isMatch = true;
           }
         });
 
-        // Also check data-tags and text
-        if (tagsAttr.includes(tag) || cardMatched) {
-          cardMatched = true;
+        if (tagsAttr.includes(tag) || isMatch) {
+          isMatch = true;
         }
 
-        if (cardMatched) {
-          card.classList.add('highlighted');
-          matchedCards.push(card);
-          if (!firstMatch) firstMatch = card;
+        if (isMatch) {
+          matches.push({
+            id: card.id,
+            title: card.querySelector('.project-title')?.textContent.trim() || 'Project',
+            year: card.querySelector('.project-year')?.textContent.trim() || '',
+            tag: card.querySelector('.project-tag')?.textContent.trim() || '',
+            desc: card.querySelector('.project-desc')?.textContent.trim() || '',
+            pills: pills.map(p => p.textContent.trim())
+          });
         }
       });
 
-      // Smooth scroll to the first matching project
-      if (firstMatch) {
-        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      tagModalCount.textContent = `(${matches.length} ${matches.length === 1 ? 'project' : 'projects'})`;
+
+      // Render matching projects inside popup
+      if (matches.length === 0) {
+        tagModalList.innerHTML = `<div class="tag-modal-empty">No projects found for tag "${display}".</div>`;
+      } else {
+        tagModalList.innerHTML = matches.map(item => `
+          <div class="tag-modal-item" data-project-id="${item.id}">
+            <div class="tag-modal-item-top">
+              <div class="tag-modal-item-badges">
+                ${item.year ? `<span class="tag-modal-item-year">${item.year}</span>` : ''}
+                ${item.tag ? `<span class="tag-modal-item-tag">${item.tag}</span>` : ''}
+              </div>
+              <span class="tag-modal-item-cta">
+                <span>Jump to project</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </span>
+            </div>
+            <div class="tag-modal-item-title">${item.title}</div>
+            <div class="tag-modal-item-desc">${item.desc}</div>
+            <div class="tag-modal-item-tech">
+              ${item.pills.map(p => {
+                const normP = p.toLowerCase();
+                const matched = (
+                  normP === tag ||
+                  normP.includes(tag) ||
+                  tag.includes(normP) ||
+                  (tag === 'ai' && (normP.includes('whisper') || normP.includes('speech'))) ||
+                  (tag === 'web3' && (normP.includes('ton') || normP.includes('crypto'))) ||
+                  (tag === 'pdf' && (normP.includes('pdf') || normP.includes('rendercv'))) ||
+                  (tag === 'git' && normP.includes('git')) ||
+                  (tag === 'node' && normP.includes('node'))
+                );
+                return `<span class="tag-modal-item-tech-pill ${matched ? 'matched' : ''}">${p}</span>`;
+              }).join('')}
+            </div>
+          </div>
+        `).join('');
+
+        // Attach click handlers to popup items
+        tagModalList.querySelectorAll('.tag-modal-item').forEach(itemEl => {
+          itemEl.addEventListener('click', () => {
+            const pid = itemEl.getAttribute('data-project-id');
+            scrollToAndHighlightProject(pid, tag);
+          });
+        });
       }
 
-      // Auto-remove highlight after animation finishes so it can be re-triggered
-      highlightTimeout = setTimeout(() => {
-        matchedCards.forEach(card => card.classList.remove('highlighted'));
-      }, 3500);
+      // Open modal
+      tagModalBackdrop.classList.add('open');
+      tagModalBackdrop.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
     }
 
-    // Bind Tag Cloud Buttons
+    // Bind Tag Cloud Buttons to open modal
     document.querySelectorAll('.tag-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         const tech = btn.getAttribute('data-tech');
-        highlightProjectsByTag(tech);
+        const text = btn.querySelector('span')?.textContent || tech;
+        openTagModal(tech, text);
       });
     });
 
-    // Make project tech pills clickable to highlight related projects
+    // Make project tech pills clickable to open modal
     document.querySelectorAll('.project-tech-pill').forEach(pill => {
       pill.addEventListener('click', (e) => {
         e.stopPropagation();
-        highlightProjectsByTag(pill.textContent);
+        openTagModal(pill.textContent, pill.textContent);
       });
     });
 
-    // Make skill pills in "Technical Arsenal" clickable to jump to projects
+    // Make skill pills in "Technical Arsenal" clickable to open modal
     document.querySelectorAll('.skill-pill').forEach(pill => {
       pill.addEventListener('click', (e) => {
-        highlightProjectsByTag(pill.textContent);
+        openTagModal(pill.textContent, pill.textContent);
       });
     });
 
