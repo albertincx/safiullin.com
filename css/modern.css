@@ -1170,73 +1170,106 @@ button {
   user-select: none;
 }
 
-.tag-btn:hover {
-  background: var(--bg-pill-hover);
-  color: var(--text-primary);
-  border-color: var(--border-medium);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+/* Highlighted Active Tags (where projects exist) */
+.tag-btn:not(.disabled) {
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.32);
+  color: #93c5fd;
+  box-shadow: 0 0 14px -2px rgba(59, 130, 246, 0.2);
 }
 
-.tag-btn.active {
+.tag-btn:not(.disabled):hover {
   background: rgba(59, 130, 246, 0.18);
+  border-color: var(--accent-cyan);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px rgba(6, 182, 212, 0.4), 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.tag-btn:not(.disabled) .tag-count {
+  background: rgba(59, 130, 246, 0.22);
   color: #60a5fa;
-  border-color: var(--accent-blue);
-  box-shadow: 0 0 14px rgba(59, 130, 246, 0.3);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  font-weight: 600;
+}
+
+.tag-btn.active:not(.disabled) {
+  background: rgba(59, 130, 246, 0.28);
+  color: #ffffff;
+  border-color: #38bdf8;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
 }
 
 .tag-count {
   font-size: 0.7rem;
-  padding: 1px 5px;
+  padding: 1px 6px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.08);
   color: var(--text-muted);
 }
 
-.tag-btn.active .tag-count {
-  background: rgba(59, 130, 246, 0.3);
-  color: #93c5fd;
-}
-
-/* Disabled Tag (0 matching projects) */
+/* Disabled Tag (0 matching projects) - completely flat gray, no highlight */
 .tag-btn.disabled,
 .tag-btn[aria-disabled="true"] {
-  opacity: 0.35;
-  color: var(--text-muted);
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.05);
-  cursor: not-allowed;
+  opacity: 0.32;
+  color: #64748b !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  cursor: not-allowed !important;
   transform: none !important;
   box-shadow: none !important;
 }
 
 .tag-btn.disabled:hover,
 .tag-btn[aria-disabled="true"]:hover {
-  background: transparent !important;
-  color: var(--text-muted) !important;
-  border-color: rgba(255, 255, 255, 0.05) !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  color: #64748b !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
   transform: none !important;
   box-shadow: none !important;
 }
 
 .tag-btn.disabled .tag-count,
 .tag-btn[aria-disabled="true"] .tag-count {
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: #64748b !important;
+  border: 1px solid rgba(255, 255, 255, 0.04) !important;
   opacity: 0.6;
+}
+
+[data-theme="light"] .tag-btn:not(.disabled) {
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #1d4ed8;
+  box-shadow: 0 1px 4px rgba(59, 130, 246, 0.1);
+}
+
+[data-theme="light"] .tag-btn:not(.disabled):hover {
+  background: rgba(59, 130, 246, 0.16);
+  border-color: #2563eb;
+  color: #1e40af;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.2);
+}
+
+[data-theme="light"] .tag-btn:not(.disabled) .tag-count {
+  background: rgba(59, 130, 246, 0.18);
+  color: #1d4ed8;
+  border: 1px solid rgba(59, 130, 246, 0.25);
 }
 
 [data-theme="light"] .tag-btn.disabled,
 [data-theme="light"] .tag-btn[aria-disabled="true"] {
-  opacity: 0.4;
-  color: #94a3b8;
-  background: transparent;
-  border-color: rgba(0, 0, 0, 0.06);
+  opacity: 0.42;
+  color: #94a3b8 !important;
+  background: rgba(0, 0, 0, 0.02) !important;
+  border: 1px solid rgba(0, 0, 0, 0.07) !important;
+  box-shadow: none !important;
 }
 
 [data-theme="light"] .tag-btn.disabled .tag-count,
 [data-theme="light"] .tag-btn[aria-disabled="true"] .tag-count {
-  background: rgba(0, 0, 0, 0.04);
+  background: rgba(0, 0, 0, 0.04) !important;
+  border: none !important;
 }
 
 /* Card Highlighting Glow Animation */
